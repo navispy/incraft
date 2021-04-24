@@ -1,0 +1,52 @@
+.wrapper {
+    z-index: 1;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "menu"
+        "main"
+        "footer";
+    grid-template-rows: 85px 48px auto 258px;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: "logo login";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    padding-left: 54px;
+    padding-left: 54px;
+}
+
+.logo img {
+    height: 44px;
+}
+
+.login {
+    grid-area: login;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    line-height: 21px;
+    font-size: 14px;
+    right: 0px;
+    padding-right: 54px;
+}
+
+
+
+.menu {
+    grid-area: menu;
+    background: #1C1C1C;
+}
