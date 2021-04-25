@@ -39,3 +39,9 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.mobile-btn {
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
