@@ -15,8 +15,9 @@ body {
     grid-template-areas: "header" "menu" "main" "footer";
     grid-template-rows: 85px 48px auto auto;
     grid-template-columns: 1fr;
-    padding-left: 56px;
-    padding-right: 56px
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
 }
 
 .header {
@@ -122,7 +123,7 @@ body {
 }
 
 .footer {
-    padding-top: 64px;
+    padding-top: 112px;
     grid-area: footer;
     display: grid;
     grid-template-columns: minmax(auto, 20.7%) 2fr 353px;
@@ -210,15 +211,20 @@ body {
 .main .content {
     display: grid;
     grid-template-rows: auto;
+    grid-gap: 64px;
 }
 
-.main .content .top-10 {
+.main .content .top-10, .main .content .top-10-craftsmen, .main .content .holidays,
+.main .content .latest-works {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.main .content .top-10 span {
+.main .content .top-10 span, .main .content .top-10-craftsmen span, .main .content .holidays span,
+.main .content .latest-works span {
     font-family: Geometria;
     font-style: normal;
     font-weight: bold;
@@ -228,14 +234,40 @@ body {
 }
 
 .main .content .top-10 .container {
+    position: relative;
     height: 280px;
-    /*border: 1px solid lightgray;*/
     display: grid;
-    grid-template-columns: repeat(3, 318px);
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.main .content .top-10 .container .item {
+.main .content .top-10-craftsmen .container {
+    position: relative;
+    height: 256px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.main .content .holidays .container {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    display: flex;
+}
+
+.main .content .latest-works .container {
+    position: relative;
+    display: grid;
+    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 280px);
+    grid-gap: 16px;
+}
+
+.main .content .top-10 .container .item, .main .content .top-10-craftsmen .container .item,
+.main .content .latest-works .container .item {
     display: grid;
     border: 1px solid lightgray;
     grid-template-rows: 160px 1fr;
@@ -243,13 +275,81 @@ body {
     border-radius: 6px;
 }
 
-.main .content .top-10 .container .item img {
+.main .content .top-10 .container .item img, 
+.main .content .top-10-craftsmen .container .item img,
+.main .content .latest-works .container .item img  {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.main .content .top-10 .container .item .info {
+.main .content .holidays .container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main .content .holidays .container .info {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.main .content .holidays .container .info .details {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.main .content .holidays .container .info .details .info-1 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    color: #FFFFFF;
+
+    margin-left: 16px;
+    margin-top: 128.85px;
+}
+
+.main .content .holidays .container .info .details .info-2 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF;
+    
+    margin-left: 16px;
+    margin-top: 8.15px;
+}
+
+.main .content .holidays .container .info .details .info-3 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF;
+    
+    margin-left: 16px;
+    margin-top: 16px;
+
+    width: 740px;
+}
+
+.main .content .holidays .container .info .details svg {
+    position: absolute;
+    left: 16px;
+    bottom: 56px;
+}
+
+.main .content .top-10 .container .item .info,
+.main .content .latest-works .container .item .info {
     display: grid;
     padding: 16px;
     grid-template-rows: 63px 1fr;
@@ -257,31 +357,49 @@ body {
     grid-row-gap: 5px;
 }
 
-.main .content .top-10 .container .item .info .name-desc {
+.main .content .top-10-craftsmen .container .item .info {
+    display: grid;
+    padding-top: 16px;
+    padding-left: 14px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+}
+
+.main .content .top-10 .container .item .info .name-desc, .main .content .top-10-craftsmen .container .item .info .name-desc,
+.main .content .latest-works .container .item .info .name-desc {
     display: flex;
     flex-direction: column;
 }
 
-.main .content .top-10 .container .item .info .name-desc .name {
+.main .content .top-10 .container .item .info .name-desc .name, 
+.main .content .top-10-craftsmen .container .item .info .name-desc .name,
+.main .content .latest-works .container .item .info .name-desc .name {
     font-family: Geometria;
     font-size: 24px;
     font-weight: bold;
     line-height: 31.2px;
 }
 
-.main .content .top-10 .container .item .info .name-desc .desc {
+.main .content .top-10 .container .item .info .name-desc .desc, 
+.main .content .top-10-craftsmen .container .item .info .name-desc .desc,
+.main .content .latest-works .container .item .info .name-desc .desc {
     font-family: Geometria;
     font-size: 16px;
     font-weight: normal;
     line-height: 16px;
 }
 
-.main .content .top-10 .container .item .info .price {
+.main .content .top-10 .container .item .info .price, 
+.main .content .top-10-craftsmen .container .item .info .price,
+.main .content .latest-works .container .item .info .price {
     display: flex;
     justify-content: space-between;
 }
 
-.main .content .top-10 .container .item .info .price .shop-name {
+.main .content .top-10 .container .item .info .price .shop-name, 
+.main .content .top-10-craftsmen .container .item .info .price .shop-name,
+.main .content .latest-works .container .item .info .price .shop-name {
     font-family: Geometria;
     color: #929292;
     font-size: 12px;
@@ -289,9 +407,121 @@ body {
     font-weight: 400;
 }
 
-.main .content .top-10 .container .item .info .price .value {
+.main .content .top-10 .container .item .info .price .value, 
+.main .content .top-10-craftsmen .container .item .info .price .value,
+.main .content .latest-works .container .item .info .price .value {
     font-family: Geometria;
     font-weight: bold;
     font-size: 16px;
     line-height: 130%;
 }
+
+.cmd-img-left {
+    left: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmd-img-right {
+    right: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .content .top-10 .container .cmd-img-left, .main .content .top-10 .container .cmd-img-right {
+    top: 64px;
+}
+
+.main .content .top-10-craftsmen .container .cmd-img-left, .main .content .top-10-craftsmen .container .cmd-img-right {
+    top: 64px;
+}
+
+.main .content .last-reviews {
+    position: relative;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+
+.main .content .last-reviews .cmd-img-left, .main .content .last-reviews .cmd-img-right {
+    top: 228px;
+}
+
+.main .content .last-reviews img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main .content .last-reviews .text {
+    margin-left: 83px;
+    margin-top: 65px;
+    margin-right: 36px;
+    margin-bottom: 86px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.main .content .last-reviews .text .text-1 {
+    font-family: Geometria;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.main .content .last-reviews .text .text-2 {
+    margin-top: 34px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+.main .content .last-reviews .text .text-3 {
+    margin-top: 16px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.main .content .last-reviews .text svg {
+    position: absolute;
+    bottom: 0px;
+}
+
+.span-link {
+    color: rgb(252, 151, 13);
+}
+
+/*.main .content .top-10 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0 auto;
+}
+
+.main .content .top-10 span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    color: #000000;
+}*/
