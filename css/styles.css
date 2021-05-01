@@ -124,6 +124,7 @@ body {
 
 .footer {
     padding-top: 46px;
+    padding-bottom: 37px;
     grid-area: footer;
     display: grid;
     grid-template-columns: minmax(auto, 20.7%) 2fr 353px;
