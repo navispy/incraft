@@ -180,8 +180,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Лестница"</span>
+                        <span class="desc">Чугун</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -195,8 +195,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Набор горшочков"</span>
+                        <span class="desc">Глина</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -210,8 +210,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Набор посуды"</span>
+                        <span class="desc">Хрусталь</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -225,11 +225,11 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Сервиз</span>
+                        <span class="desc">Стекло</span>
                     </div>
                     <div class="price">
-                        <span class="shop-name">ИП "Дел Мастер"</span>
+                        <span class="shop-name">ИП "Дел Мастер"</span>  
                         <span class="value">1500 руб</span>
                     </div>
                 </div>
@@ -240,8 +240,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Серьги "Соль земли"</span>
+                        <span class="desc">Соль земли</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -255,8 +255,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Серьги "Чистополе"</span>
+                        <span class="desc">Золото</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -270,8 +270,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Серьги "Ныряльщик"</span>
+                        <span class="desc">Жемчуг</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
@@ -285,8 +285,8 @@
                 </div>
                 <div class="info">
                     <div class="name-desc">
-                        <span class="name">Серьги "Папараць"</span>
-                        <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                        <span class="name">Изумруд</span>
+                        <span class="desc">Хрусталь</span>
                     </div>
                     <div class="price">
                         <span class="shop-name">ИП "Дел Мастер"</span>
