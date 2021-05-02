@@ -70,6 +70,22 @@
     justify-content: center;
 }
 
+.favorite {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .main .info span, .main .other span, .main .watched span {
     font-family: Geometria;
     font-style: normal;
@@ -269,3 +285,143 @@
     text-decoration-line: underline;
     color: #FC970D;
 }
+
+/***************************************************************************************************************/
+
+.main .description {
+    margin-top: -32px;
+    display: grid;
+    grid-template-columns: 135px 652px 1fr;
+    grid-template-rows: 31px auto;
+    grid-column-gap: 32px;
+    grid-row-gap: 36px;
+}
+
+.main .description .caption {
+    padding-left: 19px;
+}
+
+.main .description .caption span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.main .description .text {
+    background: #F8F8F8;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .description .text span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000000;
+    padding-left: 16px;
+    padding-bottom: 16px;
+}
+
+.main .description .text span p {
+    padding-top: 16px;
+}
+
+/***************************************************************************************************************/
+
+.main .other,
+.main .watched {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main .other .container,
+.main .watched .container {
+    position: relative;
+    height: 280px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.main .other .container .item,
+.main .watched .container .item {
+    display: grid;
+    border: 1px solid lightgray;
+    grid-template-rows: 160px 1fr;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+
+.main .other .container .item img,
+.main .watched .container .item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main .other .container .item .info,
+.main .watched .container .item .info {
+    display: grid;
+    padding: 16px;
+    grid-template-rows: 63px 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+}
+
+.main .other .container .item .info .name-desc, 
+.main .watched .container .item .info .name-desc{
+    display: flex;
+    flex-direction: column;
+}
+
+.main .other .container .item .info .name-desc .name,
+.main .watched .container .item .info .name-desc .name {
+    font-family: Geometria;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 31.2px;
+}
+
+.main .other .container .item .info .name-desc .desc,
+.main .watched .container .item .info .name-desc .desc {
+    font-family: Geometria;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+}
+
+.main .other .container .item .info .price,
+.main .watched .container .item .info .price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main .other .container .item .info .price .shop-name,
+.main .watched .container .item .info .price .shop-name {
+    font-family: Geometria;
+    color: #929292;
+    font-size: 12px;
+    line-height: 20.8px;
+    font-weight: 400;
+}
+
+.main .other .container .item .info .price .value,
+.main .watched .container .item .info .price .value {
+    font-family: Geometria;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+/***************************************************************************************************************/
