@@ -424,4 +424,32 @@
     line-height: 130%;
 }
 
+.main .other .container .cmd-img-left,
+.main .watched .container .cmd-img-left {
+    left: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 58px;
+}
+
+.main .other .container .cmd-img-right,
+.main .watched .container .cmd-img-right {
+    right: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 58px;
+}
+
 /***************************************************************************************************************/
