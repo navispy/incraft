@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css?version=2" type="text/css">
-    <link rel="stylesheet" href="css/index.css?version=2" type="text/css">
+    <link rel="stylesheet" href="css/item.css?version=2" type="text/css">
     <link rel="stylesheet" href="css/menu.css?version=2" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
@@ -29,8 +29,9 @@
         <?php include 'menu.php'; ?>
 
         <div class="main">
-            <?php include 'main-filter.php'; ?>
-            <?php include 'main-content.php'; ?>
+            <?php include 'item-info.php'; ?>
+            <?php include 'item-other.php'; ?>
+            <?php include 'item-watched.php'; ?>
         </div>
 
         <?php include 'footer.php'; ?>

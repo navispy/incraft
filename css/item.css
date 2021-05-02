@@ -1,0 +1,271 @@
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.main .info {
+    display: grid;
+    height: auto;
+    grid-template-columns: 819px 401px;
+    grid-column-gap: 100px;
+}
+
+.main .info .photo {
+    display: grid;
+    grid-template-rows: 36px 420px;
+    grid-template-columns: 135px 1fr;
+    grid-gap: 32px;
+}
+
+.main .info .photo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main .info .photo .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main .info .photo .selected {
+    position: relative;
+}
+
+.main .info .photo .selected img {
+    position: absolute;
+}
+
+.main .info .photo .selected .cmd-img-left, .main .info .photo .selected .cmd-img-right {
+    top: 188px;
+}
+
+.cmd-img-left {
+    left: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmd-img-right {
+    right: -22px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .info span, .main .other span, .main .watched span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    color: #000000;
+}
+
+.main .info .order {
+    display: flex;
+    flex-direction: column;
+}
+
+.main .info .order .instock {
+    height: 36px;
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+}
+
+.main .info .order .instock span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #19B829;
+}
+
+.main .info .order .price-wrapper {
+    margin-top: 32px;
+    display: grid;
+    grid-template-rows: repeat(2, 48px);
+    grid-template-columns: 170px auto;
+    grid-row-gap: 16px;
+    cursor: pointer;
+}
+
+.main .info .order .price {
+    display: flex;
+    gaP: 8px;
+    align-items: center;
+}
+
+.main .info .order .price input {
+    width: 103px;
+    height: 48px;
+    border-radius: 2px;
+    border: none;
+    background: #F2F2F2;
+    text-indent: 37px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Geometria;
+    cursor: pointer;
+}
+
+.main .info .order .price input:focus {
+    border: 1px solid rgb(62, 175, 251);
+    outline: none !important;
+}
+
+.main .info .order .price span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+}
+
+.total span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 130%;
+}
+
+.order .price-wrapper .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0079C4;
+    border-radius: 4px;
+}
+
+.order .price-wrapper .button span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+}
+
+.main .info .order .contact {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.main .info .order .contact .phone, .main .info .order .contact .email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.main .info .order .contact .phone span, .main .info .order .contact .email span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #FC970D;
+}
+
+.main .info .order .desc {
+    margin-top: 16px;
+    display: flex;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.main .info .order .desc span {
+    width: 333px;
+    height: 92px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.main .info .order .feedback {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.main .info .order .feedback span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 100%;
+    color: #878787;
+}
+
+.main .info .order .feedback .rating {
+    display: flex;
+    align-items: center;
+    gap: 39px;
+}
+
+.main .info .order .feedback .rating span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 100%;
+    text-decoration-line: underline;
+    color: #000000;
+}
+
+.main .info .order .payment-shipment {
+    margin-top: 16px;
+    display: flex;
+    gap: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main .info .order .payment-shipment .payment, .main .info .order .payment-shipment .shipment {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.main .info .order .payment-shipment .payment span, .main .info .order .payment-shipment .shipment span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #FC970D;
+}

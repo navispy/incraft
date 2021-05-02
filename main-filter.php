@@ -4,8 +4,8 @@
     <div class="block price">
         <p>Цена, BYN</p>
         <div class="range">
-            <input id="from" type="number" placeholder="От" />
-            <input id="to" type="number" placeholder="До" />
+            <input class="from" type="number" placeholder="От" />
+            <input class="to" type="number" placeholder="До" />
         </div>
         <div class="slider"></div>
     </div>

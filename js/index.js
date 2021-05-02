@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+    $(".item").click(function () {
+        window.location.assign(`item.php`);
+    });
+
     $(".main-filter .price .slider").slider({
         range: true,
         min: 0,
