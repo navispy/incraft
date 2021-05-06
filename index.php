@@ -20,6 +20,7 @@
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
     <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/menu.js" type="text/javascript"></script>
 </head>
 
 <body>

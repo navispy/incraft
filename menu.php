@@ -1,18 +1,29 @@
 <div class="menu">
     <!-- Main Top Menu -->
     <nav>
-        <div id="navbar">
-            <div id="navbar-logo" class="reverse">
-                <div class="mobile-btn" onclick="openNav()">&#9776;</div>
+        <div class="navbar">
+            <div class="mobile">
+                <div class="btn" onclick="openNav()">&#9776;</div>
             </div>
-            <div id="navbar-links">
+            <div class="links">
                 <a href="index.php">Каталог</a>
                 <a href="services-additional.php">Допуслуги</a>
                 <a href="about.php">О нас</a>
-                <a href="../blog/">Ремесленникам</a>
-                <a onclick="checkProfile()">Статьи</a>
+                <a href="">Ремесленникам</a>
+                <a ркуа="../blog/">Статьи</a>
                 <a onclick="checkProfile()">Личный кабинет</a>
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="sideNav">
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.htm;">Каталог</a>
+        <a href="services-additional.php">Допуслуги</a>
+        <a href="about.php">О нас</a>
+        <a href="">Ремесленникам</a>
+        <a href="../blog/">Статьи</a>
+        <a onclick="checkProfile()">Личный кабинет</a>
+    </div>
 </div>

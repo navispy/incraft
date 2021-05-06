@@ -1,16 +1,16 @@
-#navbar {
+.navbar {
     display: grid;
     height: 100%;
-    grid-template-areas: "logo links";
+    grid-template-areas: "mobile links";
     grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr;
     grid-gap: 1.5em;
     padding: 0 40px;
 }
 
-#navbar-logo {
-    display: grid;
-    grid-area: logo;
+.navbar .mobile {
+    display: flex;
+    grid-area: mobile;
     justify-content: start;
     align-content: center;
     font-family: "Open Sans", sans-serif;
@@ -20,7 +20,7 @@
     text-transform: uppercase;
 }
 
-#navbar-links {
+.navbar .links {
     grid-area: links;
     display: grid;
     justify-content: space-between;
@@ -33,15 +33,77 @@
     font-size: 14px;
 }
 
-#navbar-links a {
+.navbar .links a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.mobile-btn {
+.navbar .mobile .btn {
     font-size: 30px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.closebtn {
+    cursor: pointer;
+}
+
+/* =======================
+******* Mobile Menu ******
+========================*/
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sideNav a:hover {
+    color: #fff;
+}
+
+.sideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 950px) {
+    .menu {
+        padding: 10px 20px 0 20px;
+        background: transparent;
+    }
+
+    .navbar {
+        display: block;
+        padding: unset;
+    }
+    .navbar .mobile {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navbar .links {
+        display: none;
+    }
 }
