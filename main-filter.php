@@ -17,7 +17,7 @@
     </div>
     <div class="block scope">
         <p>Сфера деятельности</p>
-        <select class="cb-ысщзу">
+        <select class="cb-scope">
             <option disabled="" selected="">Любая (всего 14)</option>
         </select>
     </div>
@@ -35,10 +35,12 @@
         </div>
     </div>
 
-    <div class="block instock">
+    <div class="block availability">
         <p>Наличие</p>
-        <select class="cb-ысщзу">
-            <option disabled="" selected="">В наличии и под заказ</option>
+        <select class="cb-availability">
+            <option value="1">В наличии и под заказ</option>
+            <option value="2">В наличии</option>
+            <option value="3">Под заказ</option>
         </select>
     </div>
 

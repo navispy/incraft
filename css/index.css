@@ -456,7 +456,7 @@
     opacity: 0;
 }
 
-.main-filter .instock {
+.main-filter .availability {
     margin-top: 32px;
     display: flex;
     flex-direction: column;
@@ -514,6 +514,18 @@
 
     .main .content {
         display: none;
+    }
+
+    .main .main-filter .price {
+        margin-top: unset;
+    }
+
+    .main-filter .price .slider {
+        display: none;
+    }
+
+    .main-filter .material {
+        margin-top: unset;
     }
 
     .footer {
