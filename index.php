@@ -12,9 +12,9 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=2" type="text/css">
-    <link rel="stylesheet" href="css/index.css?version=2" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=2" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=3" type="text/css">
+    <link rel="stylesheet" href="css/index.css?version=3" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=3" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
@@ -24,7 +24,13 @@
 </head>
 
 <body>
+    <div class="login-wrapper">
+        <?php include 'login-wrapper.php'; ?>
+    </div>
 
+    <div class="signup-wrapper">
+        <?php include 'signup-wrapper.php'; ?>
+    </div>
     <div class="wrapper">
         <?php include 'header.php'; ?>
         <?php include 'menu.php'; ?>

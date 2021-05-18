@@ -6,7 +6,7 @@
     <div class="login">
         <div class="login-commands">
             <img class="login-commands-user" src="img/user01.png">
-            <span>Выход</h4>
+            <span class="login">Вход</h4>
         </div>
 
         <div class="login-notifications">

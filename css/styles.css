@@ -1,6 +1,7 @@
 body {
     font-family: 'Geometria';
     font-style: normal;
+    overflow: overlay;
 }
 
 * {
@@ -117,6 +118,10 @@ body {
     border-radius: 50%;
 }
 
+.login-commands span {
+    cursor: pointer;
+}
+
 .menu {
     grid-area: menu;
     background: #1C1C1C;
@@ -226,3 +231,217 @@ body {
 }
 
 /******************************************************************************************************************/
+
+.login-wrapper,
+.signup-wrapper {
+    z-index: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visible {
+    visibility: visible;
+    z-index: 3;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.login-dialog,
+.signup-dialog {
+    position: relative;
+    background-color: white;
+    border: 2px solid lightgray;
+    width: 568px;
+    max-height: calc(100% - 100px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgb(0 0 0 / 28%) 0px 8px 28px;
+}
+
+.login-dialog .caption-wrapper,
+.signup-dialog .caption-wrapper {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.login-dialog .caption-wrapper .caption,
+.signup-dialog .caption-wrapper .caption {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-dialog .caption-wrapper .caption span,
+.signup-dialog .caption-wrapper .caption span {
+    font-family: 'Geometria';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-dialog .cancel,
+.signup-dialog .cancel {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-dialog .cancel svg,
+.signup-dialog .cancel svg {
+    width: 24px;
+    height: 24px;
+}
+
+.login-dialog .content-wrapper,
+.signup-dialog .content-wrapper {
+    overflow: auto;
+    height: 100%;
+}
+
+.login-dialog .content-subwrapper,
+.signup-dialog .content-subwrapper {
+    display: grid;
+    padding: 24px;
+    grid-template-columns: 1fr;
+}
+
+.login-dialog .content-subwrapper .caption,
+.signup-dialog .content-subwrapper .caption {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.login-dialog .content-subwrapper .caption span,
+.signup-dialog .content-subwrapper .caption span {
+    font-family: 'Geometria';
+    font-size: 22px;
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+}
+
+.login-dialog .content-subwrapper .input,
+.signup-dialog .content-subwrapper .input {
+    margin-top: 8px;
+    height: 56px;
+    width: 100%;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.login-dialog .content-subwrapper .input:focus-within,
+.signup-dialog .content-subwrapper .input:focus-within {
+    border: 2px solid #0079C4;
+}
+
+.login-dialog .content-wrapper .input span,
+.signup-dialog .content-wrapper .input span {
+    top: 18px;
+    font-family: 'Arial';
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    text-indent: 10px;
+    color: rgb(113, 113, 113);
+}
+
+.login-dialog .content-subwrapper input,
+.signup-dialog .content-subwrapper input {
+    width: 100%;
+    height: 20px;
+    border: none;
+    text-indent: 10px;
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.login-dialog .content-subwrapper input:focus,
+.signup-dialog .content-subwrapper input:focus {
+    outline: none;
+}
+
+.login-dialog .content-subwrapper .signin {
+    margin-top: 8px;
+    height: 48px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-dialog .content-subwrapper .signin span {
+    color: white;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.login-dialog .content-subwrapper .signup {
+    margin-top: 8px;
+    height: 48px;
+    border: 1px solid #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.signup-dialog .content-subwrapper .signup {
+    margin-top: 8px;
+    height: 48px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-dialog .content-subwrapper .signup span {
+    color: balck;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.signup-dialog .content-subwrapper .signup span {
+    color: white;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}

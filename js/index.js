@@ -73,8 +73,6 @@ function updateScopeCombo(recs) {
     $(".cb-scope").html(html);
 }
 
-
-
 function initUI(toFilter) {
     toFilter = toFilter == undefined ? true : toFilter;
     calcTimeG = new Date().getTime();
@@ -107,7 +105,48 @@ function initUI(toFilter) {
 
 }
 
+function toggleLogin() {
+    $(".login-wrapper").toggleClass("visible");
+    if ($(".login-wrapper").hasClass("visible")) {
+        $('.name').focus();
+    }
+    $('body').toggleClass("overflow-hidden");
+}
+
+function signup(){
+    $(".login-wrapper").removeClass("visible");
+    $(".signup-wrapper").addClass("visible");
+    $('.name').focus();
+}
+
+function toggleSignup(){
+    $(".signup-wrapper").removeClass("visible");
+    $(".login-wrapper").addClass("visible");
+    $('.name').focus();
+}
+
 $(document).ready(function () {
+    $(".signup").click(function () {
+        signup();
+    });
+
+    $(".login-dialog .content-wrapper .input").click(function (event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
+    $(".login-dialog .cancel").click(function () {
+        toggleLogin();
+    });
+
+    $(".signup-dialog .cancel").click(function () {
+        toggleSignup();
+    });
+
+
+    $("span[class='login']").click(function () {
+        toggleLogin();
+    });
 
     $(".item").click(function () {
         window.location.assign(`item.php`);
