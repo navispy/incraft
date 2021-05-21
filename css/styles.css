@@ -263,7 +263,7 @@ body {
     width: 568px;
     max-height: calc(100% - 100px);
     height: auto;
-    display: flex;
+    display: none;
     flex-direction: column;
     box-shadow: rgb(0 0 0 / 28%) 0px 8px 28px;
 }
@@ -359,7 +359,10 @@ body {
 
 .login-dialog .content-subwrapper .input:focus-within,
 .signup-dialog .content-subwrapper .input:focus-within {
-    border: 2px solid #0079C4;
+    border: 1px solid #0079C4;
+    outline-style: solid;
+    outline-width: thin;
+    outline-color: #0079C4;
 }
 
 .login-dialog .content-wrapper .input span,
@@ -418,7 +421,7 @@ body {
     cursor: pointer;
 }
 
-.signup-dialog .content-subwrapper .signup {
+.signup-dialog .content-subwrapper .register {
     margin-top: 8px;
     height: 48px;
     background: #0079C4;
@@ -429,7 +432,7 @@ body {
 }
 
 .login-dialog .content-subwrapper .signup span {
-    color: balck;
+    color: black;
     font-family: Geometria;
     font-style: normal;
     font-weight: 700;
@@ -437,7 +440,7 @@ body {
     line-height: 130%;
 }
 
-.signup-dialog .content-subwrapper .signup span {
+.signup-dialog .content-subwrapper .register span {
     color: white;
     font-family: Geometria;
     font-style: normal;

@@ -15,23 +15,23 @@
 
     <div class="content-wrapper">
         <div class="content-subwrapper">
-            <div class="input user">
+            <div class="input input-1">
                 <span>Имя пользователя</span>
                 <input class="name" />
             </div>
-            <div class="input password">
+            <div class="input input-2">
                 <span>Пароль</span>
-                <input class="password" />
+                <input type="password" class="password" autocomplete="new-password" />
             </div>
-            <div class="input email">
+            <div class="input input-3">
                 <span>Email</span>
                 <input class="email" />
             </div>
-            <div class="input phone">
+            <div class="input input-4">
                 <span>Телефон</span>
                 <input class="phone" />
             </div>
-            <div class="signup">
+            <div class="register">
                 <span>Зарегистрироваться</span>
             </div>
         </div>

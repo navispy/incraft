@@ -75,19 +75,19 @@ function updateScopeCombo(recs) {
 
 function initUI(toFilter) {
     toFilter = toFilter == undefined ? true : toFilter;
-    calcTimeG = new Date().getTime();
-    //showLoader();
+    var calcTime = new Date().getTime();
+
     $.ajax({
         url: "post_json_catalogs.php",
         type: 'POST',
         dataType: 'json',
         data: {
-            calcTime: calcTimeG,
+            calcTime: calcTime,
             schemaID: "incraft"
         },
         success: function (data) {
 
-            if (data["calcTime"] == calcTimeG) {
+            if (data["calcTime"] == calcTime) {
                 regions = data["regions"];
                 districts = data["districts"];
                 materials = data["materials"];
@@ -99,7 +99,7 @@ function initUI(toFilter) {
             }
         },
         error: function (data) {
-            alert("Error initializeGeography()");
+            alert("Error initUI()");
         },
     });
 
@@ -107,27 +107,109 @@ function initUI(toFilter) {
 
 function toggleLogin() {
     $(".login-wrapper").toggleClass("visible");
+    $(".login-dialog").slideToggle("medium");
+
     if ($(".login-wrapper").hasClass("visible")) {
         $('.name').focus();
     }
     $('body').toggleClass("overflow-hidden");
 }
 
-function signup(){
+function closeLogin() {
+    $(".login-dialog").slideToggle("medium", function () {
+        $(".login-wrapper").removeClass("visible");
+        $('body').removeClass("overflow-hidden");
+    });
+}
+
+function showSignup() {
     $(".login-wrapper").removeClass("visible");
+    $(".login-dialog").hide();
+
     $(".signup-wrapper").addClass("visible");
+    $(".signup-dialog").slideToggle("medium");
+
     $('.name').focus();
 }
 
-function toggleSignup(){
-    $(".signup-wrapper").removeClass("visible");
-    $(".login-wrapper").addClass("visible");
-    $('.name').focus();
+function closeSignup() {
+    $(".signup-dialog").slideToggle("medium", function () {
+        $(".signup-wrapper").removeClass("visible");
+        $('.name').focus();
+    });
 }
+
+function tryLogin() {
+    var calcTime = new Date().getTime();
+
+    alert(calcTime);
+    return;
+
+    $.ajax({
+        url: "post_json_login.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            calcTime: calcTime,
+            schemaID: "incraft"
+
+        },
+        success: function (data) {
+
+            if (data["calcTime"] == calcTimeG) {
+
+            }
+        },
+        error: function (data) {
+            alert("Error tryLogin()");
+        },
+    });
+}
+
+function trySignup() {
+
+    var calcTime = new Date().getTime();
+    var name = $(".signup-dialog .name").val();
+    var pass = $(".signup-dialog .password").val();
+    var email = $(".signup-dialog .email").val();
+    var phone = $(".signup-dialog .phone").val();
+
+    $.ajax({
+        url: "post_json_signup.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            calcTime: calcTime,
+            userName: name,
+            userPass: pass,
+            userEmail: email,
+            userPhone: phone,
+            schemaID: "incraft"
+        },
+        success: function (data) {
+
+            if (data["calcTime"] == calcTime) {
+                closeSignup();
+            }
+        },
+        error: function (data) {
+            alert("Error tryLogin()");
+        },
+    });
+}
+
 
 $(document).ready(function () {
+    $(".signin").click(function () {
+        tryLogin();
+    });
+
     $(".signup").click(function () {
-        signup();
+        showSignup();
+    });
+
+    $(".register").click(function () {
+        trySignup();
     });
 
     $(".login-dialog .content-wrapper .input").click(function (event) {
@@ -135,12 +217,17 @@ $(document).ready(function () {
         $(`div[class='${className}'] input`).focus();
     });
 
+    $(".signup-dialog .content-wrapper .input").click(function (event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
     $(".login-dialog .cancel").click(function () {
-        toggleLogin();
+        closeLogin();
     });
 
     $(".signup-dialog .cancel").click(function () {
-        toggleSignup();
+        closeSignup();
     });
 
 
@@ -167,4 +254,5 @@ $(document).ready(function () {
     $(".cb-region").on('change', function () {
         filterDistricts();
     });
+
 })

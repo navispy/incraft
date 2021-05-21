@@ -26,6 +26,9 @@
     <div class="login-wrapper">
         <?php include 'login-wrapper.php'; ?>
     </div>
+    <div class="signup-wrapper">
+        <?php include 'signup-wrapper.php'; ?>
+    </div>
     <div class="wrapper">
         <?php include 'header.php'; ?>
         <?php include 'menu.php'; ?>

@@ -18,11 +18,11 @@
             <div class="caption">
                 <span>Добро пожаловать в Incraft</span>
             </div>
-            <div class="input user">
+            <div class="input input-1">
                 <span>Имя пользователя</span>
                 <input class="name" />
             </div>
-            <div class="input password">
+            <div class="input input-2">
                 <span>Пароль</span>
                 <input class="password" />
             </div>
