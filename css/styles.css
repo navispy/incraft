@@ -112,14 +112,23 @@ body {
 }
 
 .login-commands-user {
+    cursor: pointer;
+    visibility: hidden;
     height: 48px;
     width: 48px;
     object-fit: cover;
     border-radius: 50%;
+    
+}
+
+.login-commands-user:hover {
+    padding: 2px;
+    border: 2px solid #0079C4;
 }
 
 .login-commands span {
     cursor: pointer;
+    height: 48px;
 }
 
 .menu {
@@ -233,7 +242,8 @@ body {
 /******************************************************************************************************************/
 
 .login-wrapper,
-.signup-wrapper {
+.signup-wrapper,
+.password-restore-wrapper {
     z-index: 0;
     visibility: hidden;
     position: absolute;
@@ -256,7 +266,8 @@ body {
 }
 
 .login-dialog,
-.signup-dialog {
+.signup-dialog,
+.password-restore-dialog {
     position: relative;
     background-color: white;
     border: 2px solid lightgray;
@@ -269,7 +280,8 @@ body {
 }
 
 .login-dialog .caption-wrapper,
-.signup-dialog .caption-wrapper {
+.signup-dialog .caption-wrapper,
+.password-restore-dialog .caption-wrapper {
     height: 64px;
     display: flex;
     justify-content: space-between;
@@ -280,7 +292,8 @@ body {
 }
 
 .login-dialog .caption-wrapper .caption,
-.signup-dialog .caption-wrapper .caption {
+.signup-dialog .caption-wrapper .caption,
+.password-restore-dialog .caption-wrapper .caption {
     width: 100%;
     height: 64px;
     display: flex;
@@ -289,14 +302,16 @@ body {
 }
 
 .login-dialog .caption-wrapper .caption span,
-.signup-dialog .caption-wrapper .caption span {
+.signup-dialog .caption-wrapper .caption span,
+.password-restore-dialog .caption-wrapper .caption span {
     font-family: 'Geometria';
     font-size: 16px;
     font-weight: bold;
 }
 
 .login-dialog .cancel,
-.signup-dialog .cancel {
+.signup-dialog .cancel,
+.password-restore-dialog .cancel {
     width: 36px;
     height: 36px;
     cursor: pointer;
@@ -306,26 +321,30 @@ body {
 }
 
 .login-dialog .cancel svg,
-.signup-dialog .cancel svg {
+.signup-dialog .cancel svg,
+.password-restore-dialog .cancel svg {
     width: 24px;
     height: 24px;
 }
 
 .login-dialog .content-wrapper,
-.signup-dialog .content-wrapper {
+.signup-dialog .content-wrapper,
+.password-restore-dialog .content-wrapper {
     overflow: auto;
     height: 100%;
 }
 
 .login-dialog .content-subwrapper,
-.signup-dialog .content-subwrapper {
+.signup-dialog .content-subwrapper,
+.password-restore-dialog .content-subwrapper {
     display: grid;
     padding: 24px;
     grid-template-columns: 1fr;
 }
 
 .login-dialog .content-subwrapper .caption,
-.signup-dialog .content-subwrapper .caption {
+.signup-dialog .content-subwrapper .caption, 
+.password-restore-dialog .content-subwrapper .caption{
     width: 100%;
     height: 36px;
     display: flex;
@@ -339,7 +358,8 @@ body {
 }
 
 .login-dialog .content-subwrapper .caption span,
-.signup-dialog .content-subwrapper .caption span {
+.signup-dialog .content-subwrapper .caption span,
+.password-restore-dialog .content-subwrapper .caption span {
     font-family: 'Geometria';
     font-size: 22px;
     color: rgb(34, 34, 34);
@@ -347,7 +367,8 @@ body {
 }
 
 .login-dialog .content-subwrapper .input,
-.signup-dialog .content-subwrapper .input {
+.signup-dialog .content-subwrapper .input,
+.password-restore-dialog .content-subwrapper .input {
     margin-top: 8px;
     height: 56px;
     width: 100%;
@@ -358,7 +379,8 @@ body {
 }
 
 .login-dialog .content-subwrapper .input:focus-within,
-.signup-dialog .content-subwrapper .input:focus-within {
+.signup-dialog .content-subwrapper .input:focus-within, 
+.password-restore-dialog .content-subwrapper .input:focus-within{
     border: 1px solid #0079C4;
     outline-style: solid;
     outline-width: thin;
@@ -366,7 +388,8 @@ body {
 }
 
 .login-dialog .content-wrapper .input span,
-.signup-dialog .content-wrapper .input span {
+.signup-dialog .content-wrapper .input span,
+.password-restore-dialog .content-wrapper .input span {
     top: 18px;
     font-family: 'Arial';
     font-size: 12px;
@@ -377,7 +400,8 @@ body {
 }
 
 .login-dialog .content-subwrapper input,
-.signup-dialog .content-subwrapper input {
+.signup-dialog .content-subwrapper input, 
+.password-restore-dialog .content-subwrapper input{
     width: 100%;
     height: 20px;
     border: none;
@@ -388,7 +412,8 @@ body {
 }
 
 .login-dialog .content-subwrapper input:focus,
-.signup-dialog .content-subwrapper input:focus {
+.signup-dialog .content-subwrapper input:focus, 
+.password-restore-dialog .content-subwrapper input:focus {
     outline: none;
 }
 
@@ -447,4 +472,46 @@ body {
     font-weight: 700;
     font-size: 16px;
     line-height: 130%;
+}
+
+.login-dialog .content-subwrapper .password-restore {
+    margin-top: 8px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-dialog .content-subwrapper .password-restore span {
+    color: black;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.password-restore-dialog .content-subwrapper .restore {
+    margin-top: 8px;
+    height: 48px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.password-restore-dialog .content-subwrapper .restore span {
+    color: white;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.error-msg span {
+    font-weight: 700;
+    color: #FC970D;
 }

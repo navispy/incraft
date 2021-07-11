@@ -5,7 +5,7 @@
 
     <div class="login">
         <div class="login-commands">
-            <img class="login-commands-user" src="img/user01.png">
+            <img class="login-commands-user" src="" title="Нажимте на иконку для входа в профиль">
             <span class="login">Вход</h4>
         </div>
 

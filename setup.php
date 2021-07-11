@@ -11,15 +11,9 @@ error_reporting(E_ERROR | E_PARSE);
 
 $connection = null;
 
-
 /////////////////////////////////////////////////////////////////////////////////////
 function setupSchema($schemaID) {
     global $connection;
-    
-    //$username="wordpress_user";
-    //$password="51v0Eipt37609138vU843S85n";
-
-    //$server="localhost";
 
     $username="root";
     $password="DellOptiplexGL5100";
@@ -28,10 +22,9 @@ function setupSchema($schemaID) {
     
     $connection = mysqli_connect($server, $username, $password, $schemaID);
     if (!$connection) {
-        die('Can\'t connect : ' . mysqli_error($connection));
+        die('Can\'t connect');
     }
 
-//mysqli_set_charset($connection, 'utf8');
 }
 
 function logMessage($logfile, $msg) {
@@ -54,27 +47,55 @@ function getLookupValue($lookupTable, $lookupField, $field, $value, $connection)
         return '';
 }
 
-
-function getSystemRating($userID){
-    global $connection;
-
-    $query = "SELECT Guest, avg(RatingOwner) AS rating 
-              FROM crop.__catalog41_feedbacks 
-              WHERE Guest=$userID
-              GROUP BY Guest";
-
-    $result = mysqli_query($connection, $query)
-              or die(mysqli_error($connection));
-
-    if($row = mysqli_fetch_array($result)){
-        return $row["rating"];
-    } else {
-        return 0;
-    }    
-
-    return 0;
+function HTML2text($html, $crlf) {
+    $text = preg_replace("/<\/p>/iU", $crlf, $html);
+    $text = preg_replace("/<br.*>/iU", $crlf, $text);
+    $text = str_replace(" ", " ", $text);
+    $text = htmlspecialchars_decode($text);
+    $text = strip_tags($text);
+    if ($text == "")
+        $text = " ";
+    return $text;
 }
 
+function getParams($connection) {
+    $query = "SELECT ID, Name, Value FROM __catalog44";
+    $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+    $i = 0;
+    while ($row = mysqli_fetch_array($result)) {
+        $params[$row['Name']] = trim($row['Value']);
 
+        $i++;
+    }
+    return $params;
+}
 
+function doesUserExist($userName, $connection) {
+    $query = "SELECT COUNT(*) AS num FROM `__catalog43` 
+              WHERE LOWER(Name) = LOWER('$userName')";
+
+    $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+
+    if ($row = mysqli_fetch_array($result)) {
+        return $row["num"] > 0;
+    } else {
+        return false;
+    }
+}
+
+function doesEmailExist($email, $connection) {
+    $query = "SELECT COUNT(*) AS num FROM `__catalog43` 
+              WHERE LOWER(Email) = LOWER('$email')";
+
+    $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+
+    if ($row = mysqli_fetch_array($result)) {
+        return $row["num"] > 0;
+    } else {
+        return false;
+    }
+}
 

@@ -19,7 +19,12 @@
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/index.js?version=1" type="text/javascript"></script>
+    <script src="js/index.js?version=1d" type="text/javascript"></script>
+    <script src="js/signup.js?version=1d" type="text/javascript"></script>
+    <script src="js/login.js?version=1d" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=1d" type="text/javascript"></script>
+    <script src="js/utils.js?version=1d" type="text/javascript"></script>
+
     <script src="js/menu.js" type="text/javascript"></script>
 </head>
 
@@ -31,6 +36,11 @@
     <div class="signup-wrapper">
         <?php include 'signup-wrapper.php'; ?>
     </div>
+
+    <div class="password-restore-wrapper">
+        <?php include 'password-restore-wrapper.php'; ?>
+    </div>
+
     <div class="wrapper">
         <?php include 'header.php'; ?>
         <?php include 'menu.php'; ?>

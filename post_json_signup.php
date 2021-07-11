@@ -16,22 +16,8 @@ setupSchema($schemaID);
 
 $error = "";
 
-function doesUserExist($userName, $connection) {
-    $query = "SELECT COUNT(*) AS num FROM `crop`.`__catalog43` 
-              WHERE Name = '$userName'";
-
-    $result = mysqli_query($connection, $query)
-        or die(mysqli_error($connection));
-
-    if ($row = mysqli_fetch_array($result)) {
-        return $row["num"] > 0;
-    } else {
-        return false;
-    }
-}
-
 function signup($userName, $userEmail, $userPhone, $userPass, $connection, &$error) {
-    if (!doesUserExist($userName, $connection)) {
+    if (!doesUserExist($userName, $connection) && !doesEmailExist($userEmail, $connection)) {
         $currentDate = date("Y-m-d");
         $query = "INSERT INTO `__catalog43` (`Name`, `Email`, `Phone`, `Password`, `DateRegistered`)
                   VALUES  ('$userName', '$userEmail', '$userPhone', '$userPass', '$currentDate')";
@@ -41,7 +27,7 @@ function signup($userName, $userEmail, $userPhone, $userPass, $connection, &$err
         $status = "OK";
     } else {
         $status = "NOT OK";
-        $error = "Пользователь с таким именем уже существует!";
+        $error = "Пользователь с таким именем и/или email уже существует!";
     }
 
     return $status;

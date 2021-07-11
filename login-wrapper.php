@@ -24,7 +24,7 @@
             </div>
             <div class="input input-2">
                 <span>Пароль</span>
-                <input class="password" />
+                <input class="password" type="password"/>
             </div>
 
             <div class="signin">
@@ -32,6 +32,9 @@
             </div>
             <div class="signup">
                 <span>Регистрация</span>
+            </div>
+            <div class="password-restore">
+                <span>Забыли пароль?</span>
             </div>
         </div>
     </div>

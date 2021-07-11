@@ -1,3 +1,5 @@
+var calcTime;
+
 var regions = [];
 var districts = [];
 var materials = [];
@@ -105,135 +107,12 @@ function initUI(toFilter) {
 
 }
 
-function toggleLogin() {
-    $(".login-wrapper").toggleClass("visible");
-    $(".login-dialog").slideToggle("medium");
-
-    if ($(".login-wrapper").hasClass("visible")) {
-        $('.name').focus();
-    }
-    $('body').toggleClass("overflow-hidden");
-}
-
-function closeLogin() {
-    $(".login-dialog").slideToggle("medium", function () {
-        $(".login-wrapper").removeClass("visible");
-        $('body').removeClass("overflow-hidden");
-    });
-}
-
-function showSignup() {
-    $(".login-wrapper").removeClass("visible");
-    $(".login-dialog").hide();
-
-    $(".signup-wrapper").addClass("visible");
-    $(".signup-dialog").slideToggle("medium");
-
-    $('.name').focus();
-}
-
-function closeSignup() {
-    $(".signup-dialog").slideToggle("medium", function () {
-        $(".signup-wrapper").removeClass("visible");
-        $('.name').focus();
-    });
-}
-
-function tryLogin() {
-    var calcTime = new Date().getTime();
-
-    alert(calcTime);
-    return;
-
-    $.ajax({
-        url: "post_json_login.php",
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            calcTime: calcTime,
-            schemaID: "incraft"
-
-        },
-        success: function (data) {
-
-            if (data["calcTime"] == calcTimeG) {
-
-            }
-        },
-        error: function (data) {
-            alert("Error tryLogin()");
-        },
-    });
-}
-
-function trySignup() {
-
-    var calcTime = new Date().getTime();
-    var name = $(".signup-dialog .name").val();
-    var pass = $(".signup-dialog .password").val();
-    var email = $(".signup-dialog .email").val();
-    var phone = $(".signup-dialog .phone").val();
-
-    $.ajax({
-        url: "post_json_signup.php",
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            calcTime: calcTime,
-            userName: name,
-            userPass: pass,
-            userEmail: email,
-            userPhone: phone,
-            schemaID: "incraft"
-        },
-        success: function (data) {
-
-            if (data["calcTime"] == calcTime) {
-                closeSignup();
-            }
-        },
-        error: function (data) {
-            alert("Error tryLogin()");
-        },
-    });
-}
-
-
 $(document).ready(function () {
-    $(".signin").click(function () {
-        tryLogin();
-    });
+    setupSignupHandlers();
+    setupSigninHandlers();
+    setupPasswordRestoreHandlers();
 
-    $(".signup").click(function () {
-        showSignup();
-    });
-
-    $(".register").click(function () {
-        trySignup();
-    });
-
-    $(".login-dialog .content-wrapper .input").click(function (event) {
-        let className = event.currentTarget.className;
-        $(`div[class='${className}'] input`).focus();
-    });
-
-    $(".signup-dialog .content-wrapper .input").click(function (event) {
-        let className = event.currentTarget.className;
-        $(`div[class='${className}'] input`).focus();
-    });
-
-    $(".login-dialog .cancel").click(function () {
-        closeLogin();
-    });
-
-    $(".signup-dialog .cancel").click(function () {
-        closeSignup();
-    });
-
-
-    $("span[class='login']").click(function () {
-        toggleLogin();
-    });
+    restoreUser();
 
     $(".item").click(function () {
         window.location.assign(`item.php`);
