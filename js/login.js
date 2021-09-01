@@ -20,7 +20,14 @@ function setupSigninHandlers() {
             $("span[class='login']").html("Вход");
 
             $(".login-commands-user").attr("src", "");
-            $(".login-commands-user").css("visibility", "hidden");    
+            $(".login-commands-user").css("visibility", "hidden");
+            
+            let href = document.location.href;
+            let lastPathSegment = href.substr(href.lastIndexOf('/') + 1);
+
+            if(lastPathSegment !== "index.php") {
+                window.location.assign("index.php");
+            }
         } else { // login
             showLogin();
         }
@@ -33,22 +40,21 @@ function setupSigninHandlers() {
 
 function showLogin() {
     $(".login-wrapper").addClass("visible");
-    $(".login-dialog").slideToggle("medium");
-
-    $(".login-wrapper .error-msg").remove();
-
-    $('.name').focus();
-    $('body').addClass("overflow-hidden");
+    $(".login-dialog").slideToggle("medium", function () {
+        $(".login-wrapper .error-msg").remove();
+        $('.name').focus();
+        $('body').addClass("overflow-hidden");
+    })
 }
 
 function closeLogin() {
     $(".login-dialog").slideToggle("medium", function () {
         $(".login-wrapper").removeClass("visible");
         $('body').removeClass("overflow-hidden");
-    });
+    })
 }
 
-function tryLogin() {
+async function tryLogin() {
     var thereAreEmptyFields = checkForEmptyFields("login-dialog");
     if(thereAreEmptyFields) {
         var errMsg = "Заполните пожалуйста все поля";
@@ -62,50 +68,57 @@ function tryLogin() {
         return;
     }
 
-    var calcTime = new Date().getTime();
     var name = $(".login-dialog .name").val();
     var pass = $(".login-dialog .password").val();
 
-    $.ajax({
-        url: "post_json_login.php",
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            calcTime: calcTime,
-            name: name,
-            pass: pass,
-            schemaID: "incraft"
-        },
-        success: function (data) {
+    data = await checkLogin(name, pass)
+    .catch(e => {
+        let html =
+            `<div class="error-msg">
+             <span>${e.message}</span>
+        </div>`;
 
-            if (data["calcTime"] == calcTime) {
-                if(data["credentialsOK"] == false) {
-                    var errMsg = "Неправильный логин/пароль";//data["error"];
-                    var html =
-                        `<div class="error-msg">
-                         <span>${errMsg}</span>
-                    </div>`;
-
-                    $(".login-dialog .content-subwrapper .error-msg").remove();
-                    //$(".login-dialog .content-subwrapper").prepend(html);
-                    $(html).insertBefore(".login-dialog .content-subwrapper .input-1");
-                } else {
-                    $("span[class='login']").html("Выход");
-                    
-                    let photoURL = data["photo"];
-                    photoURL = photoURL == "" ? "img/account.svg" : photoURL;
-
-                    $(".login-commands-user").attr("src", photoURL);
-                    $(".login-commands-user").css("visibility", "visible");
-                    closeLogin();
-
-                    window.sessionStorage.setItem("userName", name);
-                    window.sessionStorage.setItem("userPhoto", photoURL);
-                }
-            }
-        },
-        error: function (data) {
-            alert("Error tryLogin()");
-        },
+        $(".login-dialog .content-subwrapper .error-msg").remove();
+        $(html).insertBefore(".login-dialog .content-subwrapper .input-1");
     });
+
+}
+async function checkLogin(name, pass) {
+
+    var params = {
+        name: name,
+        pass: pass,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_login.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k,v])=>{return k+'='+v}).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    $("span[class='login']").html("Выход");
+                    
+    let photoURL = data["photo"];
+    photoURL = photoURL == "" ? "img/account.svg" : photoURL;
+
+    $(".login-commands-user").attr("src", photoURL);
+    $(".login-commands-user").css("visibility", "visible");
+    closeLogin();
+
+    let userID = data["userID"];
+
+    window.sessionStorage.setItem("userID", userID);
+    window.sessionStorage.setItem("userName", name);
+    window.sessionStorage.setItem("userPhoto", photoURL);               
+
+    return data;
 }

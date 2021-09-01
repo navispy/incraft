@@ -1,8 +1,7 @@
 <?php
 
-include('setup.php');
-
-include_once "lib/swift_required.php";
+require_once 'setup.php';
+require_once "lib/swift_required.php";
 
 $calcTime = $_POST['calcTime'];
 $schemaID = $_POST['schemaID'];
@@ -75,7 +74,6 @@ function emailPassword($connection, $name, $email, $pass) {
         //echo 'Message successfully sent!';
     } else {
         $result = "error";
-        logMessage("knud01.txt", json_encode($failures, true));
         print_r($failures);
     }
 }

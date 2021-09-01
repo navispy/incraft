@@ -1,0 +1,9 @@
+{
+    "name": "nspy/incraft",
+    "description": "Incraft platform",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

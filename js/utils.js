@@ -3,7 +3,6 @@ function checkForEmptyFields(dialog) {
     $(`.${dialog} input`).each(function (i, obj) {
         let objValue = $(obj).val();
         thereAreEmptyFields = thereAreEmptyFields || objValue.trim() == "";
-        console.log(objValue);
     });
 
     return thereAreEmptyFields;
@@ -11,6 +10,8 @@ function checkForEmptyFields(dialog) {
 
 function restoreUser() {
     let userName = window.sessionStorage.getItem("userName");
+    let userID = window.sessionStorage.getItem("userID");
+
     if (userName !== null) {
         $("span[class='login']").html("Выход");
                     
@@ -20,4 +21,33 @@ function restoreUser() {
         $(".login-commands-user").attr("src", photoURL);
         $(".login-commands-user").css("visibility", "visible");
     }
+
+    return userID;
+}
+
+function dateToString(str) {
+
+    var d = str.substr(8, 2);
+    var m = str.substr(5, 2);
+    var y = str.substr(0, 4);
+
+    var months = ["января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+
+    var mmmm = months[m - 1];
+
+    return d + " " + mmmm + " " + y;
+}
+
+function showToast(str) {
+    $('html, body').animate({
+        scrollTop: $(".header").offset().top
+    }, 100);
+
+    $(".toast-wrapper").addClass("visible");
+    $('body').addClass("overflow-hidden");
+    $('.toast span').html(str).fadeIn(1000).delay(1000).fadeOut('medium', function() {
+        $(".toast-wrapper").removeClass("visible");
+        $('body').removeClass("overflow-hidden");
+    });
 }

@@ -43,10 +43,10 @@ function emailPassword(name, email, pass) {
             pass: pass
         },
         success: function (data) {
-
+            showToast("Пароль выслан на почту");
         },
         error: function (data) {
-            alert("Ошибка при регистрации");
+            showToast("Ошибка при отправке почты");
         },
     });
 }

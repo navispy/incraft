@@ -1,8 +1,8 @@
 <?php
 
-include('setup.php');
+require_once "app/Models/User.php";
+require_once "setup.php";
 
-$calcTime = $_POST['calcTime'];
 $schemaID = $_POST['schemaID'];
 
 $name  = $_POST['name'];
@@ -10,25 +10,27 @@ $pass  = $_POST['pass'];
 
 setupSchema($schemaID);
 
-function login($name, $pass, $connection, &$error) {
-    $query = "SELECT COUNT(*) AS numUsers FROM __catalog43 WHERE Name='$name' AND Password='$pass'";
-
-    $result = mysqli_query($connection, $query)
-        or die(mysqli_error($connection));
-
-    $credentialsOK = false;
-
-    if ($row = mysqli_fetch_array($result)) {
-        $credentialsOK = $row["numUsers"] > 0;
-    }
-
-    return $credentialsOK;
-}
-
 $error = "";
-$credentialsOK = login($name, $pass, $connection, $error);
-$photoURL = getLookupValue("__catalog43", "Photo", "Name", $name, $connection);
+$userID = -1;
+$photo = "";
 
-echo ('{"calcTime":' . json_encode($calcTime) . ',');
-echo ('"credentialsOK":' . json_encode($credentialsOK) . ',');
-echo ('"photo":' . json_encode($photoURL) . '}');
+$status = User::getStatus($name, $pass, $connection);
+
+$accountStatus = (int) $status["account"];
+
+if($status["credentials"] && $accountStatus !== User::ACCOUNT_DELETED) 
+{
+    $photo = $status["photo"];
+    $userID = $status["userID"];
+    $data = ["userID" => $userID,
+             "photo" => $photo];
+    echo json_encode($data);  
+} else if (!$status["credentials"])
+{
+    http_response_code(404);
+    echo json_encode(["message" => "Неправильный логин/пароль"]);
+} else if ($accountStatus === User::ACCOUNT_DELETED) 
+{
+    http_response_code(404);
+    echo json_encode(["message" => "Ваш аккаунт удален. Обратитесь к администратору системы."]);
+} 

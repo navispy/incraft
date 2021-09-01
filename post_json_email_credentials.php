@@ -104,7 +104,6 @@ function emailUser($connection, $customerName, $customerEmail, $userPass) {
         //echo 'Message successfully sent!';
     } else {
         $result = "error";
-        logMessage("knud01.txt", json_encode($failures, true));
         print_r($failures);
     }
 }

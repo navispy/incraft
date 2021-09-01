@@ -12,23 +12,27 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=4" type="text/css">
-    <link rel="stylesheet" href="css/index.css?version=4" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=4" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=9" type="text/css">
+    <link rel="stylesheet" href="css/index.css?version=9" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=9" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/index.js?version=1d" type="text/javascript"></script>
-    <script src="js/signup.js?version=1d" type="text/javascript"></script>
-    <script src="js/login.js?version=1d" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=1d" type="text/javascript"></script>
-    <script src="js/utils.js?version=1d" type="text/javascript"></script>
+    <script src="js/index.js?version=1m" type="text/javascript"></script>
+    <script src="js/signup.js?version=1m" type="text/javascript"></script>
+    <script src="js/login.js?version=1m" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=1m" type="text/javascript"></script>
+    <script src="js/utils.js?version=1m" type="text/javascript"></script>
 
     <script src="js/menu.js" type="text/javascript"></script>
 </head>
 
 <body>
+    <div class="toast-wrapper">
+        <?php include 'toast-wrapper.php'; ?>
+    </div>
+
     <div class="login-wrapper">
         <?php include 'login-wrapper.php'; ?>
     </div>

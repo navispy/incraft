@@ -1,0 +1,348 @@
+.icon-edit,
+.cmd-account-status,
+.password-change {
+    cursor: pointer;
+}
+
+.new-avatar {
+    display: none;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0;
+}
+
+.tabs {
+    margin-top: 61px;
+}
+
+.main .tabs,
+.main .tabs ul,
+.main .tabs ul li/*, 
+.main .tabs * */{
+    border: none;
+}
+
+.main .tabs ul {
+    background: white;
+    padding: 0;
+}
+
+.main .tabs li {
+    background: transparent;
+}
+
+.main .tabs a {
+    font-family: Geometria;
+    font-weight: 500;
+    font-size: 18px;
+
+    background: white;
+    color: #929292;
+}
+
+.main .tabs .ui-state-default a {
+    padding: 0em 1em 0em 0em;
+}
+
+.main .tabs .ui-state-active a {
+    color: #333333;
+}
+
+/************************************/
+.tabs-3-wrapper {
+    margin-top: 69px;
+}
+
+.tabs-3 {
+    display: grid;
+    grid-template-columns: 236px 612px 1fr;
+    grid-column-gap: 96px;
+}
+
+/************************************/
+.tabs-3 .photo-wrapper {
+    position: relative;;
+    display: flex;
+    flex-direction: column;
+
+    height: 236px;
+    width: 236px;
+
+    /*border: 1px solid lightgray;
+    width: 236px;
+    height: 236px;*/
+}
+
+.tabs-3 .photo-wrapper .photo {
+    z-index: 1;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tabs-3 .photo-wrapper .button-edit {
+    position: absolute;
+    z-index: 2;;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/************************************/
+.tabs-3 .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-3 .data .name-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    grid-column-gap: 30px;
+}
+
+.tabs-3 .data .name-wrapper .input {
+    font-family: Geometria;
+    font-size: 36px;
+    font-weight: 700;
+    width: 100%;
+    border: none;    
+}
+
+.tabs-3 .data .input:focus {
+    outline: none;    
+}
+
+.tabs-3 .data .icon-edit {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs-3 .data .date-registered {
+    display: flex;
+    align-items: center;
+}
+
+.tabs-3 .data .date-registered span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 130%;
+
+    color: #757575;
+}
+
+
+.tabs-3 .data .email-wrapper {
+    margin-top: 23px;
+    display: grid;
+    grid-template-columns: 154px 32px auto auto;
+    grid-column-gap: 32px;
+
+    align-self: flex-start;
+    align-items: center;
+}
+
+.tabs-3 .data .phone-wrapper {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 154px 32px auto auto;
+    grid-column-gap: 32px;
+
+    align-self: flex-start;
+    align-items: center;
+}
+
+
+.tabs-3 .data .email-wrapper span,
+.tabs-3 .data .phone-wrapper span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+}
+
+.tabs-3 .data .email-wrapper .input,
+.tabs-3 .data .phone-wrapper .input {
+    width: 137px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #000000;
+    border: none;    
+}
+
+.tabs-3 .data .name-wrapper .input-border,
+.tabs-3 .data .email-wrapper .input-border,
+.tabs-3 .data .phone-wrapper .input-border {
+    border: 1px solid #0079C4;
+}
+
+/*******************************************/
+.tabs-3 .data .visibility-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-3 .data .visibility-wrapper .caption {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.tabs-3 .data .visibility-wrapper .options {
+    margin-top: 25px;
+    display:flex;
+    flex-direction: column; 
+    gap: 11px;
+}
+
+.tabs-3 .data .visibility-wrapper .options span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #202020;
+    line-height: 16px;
+}
+
+/***************************************************/
+
+.tabs-3 .data .white-list-wrapper {
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-3 .data .white-list-wrapper .caption {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.tabs-3 .data .white-list-wrapper .options {
+    margin-top: 25px;
+    display:flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.tabs-3 .data .white-list-wrapper .options span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #202020;
+    line-height: 24px;
+}
+
+/***************************************************/
+
+.tabs-3 .data .save-button {
+    margin-top: 32px;
+    height: 48px;
+    width: 218px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tabs-3 .data .save-button span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+/***************************************************/
+.tabs-3 .commands-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-3 .commands-wrapper .group {
+    margin-top: 79px;
+
+    width: 281px;
+    height: 104px;
+
+    background: #F5F0E2;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.tabs-3 .commands-wrapper .group .suspend-account {
+    margin-top: 31px;
+    margin-left: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tabs-3 .commands-wrapper .group .delete-account {
+    margin-left: 23px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+/* Приостановить действие аккаунта Удалить аккаунт */
+
+.tabs-3 .commands-wrapper .group  span  {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+
+    text-decoration-line: underline;
+    color: #000000;
+}
+
+.tabs-3 .commands-wrapper .password-change {
+    margin-top: 36px;
+    margin-left: 23px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tabs-3 .commands-wrapper .password-change span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+
+    text-decoration-line: underline;
+    color: #000000;
+}
+

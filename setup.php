@@ -16,7 +16,7 @@ function setupSchema($schemaID) {
     global $connection;
 
     $username="root";
-    $password="DellOptiplexGL5100";
+    $password="DellGL#5100";
 
     $server="localhost";
     
