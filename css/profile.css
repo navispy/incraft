@@ -50,6 +50,155 @@
 }
 
 /************************************/
+#tabs-1-wrapper {
+    min-height: 646px;
+    padding-top: 22px;
+}
+
+.tabs-1-wrapper .page-1 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 57px;
+    padding-left: 363px;
+    gap: 16px;
+}
+
+.tabs-1-wrapper .page-1 .span {
+    width: 463px;
+    height: 116px;
+
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 130%;
+
+    color: #000000;
+}
+
+.tabs-1-wrapper .page-1 .cmd-shop-create {
+    width: 167px;
+    height: 48px;
+
+    background: #0079C4;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tabs-1-wrapper .page-1 .cmd-shop-create .span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    width: auto;
+    height: auto;
+
+    color: white;
+}
+
+.tabs-1-wrapper .page-2 {
+    display: none;
+    flex-direction: column;
+}
+
+.tabs-1-wrapper .page-2 .shop-categories {
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-1-wrapper .page-2 .shop-categories .caption,
+.tabs-1-wrapper .page-2 .shop-name .caption {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.tabs-1-wrapper .page-2 .shop-categories .options {
+    margin-top: 25px;
+    display:flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.tabs-1-wrapper .page-2 .shop-categories .options span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #202020;
+    line-height: 24px;
+}
+
+.tabs-1-wrapper .page-2 .shop-name {
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.tabs-1-wrapper .page-2 .shop-name .input {
+    height: 46px;
+    width: 567px;
+    background: #F3F3F3;
+    border: none;
+    text-indent: 16px;
+}
+
+.tabs-1-wrapper .page-2 .shop-name .input:focus {
+    outline: none;
+}
+    
+.tabs-1-wrapper .page-2 .payment-wrapper {
+    display: grid;
+    grid-template-columns: 567px auto;
+    column-gap: 20px;
+}
+
+.tabs-1-wrapper .page-2 .payment-wrapper .methods,
+.tabs-1-wrapper .page-2 .payment-wrapper .credit-cards {
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tabs-1-wrapper .page-2 .payment-wrapper .caption {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.tabs-1-wrapper .page-2 .payment-wrapper .options {
+    margin-top: 25px;
+    display:flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.tabs-1-wrapper .page-2 .payment-wrapper .options span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #202020;
+    line-height: 24px;
+}
+
+
+/************************************/
 .tabs-3-wrapper {
     margin-top: 69px;
 }

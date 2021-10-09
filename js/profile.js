@@ -137,11 +137,64 @@ async function saveProfile() {
     showToast("Профиль обновлен");
 }
 
+function setupHandlers() {
+    $(".icon-edit").click(function () {
+        let control = $(this).data("control");
+        $(`.${control}`).attr("readonly", false);
+        $(`.${control}`).addClass("input-border");
+        $(`.${control}`).focus(); 
+     });
+ 
+     $(".tabs-3 .data .input").on("input", function () {
+         let field = $(this).data("field");
+         let newValue = $(this).val();
+         profile[field] = newValue;
+     });
+ 
+     $("input[name='visibility-option']").change(function(event) {
+         let field = $(this).data("field");
+         let newValue = $(this).val();
+         profile[field] = parseInt(newValue);
+     });
+ 
+     $(".rcv-msg").change(function () {
+         let field = $(this).data("field");
+         let newValue = $(this).prop("checked");
+         profile[field] = newValue;
+     });
+  
+     $(".cmd-account-status").click(function () {
+         let field = $(this).data("field");
+         let newValue = $(this).data("value");
+         profile[field] = newValue;
+ 
+         updateCmdAccountStatus(newValue);
+     });
+ 
+     $(".button-edit").click(function () { // select an avatar
+         $(".new-avatar").click();
+     });
+ 
+     $(".new-avatar").on("input", function () { //upload an avatar
+         updateAvatar(this);
+     });
+ 
+     $(".save-button").click(function () {
+         saveProfile();
+     });
+
+     $(".cmd-shop-create").click(function() {
+        $(".tabs-1-wrapper .page-1").css("display", "none");
+        $(".tabs-1-wrapper .page-2").css("display", "flex");
+     });
+}
+
 $(document).ready(function () {
 
     setupSignupHandlers();
     setupSigninHandlers();
     setupPasswordRestoreHandlers();
+    setupHandlers();
 
     let userID = restoreUser();
     //showProfile("hello");
@@ -151,50 +204,5 @@ $(document).ready(function () {
         active: 2,
         activate: function (event, ui) {
         }
-    });
-
-    $(".icon-edit").click(function () {
-       let control = $(this).data("control");
-       $(`.${control}`).attr("readonly", false);
-       $(`.${control}`).addClass("input-border");
-       $(`.${control}`).focus(); 
-    });
-
-    $(".tabs-3 .data .input").on("input", function () {
-        let field = $(this).data("field");
-        let newValue = $(this).val();
-        profile[field] = newValue;
-    });
-
-    $("input[name='visibility-option']").change(function(event) {
-        let field = $(this).data("field");
-        let newValue = $(this).val();
-        profile[field] = parseInt(newValue);
-    });
-
-    $(".rcv-msg").change(function () {
-        let field = $(this).data("field");
-        let newValue = $(this).prop("checked");
-        profile[field] = newValue;
-    });
- 
-    $(".cmd-account-status").click(function () {
-        let field = $(this).data("field");
-        let newValue = $(this).data("value");
-        profile[field] = newValue;
-
-        updateCmdAccountStatus(newValue);
-    });
-
-    $(".button-edit").click(function () { // select an avatar
-        $(".new-avatar").click();
-    });
-
-    $(".new-avatar").on("input", function () { //upload an avatar
-        updateAvatar(this);
-    });
-
-    $(".save-button").click(function () {
-        saveProfile();
     });
 });

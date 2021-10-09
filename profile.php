@@ -15,18 +15,18 @@
     <link rel="stylesheet" href="css/styles.css?version=9" type="text/css">
     <link rel="stylesheet" href="css/custom-checkbox.css?version=9" type="text/css">
     <link rel="stylesheet" href="css/custom-radio.css?version=9" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=12" type="text/css">
     <link rel="stylesheet" href="css/menu.css?version=9" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/profile.js?version=1m" type="text/javascript"></script>
-    <script src="js/signup.js?version=1m" type="text/javascript"></script>
-    <script src="js/login.js?version=1m" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=1m" type="text/javascript"></script>
-    <script src="js/password-change.js?version=1m" type="text/javascript"></script>
-    <script src="js/utils.js?version=1m" type="text/javascript"></script>
+    <script src="js/profile.js?version=1n" type="text/javascript"></script>
+    <script src="js/signup.js?version=1n" type="text/javascript"></script>
+    <script src="js/login.js?version=1n" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=1n" type="text/javascript"></script>
+    <script src="js/password-change.js?version=1n" type="text/javascript"></script>
+    <script src="js/utils.js?version=1n" type="text/javascript"></script>
 </head>
 
 <body>
@@ -55,12 +55,105 @@
 
             <div class="tabs">
                 <ul>
-                    <li><a href="#tabs-1">Управление магазинами</a></li>
+                    <li><a href="#tabs-1-wrapper">Управление магазинами</a></li>
                     <li><a href="#tabs-2-wrapper">История просмотров</a></li>
                     <li><a href="#tabs-3-wrapper">Профиль</a></li>
                 </ul>
 
-                <div id="tabs-1" class="tabs-1">
+                <div id="tabs-1-wrapper" class="tabs-1-wrapper">
+                    <div class="page-1">
+                        <span class="span">Работа с нашей платформой позволит Вам жить долго и счастливо, для этого давайте создадим магазин, это не сложно:</span>
+                        <div class="cmd-shop-create">
+                            <span class="span">Создать магазин</span>
+                        </div>
+                    </div>
+                    <div class="page-2">
+                        <div class="shop-categories">
+                            <span class="caption">К какой категории Вы относитесь:</span>
+                            <div class="options">
+                                <label class="container-radio">
+                                    <span>Самозанятый</span>
+                                    <input type="radio" name="category" value="0" data-field="Category"/>
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Ремесленник</span>
+                                    <input type="radio" name="category" value="1" data-field="Category"/>
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Индивидуальный предприниматель</span>
+                                    <input type="radio" name="category" value="2" data-field="Category"/>
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Юридическое лицо</span>
+                                    <input type="radio" name="category" value="3" data-field="Category"/>
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Прочее</span>
+                                     <input type="radio" name="category" value="4" data-field="Category"/>
+                                     <span class="checkmark-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="shop-name">
+                            <span class="caption">Название Вашего магазина</span>
+                            <input class="input input-shop-name" data-field="Name"></input>
+                        </div>
+
+                        <div class="payment-wrapper">
+                            <div class="methods">
+                                <span class="caption">Какими способами Вы можете принимать оплату</span>
+                                <div class="options">
+                                    <label class="container">
+                                        <span>Наличные</span>
+                                        <input class="payment payment-cash" type="checkbox" data-field="PaymentMethodCash"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>По банковской карте (только бесконтактные платежи)</span>
+                                        <input class="payment payment-card-contactless-only" type="checkbox" data-field="PaymentMethodCardContactless"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>По банковской карте (все платежи)</span>
+                                        <input class="payment payment-card-all" type="checkbox" data-field="PaymentMethodCardAll"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>По картам рассрочки</span>
+                                        <input class="payment payment-card-credit" type="checkbox" data-field="PaymentMethodCardCredit"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>Через ЕРИП</span>
+                                        <input class="payment payment-erip" type="checkbox" data-field="PaymentMethodERIP"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>Наложенный платеж</span>
+                                        <input class="payment payment-cash-on-delivery" type="checkbox" data-field="PaymentMethodCashOnDelivery"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                        <span>Прочее</span>
+                                        <input class="payment payment-other" type="checkbox" data-field="PaymentMethodOther"/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="credit-cards">
+                                <span class="caption">Какие карты рассрочки Вы можете принимать</span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
                 </div>
 
                 <div id="tabs-2-wrapper" class="tabs-2-wrapper">
