@@ -31,25 +31,25 @@
 
 <body>
     <div class="toast-wrapper">
-        <?php include 'toast-wrapper.php'; ?>
+        <?php include 'toast-wrapper.php';?>
     </div>
 
     <div class="login-wrapper">
-        <?php include 'login-wrapper.php'; ?>
+        <?php include 'login-wrapper.php';?>
     </div>
     <div class="signup-wrapper">
-        <?php include 'signup-wrapper.php'; ?>
+        <?php include 'signup-wrapper.php';?>
     </div>
     <div class="password-restore-wrapper">
-        <?php include 'password-restore-wrapper.php'; ?>
+        <?php include 'password-restore-wrapper.php';?>
     </div>
     <div class="password-change-wrapper">
-        <?php include 'password-change-wrapper.php'; ?>
+        <?php include 'password-change-wrapper.php';?>
     </div>
 
     <div class="wrapper">
-        <?php include 'header.php'; ?>
-        <?php include 'menu.php'; ?>
+        <?php include 'header.php';?>
+        <?php include 'menu.php';?>
 
         <div class="main">
 
@@ -147,11 +147,54 @@
                             </div>
                             <div class="credit-cards">
                                 <span class="caption">Какие карты рассрочки Вы можете принимать</span>
+
+                                <label class="container">
+                                    <span>Халва</span>
+                                    <input class="credit credit-1" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+
+                                <label class="container">
+                                    <span>Черепаха</span>
+                                    <input class="credit credit-2" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+
+                                <label class="container">
+                                    <span>Карта покупок</span>
+                                    <input class="credit credit-3" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    <span>Смарт-карта</span>
+                                    <input class="credit credit-4" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    <span>LeGard</span>
+                                    <input class="credit credit-5" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    <span>Магнит</span>
+                                    <input class="credit credit-6" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    <span>Карта Fun</span>
+                                    <input class="credit credit-7" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    <span>Прочее</span>
+                                    <input class="credit credit-8" type="checkbox" data-field="PaymentMethodCash"/>
+                                    <span class="checkmark"></span>
+                                </label>
+
+
                             </div>
 
                         </div>
-
-
                     </div>
 
                 </div>
@@ -159,7 +202,7 @@
                 <div id="tabs-2-wrapper" class="tabs-2-wrapper">
                 </div>
 
-                <div id="tabs-3-wrapper" class="tabs-3-wrapper">                
+                <div id="tabs-3-wrapper" class="tabs-3-wrapper">
                     <div id="tabs-3" class="tabs-3">
                         <input class="new-avatar" type="file" accept="image/*" data-field="Photo"/>
                         <div class="photo-wrapper">
@@ -176,7 +219,7 @@
                         </div>
 
                         <div class="data">
-                            
+
                             <div class="name-wrapper">
                                 <input class="input input-name" readonly data-field="Name"></input>
                                 <div class="icon-edit name-edit-btn" data-control="input-name">
@@ -189,7 +232,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            
+
                             <div class="date-registered">
                                 <span></span>
                             </div>
@@ -208,7 +251,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            
+
                             <div class="phone-wrapper">
                                 <span>Телефон</span>
                                 <div></div>
@@ -224,7 +267,7 @@
                                 </div>
 
                             </div>
-                            
+
                             <div class="visibility-wrapper">
                                 <span class="caption">Кому показывать контакты</span>
                                 <div class="options">
@@ -240,7 +283,7 @@
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div class="white-list-wrapper">
                                 <span class="caption">От кого получать письма</span>
                                 <div class="options">
@@ -300,18 +343,18 @@
                                 </svg>
                                 <span>Сменить пароль</span>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
 
             </div>
 
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include 'footer.php';?>
     </div>
 </body>
 
