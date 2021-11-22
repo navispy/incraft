@@ -160,7 +160,7 @@
     
 .tabs-1-wrapper .page-2 .payment-wrapper {
     display: grid;
-    grid-template-columns: 567px auto;
+    grid-template-columns: 567px 296px;
     column-gap: 20px;
 }
 
