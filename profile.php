@@ -196,6 +196,59 @@
                             </div>
 
                         </div>
+
+                        <div class="delivery">
+                            <span class="caption">Доставка. Укажите возможные варианты доставки товара до покупателя.</span>
+                            <div class="options">
+                                <label class="container-radio">
+                                    <span>Почтовым отправлением (Белпочта)</span>
+                                    <input type="radio" name="delivery" value="0" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Курьерской службой</span>
+                                    <input type="radio" name="delivery" value="1" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Доставка сотрудником магазина</span>
+                                    <input type="radio" name="delivery" value="2" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">
+                                    <span>Самовывоз по адресу</span>
+                                    <input type="radio" name="delivery" value="3" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+
+
+                                <label class="container-radio">
+                                    <span>Возможна передача через маршрутку/автобус </span>
+                                    <input type="radio" name="delivery" value="4" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+
+                                <label class="container-radio">
+                                    <span>Наложенный платеж </span>
+                                    <input type="radio" name="delivery" value="5" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+
+                                <label class="container-radio">
+                                    <span>Прочее </span>
+                                    <input type="radio" name="delivery" value="6" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+
+                                <label class="container-radio">
+                                    <span>Возможна отправка почтой за пределы Республики Беларусь </span>
+                                    <input type="radio" name="delivery" value="7" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
+                                </label>
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

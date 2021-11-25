@@ -106,14 +106,16 @@
     flex-direction: column;
 }
 
-.tabs-1-wrapper .page-2 .shop-categories {
+.tabs-1-wrapper .page-2 .shop-categories,
+.tabs-1-wrapper .page-2 .delivery {
     margin-top: 41px;
     display: flex;
     flex-direction: column;
 }
 
 .tabs-1-wrapper .page-2 .shop-categories .caption,
-.tabs-1-wrapper .page-2 .shop-name .caption {
+.tabs-1-wrapper .page-2 .shop-name .caption,
+.tabs-1-wrapper .page-2 .delivery .caption {
     font-family: Geometria;
     font-style: normal;
     font-weight: bold;
@@ -122,14 +124,16 @@
     color: #000000;
 }
 
-.tabs-1-wrapper .page-2 .shop-categories .options {
+.tabs-1-wrapper .page-2 .shop-categories .options,
+.tabs-1-wrapper .page-2 .delivery .options {
     margin-top: 25px;
     display:flex;
     flex-direction: column; 
     gap: 20px;
 }
 
-.tabs-1-wrapper .page-2 .shop-categories .options span {
+.tabs-1-wrapper .page-2 .shop-categories .options span,
+.tabs-1-wrapper .page-2 .delivery .options span {
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
