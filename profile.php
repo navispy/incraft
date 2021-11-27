@@ -71,30 +71,30 @@
                         <div class="shop-categories">
                             <span class="caption">К какой категории Вы относитесь:</span>
                             <div class="options">
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Самозанятый</span>
-                                    <input type="radio" name="category" value="0" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="category" value="0" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Ремесленник</span>
-                                    <input type="radio" name="category" value="1" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="category" value="1" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Индивидуальный предприниматель</span>
-                                    <input type="radio" name="category" value="2" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="category" value="2" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Юридическое лицо</span>
-                                    <input type="radio" name="category" value="3" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="category" value="3" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Прочее</span>
-                                    <input type="radio" name="category" value="4" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="category" value="4" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
@@ -200,53 +200,62 @@
                         <div class="delivery">
                             <span class="caption">Доставка. Укажите возможные варианты доставки товара до покупателя.</span>
                             <div class="options">
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Почтовым отправлением (Белпочта)</span>
-                                    <input type="radio" name="delivery" value="0" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="0" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Курьерской службой</span>
-                                    <input type="radio" name="delivery" value="1" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="1" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Доставка сотрудником магазина</span>
-                                    <input type="radio" name="delivery" value="2" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
-                                </label>
-                                <label class="container-radio">
-                                    <span>Самовывоз по адресу</span>
-                                    <input type="radio" name="delivery" value="3" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="2" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
 
+                                <div class="container-wrapper">
+                                    <label class="container">
+                                        <span>Самовывоз по адресу</span>
+                                        <input type="checkbox" name="delivery" value="3" data-field="Category" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div class="pickup">
+                                        <input class="input input-pickup-address" data-field="Name" placeholder="Введите адрес самовывоза"></input>
+                                    </div>
+                                </div>
 
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Возможна передача через маршрутку/автобус </span>
-                                    <input type="radio" name="delivery" value="4" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="4" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
 
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Наложенный платеж </span>
-                                    <input type="radio" name="delivery" value="5" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="5" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
 
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Прочее </span>
-                                    <input type="radio" name="delivery" value="6" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="6" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
 
-                                <label class="container-radio">
+                                <label class="container">
                                     <span>Возможна отправка почтой за пределы Республики Беларусь </span>
-                                    <input type="radio" name="delivery" value="7" data-field="Category" />
-                                    <span class="checkmark-radio"></span>
+                                    <input type="checkbox" name="delivery" value="7" data-field="Category" />
+                                    <span class="checkmark"></span>
                                 </label>
 
                             </div>
+                        </div>
+
+                        <div class="save-button">
+                            <span>Сохранить и создать</span>
                         </div>
 
                     </div>

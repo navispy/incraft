@@ -149,8 +149,13 @@
     gap: 16px;
 }
 
+.tabs-1-wrapper .page-2 .pickup {
+    margin-top: 8px;
+}
 
-.tabs-1-wrapper .page-2 .shop-name .input {
+
+.tabs-1-wrapper .page-2 .shop-name .input,
+.tabs-1-wrapper .page-2 .pickup .input {
     height: 46px;
     width: 567px;
     background: #F3F3F3;
@@ -158,7 +163,8 @@
     text-indent: 16px;
 }
 
-.tabs-1-wrapper .page-2 .shop-name .input:focus {
+.tabs-1-wrapper .page-2 .shop-name .input:focus,
+.tabs-1-wrapper .page-2 .pickup .input:focus {
     outline: none;
 }
     
@@ -412,7 +418,7 @@
 
 /***************************************************/
 
-.tabs-3 .data .save-button {
+/*.tabs-3 .data */.save-button {
     margin-top: 32px;
     height: 48px;
     width: 218px;
@@ -423,7 +429,11 @@
     cursor: pointer;
 }
 
-.tabs-3 .data .save-button span {
+.tabs-1-wrapper .save-button {
+    width: 198px;
+}
+
+/*.tabs-3 .data */.save-button span {
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
@@ -499,3 +509,7 @@
     color: #000000;
 }
 
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+}
