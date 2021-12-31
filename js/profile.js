@@ -2,6 +2,7 @@ const ACCOUNT_ACTIVE = 0;
 const ACCOUNT_SUSPENDED = 1;
 
 var profile;
+var shop = {};
 
 function updateCmdAccountStatus(status) {
     let accountCmdText = "";
@@ -22,7 +23,6 @@ function updateCmdAccountStatus(status) {
     $(".cmd-account-status.suspend-account span").html(accountCmdText);
     $(".cmd-account-status").data("value", statusNext);
     console.log(accountCmdText);
-
 }
 
 async function getUserProfile(userID) {
@@ -106,6 +106,43 @@ async function updateAvatar(obj) {
     $(".photo").attr("src", photo);
 }
 
+async function createShop() {
+
+    showToast("Магазин создан");
+
+    return;
+
+    var params = {
+        profile: JSON.stringify(profile),
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_profile_update.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        showToast(data.message);
+        throw new Error(data.message);
+    }
+
+    //revert back input controls to read only state
+    $(".icon-edit").each(function () {
+        let control = $(this).data("control");
+        $(`.${control}`).attr("readonly", true);
+        $(`.${control}`).removeClass("input-border");
+    });
+
+    showToast("Профиль обновлен");
+}
+
+
 async function saveProfile() {
     var params = {
         profile: JSON.stringify(profile),
@@ -179,17 +216,36 @@ function setupHandlers() {
         updateAvatar(this);
     });
 
-    $(".tabs-1-wrapper .save-button").click(function () {
-        alert("Create a shop!");
-    });
-
     $(".tabs-3 .save-button").click(function () {
         saveProfile();
+    });
+
+    // create a shop handlers
+    $(".tabs-1-wrapper .save-button").click(function () {
+        createShop();
     });
 
     $(".cmd-shop-create").click(function () {
         $(".tabs-1-wrapper .page-1").css("display", "none");
         $(".tabs-1-wrapper .page-2").css("display", "flex");
+    });
+
+    $(".tabs-1-wrapper .page-2 .input").on("input", function () {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        shop[field] = newValue;
+    });
+
+    $("input[name='category']").change(function (event) {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        shop[field] = parseInt(newValue);
+    });
+
+    $(".shop-data").change(function () {
+        let field = $(this).data("field");
+        let newValue = $(this).prop("checked");
+        shop[field] = newValue;
     });
 }
 

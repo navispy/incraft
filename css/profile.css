@@ -132,7 +132,15 @@
     gap: 20px;
 }
 
-.tabs-1-wrapper .page-2 .shop-categories .options span,
+.tabs-1-wrapper .page-2 .shop-categories .options span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #202020;
+    line-height: 16px;
+}
+
 .tabs-1-wrapper .page-2 .delivery .options span {
     font-family: Geometria;
     font-style: normal;

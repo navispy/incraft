@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css?version=9" type="text/css">
     <link rel="stylesheet" href="css/custom-checkbox.css?version=9" type="text/css">
     <link rel="stylesheet" href="css/custom-radio.css?version=9" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=13" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=14" type="text/css">
     <link rel="stylesheet" href="css/menu.css?version=9" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
@@ -71,30 +71,30 @@
                         <div class="shop-categories">
                             <span class="caption">К какой категории Вы относитесь:</span>
                             <div class="options">
-                                <label class="container">
+                                <label class="container-radio">
                                     <span>Самозанятый</span>
-                                    <input type="checkbox" name="category" value="0" data-field="Category" />
-                                    <span class="checkmark"></span>
+                                    <input type="radio" name="category" value="0" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
                                 </label>
-                                <label class="container">
+                                <label class="container-radio">
                                     <span>Ремесленник</span>
-                                    <input type="checkbox" name="category" value="1" data-field="Category" />
-                                    <span class="checkmark"></span>
+                                    <input type="radio" name="category" value="1" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
                                 </label>
-                                <label class="container">
+                                <label class="container-radio">
                                     <span>Индивидуальный предприниматель</span>
-                                    <input type="checkbox" name="category" value="2" data-field="Category" />
-                                    <span class="checkmark"></span>
+                                    <input type="radio" name="category" value="2" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
                                 </label>
-                                <label class="container">
+                                <label class="container-radio">
                                     <span>Юридическое лицо</span>
-                                    <input type="checkbox" name="category" value="3" data-field="Category" />
-                                    <span class="checkmark"></span>
+                                    <input type="radio" name="category" value="3" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
                                 </label>
-                                <label class="container">
+                                <label class="container-radio">
                                     <span>Прочее</span>
-                                    <input type="checkbox" name="category" value="4" data-field="Category" />
-                                    <span class="checkmark"></span>
+                                    <input type="radio" name="category" value="4" data-field="Category" />
+                                    <span class="checkmark-radio"></span>
                                 </label>
                             </div>
                         </div>
@@ -110,37 +110,37 @@
                                 <div class="options">
                                     <label class="container">
                                         <span>Наличные</span>
-                                        <input class="payment payment-cash" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data payment method-1" type="checkbox" data-field="PaymentMethod_01" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>По банковской карте (только бесконтактные платежи)</span>
-                                        <input class="payment payment-card-contactless-only" type="checkbox" data-field="PaymentMethodCardContactless" />
+                                        <input class="shop-data payment method-2" type="checkbox" data-field="PaymentMethod_02" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>По банковской карте (все платежи)</span>
-                                        <input class="payment payment-card-all" type="checkbox" data-field="PaymentMethodCardAll" />
+                                        <input class="shop-data payment method-3" type="checkbox" data-field="PaymentMethod_03" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>По картам рассрочки</span>
-                                        <input class="payment payment-card-credit" type="checkbox" data-field="PaymentMethodCardCredit" />
+                                        <input class="shop-data payment method-4" type="checkbox" data-field="PaymentMethod_04" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Через ЕРИП</span>
-                                        <input class="payment payment-erip" type="checkbox" data-field="PaymentMethodERIP" />
+                                        <input class="shop-data payment method-5" type="checkbox" data-field="PaymentMethod_05" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Наложенный платеж</span>
-                                        <input class="payment payment-cash-on-delivery" type="checkbox" data-field="PaymentMethodCashOnDelivery" />
+                                        <input class="shop-data payment method-6" type="checkbox" data-field="PaymentMethod_06" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Прочее</span>
-                                        <input class="payment payment-other" type="checkbox" data-field="PaymentMethodOther" />
+                                        <input class="shop-data payment method-7" type="checkbox" data-field="PaymentMethod_07" />
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -151,44 +151,44 @@
                                 <div class="options">
                                     <label class="container">
                                         <span>Халва</span>
-                                        <input class="credit credit-1" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-1" type="checkbox" data-field="InstallmentCard_01" />
                                         <span class="checkmark"></span>
                                     </label>
 
                                     <label class="container">
                                         <span>Черепаха</span>
-                                        <input class="credit credit-2" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-2" type="checkbox" data-field="InstallmentCard_02" />
                                         <span class="checkmark"></span>
                                     </label>
 
                                     <label class="container">
                                         <span>Карта покупок</span>
-                                        <input class="credit credit-3" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-3" type="checkbox" data-field="InstallmentCard_03" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Смарт-карта</span>
-                                        <input class="credit credit-4" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-4" type="checkbox" data-field="InstallmentCard_04" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>LeGard</span>
-                                        <input class="credit credit-5" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-5" type="checkbox" data-field="InstallmentCard_05" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Магнит</span>
-                                        <input class="credit credit-6" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-6" type="checkbox" data-field="InstallmentCard_06" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Карта Fun</span>
-                                        <input class="credit credit-7" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-7" type="checkbox" data-field="InstallmentCard_07" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">
                                         <span>Прочее</span>
-                                        <input class="credit credit-8" type="checkbox" data-field="PaymentMethodCash" />
+                                        <input class="shop-data installment card-8" type="checkbox" data-field="InstallmentCard_08" />
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -202,52 +202,52 @@
                             <div class="options">
                                 <label class="container">
                                     <span>Почтовым отправлением (Белпочта)</span>
-                                    <input type="checkbox" name="delivery" value="0" data-field="Category" />
+                                    <input class="shop-data delivery option-1" type="checkbox" data-field="DeliveryOption_01" />
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container">
                                     <span>Курьерской службой</span>
-                                    <input type="checkbox" name="delivery" value="1" data-field="Category" />
+                                    <input class="shop-data delivery option-2" type="checkbox" data-field="DeliveryOption_02" />
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container">
                                     <span>Доставка сотрудником магазина</span>
-                                    <input type="checkbox" name="delivery" value="2" data-field="Category" />
+                                    <input class="shop-data delivery option-3" type="checkbox" data-field="DeliveryOption_03" />
                                     <span class="checkmark"></span>
                                 </label>
 
                                 <div class="container-wrapper">
                                     <label class="container">
                                         <span>Самовывоз по адресу</span>
-                                        <input type="checkbox" name="delivery" value="3" data-field="Category" />
+                                        <input class="shop-data delivery option-4" type="checkbox" data-field="DeliveryOption_04" />
                                         <span class="checkmark"></span>
                                     </label>
                                     <div class="pickup">
-                                        <input class="input input-pickup-address" data-field="Name" placeholder="Введите адрес самовывоза"></input>
+                                        <input class="input input-pickup-address" data-field="DeliveryOption_04_Address" placeholder="Введите адрес самовывоза"></input>
                                     </div>
                                 </div>
 
                                 <label class="container">
-                                    <span>Возможна передача через маршрутку/автобус </span>
-                                    <input type="checkbox" name="delivery" value="4" data-field="Category" />
+                                    <span>Возможна передача через маршрутное такси/автобус </span>
+                                    <input class="shop-data delivery option-5" type="checkbox" data-field="DeliveryOption_05" />
                                     <span class="checkmark"></span>
                                 </label>
 
                                 <label class="container">
                                     <span>Наложенный платеж </span>
-                                    <input type="checkbox" name="delivery" value="5" data-field="Category" />
+                                    <input class="shop-data delivery option-6" type="checkbox" data-field="DeliveryOption_06" />
                                     <span class="checkmark"></span>
                                 </label>
 
                                 <label class="container">
                                     <span>Прочее </span>
-                                    <input type="checkbox" name="delivery" value="6" data-field="Category" />
+                                    <input class="shop-data delivery option-7" type="checkbox" data-field="DeliveryOption_07" />
                                     <span class="checkmark"></span>
                                 </label>
 
                                 <label class="container">
                                     <span>Возможна отправка почтой за пределы Республики Беларусь </span>
-                                    <input type="checkbox" name="delivery" value="7" data-field="Category" />
+                                    <input class="shop-data delivery option-8" type="checkbox" data-field="DeliveryOption_08" />
                                     <span class="checkmark"></span>
                                 </label>
 
