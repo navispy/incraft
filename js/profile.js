@@ -106,7 +106,7 @@ async function updateAvatar(obj) {
     $(".photo").attr("src", photo);
 }
 
-async function createShop() {
+async function saveShop() {
 
     showToast("Магазин создан");
 
@@ -174,7 +174,13 @@ async function saveProfile() {
     showToast("Профиль обновлен");
 }
 
+function editShop(shop) {
+    $(".tabs-1-wrapper .page-1").css("display", "none");
+    $(".tabs-1-wrapper .page-2").css("display", "flex");
+}
+
 function setupHandlers() {
+
     $(".icon-edit").click(function () {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", false);
@@ -222,12 +228,11 @@ function setupHandlers() {
 
     // create a shop handlers
     $(".tabs-1-wrapper .save-button").click(function () {
-        createShop();
+        saveShop();
     });
 
     $(".cmd-shop-create").click(function () {
-        $(".tabs-1-wrapper .page-1").css("display", "none");
-        $(".tabs-1-wrapper .page-2").css("display", "flex");
+        editShop({});
     });
 
     $(".tabs-1-wrapper .page-2 .input").on("input", function () {
