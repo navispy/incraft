@@ -337,7 +337,7 @@ class User
   
     }
 
-    public function delete(int $id)
+    public function delete(int $ID)
     {
 
     }

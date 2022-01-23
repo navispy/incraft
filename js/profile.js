@@ -1,7 +1,8 @@
 const ACCOUNT_ACTIVE = 0;
 const ACCOUNT_SUSPENDED = 1;
 
-var profile;
+var userID;
+var profile = {};
 var shop = {};
 
 function updateCmdAccountStatus(status) {
@@ -13,7 +14,7 @@ function updateCmdAccountStatus(status) {
             statusNext = ACCOUNT_ACTIVE;
             break;
         case ACCOUNT_ACTIVE:
-            accountCmdText = "Приостановит действие аккаунта";
+            accountCmdText = "Приостановить действие аккаунта";
             statusNext = ACCOUNT_SUSPENDED;
             break;
         default:
@@ -108,16 +109,12 @@ async function updateAvatar(obj) {
 
 async function saveShop() {
 
-    showToast("Магазин создан");
-
-    return;
-
     var params = {
-        profile: JSON.stringify(profile),
+        shop: JSON.stringify(shop),
         schemaID: "incraft"
     }
 
-    let response = await fetch(`post_json_profile_update.php`, {
+    let response = await fetch(`post_json_shop_create.php`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -132,14 +129,7 @@ async function saveShop() {
         throw new Error(data.message);
     }
 
-    //revert back input controls to read only state
-    $(".icon-edit").each(function () {
-        let control = $(this).data("control");
-        $(`.${control}`).attr("readonly", true);
-        $(`.${control}`).removeClass("input-border");
-    });
-
-    showToast("Профиль обновлен");
+    showToast("Магазин создан");
 }
 
 
@@ -232,7 +222,8 @@ function setupHandlers() {
     });
 
     $(".cmd-shop-create").click(function () {
-        editShop({});
+        shop = {UserID : userID};
+        editShop(shop);
     });
 
     $(".tabs-1-wrapper .page-2 .input").on("input", function () {
@@ -261,7 +252,7 @@ $(document).ready(function () {
     setupPasswordRestoreHandlers();
     setupHandlers();
 
-    let userID = restoreUser();
+    userID = restoreUser();
     //showProfile("hello");
     showProfile(userID);
 

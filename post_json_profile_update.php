@@ -13,19 +13,15 @@ $userID = $profile["ID"];
 $userName = $profile["Name"];
 $userEmail = $profile["Email"];
 
-if(USER::hasDupUserName($connection, $userID, $userName))
-{
+if (User::hasDupUserName($connection, $userID, $userName)) {
     http_response_code(404);
     echo json_encode(["message" => "Пользователь с такми именем уже существует!"]);
-} else if(USER::hasDupUserEmail($connection, $userID, $userEmail))
-{
+} else if (User::hasDupUserEmail($connection, $userID, $userEmail)) {
     http_response_code(404);
     echo json_encode(["message" => "Пользователь с такми  email уже существует!"]);
-} else 
-{ 
+} else {
     $user = new User($connection, $userID);
     $user->update($profile);
-    
+
     echo json_encode(["status" => "ok"]);
 }
-

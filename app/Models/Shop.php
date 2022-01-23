@@ -1,14 +1,10 @@
-<?php 
+<?php
 //namespace App\Models;
 
 require_once "./setup.php";
 
 class Shop
 {
-    public const ACCOUNT_ACTIVE = 0;
-    public const ACCOUNT_SUSPENDED = 1;
-    public const ACCOUNT_DELETED = 2;
-
     protected $connection;
 
     protected $ID;
@@ -39,9 +35,9 @@ class Shop
     protected $deliveryOption_06;
     protected $deliveryOption_07;
     protected $deliveryOption_08;
-    
+
     //constructor
-    function __construct($connection) 
+    function __construct($connection)
     {
         $this->setConnection($connection);
 
@@ -50,16 +46,18 @@ class Shop
         if (method_exists($this, $f = '__construct' . $i)) {
             call_user_func_array(array($this, $f), $a);
         }
-
     }
 
-    function __construct2($connection, $ID) 
+    function __construct1($connection)
+    {
+    }
+
+    function __construct2($connection, $ID)
     {
         $this->read($ID);
     }
 
-
-    public static function doesExist($ID, $connection) 
+    public static function doesExist($ID, $connection)
     {
         $query = "SELECT * FROM __catalog45 WHERE ID=$ID";
 
@@ -77,56 +75,102 @@ class Shop
             or die(mysqli_error($connection));
 
         $hasDupUserName = false;
-        if ($row = mysqli_fetch_array($result)) 
-        {
+        if ($row = mysqli_fetch_array($result)) {
             $hasDupShopName = true;
         }
-    
+
         return $hasDupShopName;
     }
 
     public function __toString()
     {
-        $obj = [];
-        $obj["ID"] = $this->ID;
-        $obj["UserID"] = $this->userID;
-        $obj["Name"] = $this->name;
-        $obj["Category"] = $this->category;
-
-        $obj["PaymentMethod_01"] = $this->paymentMethod_01;
-        $obj["PaymentMethod_02"] = $this->paymentMethod_02;
-        $obj["PaymentMethod_03"] = $this->paymentMethod_03;
-        $obj["PaymentMethod_04"] = $this->paymentMethod_04;
-        $obj["PaymentMethod_05"] = $this->paymentMethod_05;
-        $obj["PaymentMethod_06"] = $this->paymentMethod_06;
-        $obj["PaymentMethod_07"] = $this->paymentMethod_07;
-
-        $obj["InstallmentCard_01"] = $this->installmentCard_01;
-        $obj["InstallmentCard_02"] = $this->installmentCard_02;
-        $obj["InstallmentCard_03"] = $this->installmentCard_03;
-        $obj["InstallmentCard_04"] = $this->installmentCard_04;
-        $obj["InstallmentCard_05"] = $this->installmentCard_05;
-        $obj["InstallmentCard_06"] = $this->installmentCard_06;
-        $obj["InstallmentCard_07"] = $this->installmentCard_07;
-        $obj["InstallmentCard_08"] = $this->installmentCard_08;
-
-        $obj["DeliveryOption_01"] = $this->deliveryOption_01;
-        $obj["DeliveryOption_02"] = $this->deliveryOption_02;
-        $obj["DeliveryOption_03"] = $this->deliveryOption_03;
-        $obj["DeliveryOption_04"] = $this->deliveryOption_04;
-        $obj["DeliveryOption_04_Address"] = $this->deliveryOption_04_address;
-        $obj["DeliveryOption_05"] = $this->deliveryOption_05;
-        $obj["DeliveryOption_06"] = $this->deliveryOption_06;
-        $obj["DeliveryOption_07"] = $this->deliveryOption_07;
-        $obj["DeliveryOption_08"] = $this->deliveryOption_08;
-
-
-        return json_encode($obj, true);
+        return json_encode($this, true);
     }
 
-    // GET METHODS
-    public function getConnection() {
+    // CRUD OPERATIONS
+    public function create(array $data)
+    {
+        $delim1 = "";
+        $delim2 = "";
+        $fields = "";
+        $values = "";
+        
+        foreach($data as $key => $value) {
+            $fields .= $delim1 . "`$key`";
+            $delim1 = ",";
+
+            $values .= $delim2 . "'$value'";
+            $delim2 = ",";
+        }
+        
+        $query = "INSERT INTO __catalog45 ($fields) VALUES ($values)";
+        logMessage("log/shop-create-001.txt", $query);
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+    }
+
+    public function read(int $ID)
+    {
+        $query = "SELECT * FROM __catalog45 WHERE ID=$ID";
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+
+        if ($row = mysqli_fetch_array($result)) {
+
+            foreach ($row as $key => $value) {
+                $fixedKey = lcfirst($key);
+                $this[$fixedKey] = $value;
+            }
+        }
+
+        return $this;
+    }
+
+    public function update(array $data)
+    {
+        $shopID = $this->getID();
+
+        $query = "UPDATE __catalog45 
+        SET";
+
+        $delim = "";
+        foreach ($data as $field => $value) {
+            if ($field === "ID") {
+                continue;
+            }
+            $query .= "$delim `$field`='$value'";
+            $delim = " ,";
+        }
+
+        $query .= " WHERE ID=$shopID";
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+    }
+
+    public static function delete($connection, int $ID)
+    {
+        $query = "DELETE FROM `__catalog45`
+        WHERE ID=$ID";
+
+        $result = mysqli_query($connection, $query)
+            or die(mysqli_error($connection));
+    }
+
+
+    //setters / getters
+    public function getConnection()
+    {
         return $this->connection;
+    }
+
+    public function setConnection($connection)
+    {
+        $this->connection = $connection;
+
+        return $this;
     }
 
     public function getID()
@@ -134,209 +178,280 @@ class Shop
         return $this->ID;
     }
 
+    public function setID($ID)
+    {
+        $this->ID = $ID;
+    }
+
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    public function setUserID($userID)
+    {
+        $this->userID = $userID;
+    }
+
     public function getName()
     {
         return $this->name;
     }
 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function getDateRegistered()
-    {
-        return $this->dateRegistered;
-    }
-
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    public function getVisibility()
-    {
-        return $this->visibility;
-    }
-
-    public function getReceiveMsgFromVisitors()
-    {
-        return $this->receiveMsgFromVisitors;
-    }
-
-    public function getReceiveMsgFromSystem()
-    {
-        return $this->receiveMsgFromSystem;
-    }
-
-    public function getReceiveMsgFromFavouriteShops()
-    {
-        return $this->receiveMsgFromFavouriteShops;
-    }
-
-    public function getReceiveNewOrderNotifications()
-    {
-        return $this->receiveNewOrderNotifications;
-    }
-
-    public function getAccountStatus()
-    {
-        return $this->accountStatus;
-    }
-
-    // SET METHODS
-
-    public function setConnection($connection) {
-        $this->connection = $connection;
-    }
-
-    public function setID(int $ID) 
-    {
-        $this->ID = $ID;
-    }
-
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
 
-    public function setEmail(string $email)
+    public function getCategory()
     {
-        $this->email = $email;
+        return $this->category;
     }
 
-    public function setPhone(string $phone)
+    public function setCategory($category)
     {
-        $this->phone = $phone;
+        $this->category = $category;
     }
 
-    public function setPassword(string $password)
+    public function getPaymentMethod_01()
     {
-        $this->password = $password;
+        return $this->paymentMethod_01;
     }
 
-    public function setDateRegistered(string $dateRegistered)
+    public function setPaymentMethod_01($paymentMethod_01)
     {
-        $this->dateRegistered = $dateRegistered;
+        $this->paymentMethod_01 = $paymentMethod_01;
     }
 
-    public function setPhoto(string $photo)
+    public function getPaymentMethod_02()
     {
-        $this->photo = $photo;
+        return $this->paymentMethod_02;
     }
 
-    public function setVisibility(int $visibility)
+    public function setPaymentMethod_02($paymentMethod_02)
     {
-        $this->visibility = $visibility;
+        $this->paymentMethod_02 = $paymentMethod_02;
     }
 
-    public function setReceiveMsgFromVisitors(bool $receiveMsgFromVisitors)
+    public function getPaymentMethod_03()
     {
-        $this->receiveMsgFromVisitors = $receiveMsgFromVisitors;
+        return $this->paymentMethod_03;
     }
 
-    public function setReceiveMsgFromSystem(bool $receiveMsgFromSystem)
+    public function setPaymentMethod_03($paymentMethod_03)
     {
-        $this->receiveMsgFromSystem = $receiveMsgFromSystem;
-    }
+        $this->paymentMethod_03 = $paymentMethod_03;
 
-    public function setReceiveMsgFromFavouriteShops(bool $receiveMsgFromFavouriteShops)
-    {
-        $this->receiveMsgFromFavouriteShops = $receiveMsgFromFavouriteShops;
-    }
-
-    public function setReceiveNewOrderNotifications(bool $receiveNewOrderNotifications)
-    {
-        $this->receiveNewOrderNotifications = $receiveNewOrderNotifications;
-    }
-
-    public function setAccountStatus(int $accountStatus)
-    {
-        $this->accountStatus = $accountStatus;
-    }
-
-    // CRUD OPERATIONS
-    public function create(array $data)
-    {
-
-    }
-
-    public function read(int $ID)
-    {
-        $query = "SELECT * FROM __catalog43 WHERE ID=$ID";
-
-        $result = mysqli_query($this->connection, $query)
-            or die(mysqli_error($this->connection));
-
-        if ($row = mysqli_fetch_array($result)) {
-            $ID = $row["ID"];
-            $name = $row["Name"];
-            $email = $row["Email"];
-            $phone = $row["Phone"];
-            $password = $row["Password"];
-            $dateRegistered = $row["DateRegistered"];
-            $photo = $row["Photo"];
-            $visibility = $row["Visibility"];
-            $receiveMsgFromVisitors = $row["ReceiveMsgFromVisitors"];
-            $receiveMsgFromSystem = $row["ReceiveMsgFromSystem"];
-            $receiveMsgFromFavouriteShops = $row["ReceiveMsgFromFavouriteShops"];
-            $receiveNewOrderNotifications = $row["ReceiveNewOrderNotifications"];
-            $accountStatus= $row["AccountStatus"];
-
-            
-            $this->setID($ID);
-            $this->setName($name);
-            $this->setEmail($email);
-            $this->setPhone($phone);
-            $this->setPassword($password);
-            $this->setDateRegistered($dateRegistered);
-            $this->setPhoto($photo);
-            $this->setVisibility($visibility);
-            $this->setReceiveMsgFromVisitors($receiveMsgFromVisitors);
-            $this->setReceiveMsgFromSystem($receiveMsgFromSystem);
-            $this->setReceiveMsgFromFavouriteShops($receiveMsgFromFavouriteShops);
-            $this->setReceiveNewOrderNotifications($receiveNewOrderNotifications);
-            $this->setAccountStatus($accountStatus);
-        }
-        
         return $this;
     }
 
-    public function update(array $data)
+    public function getPaymentMethod_04()
     {
-        $userID = $this->getID();
-        $query = "UPDATE __catalog43 
-        SET";
-
-        $delim = "";
-        foreach($data as $field => $value) 
-        {
-            if($field === "ID") {
-                continue;
-            }
-            $query .= "$delim `$field`='$value'";
-            $delim = " ,";
-        }
-
-        $query .= " WHERE ID=$userID";
-
-        $result = mysqli_query($this->connection, $query)
-            or die(mysqli_error($this->connection));
-  
+        return $this->paymentMethod_04;
     }
 
-    public function delete(int $id)
+    public function setPaymentMethod_04($paymentMethod_04)
     {
+        $this->paymentMethod_04 = $paymentMethod_04;
+    }
 
+    public function getPaymentMethod_05()
+    {
+        return $this->paymentMethod_05;
+    }
+
+    public function setPaymentMethod_05($paymentMethod_05)
+    {
+        $this->paymentMethod_05 = $paymentMethod_05;
+    }
+
+    public function getPaymentMethod_06()
+    {
+        return $this->paymentMethod_06;
+    }
+
+    public function setPaymentMethod_06($paymentMethod_06)
+    {
+        $this->paymentMethod_06 = $paymentMethod_06;
+    }
+
+    public function getPaymentMethod_07()
+    {
+        return $this->paymentMethod_07;
+    }
+
+    public function setPaymentMethod_07($paymentMethod_07)
+    {
+        $this->paymentMethod_07 = $paymentMethod_07;
+    }
+
+    public function getInstallmentCard_01()
+    {
+        return $this->installmentCard_01;
+    }
+
+    public function setInstallmentCard_01($installmentCard_01)
+    {
+        $this->installmentCard_01 = $installmentCard_01;
+    }
+
+    public function getInstallmentCard_02()
+    {
+        return $this->installmentCard_02;
+    }
+
+    public function setInstallmentCard_02($installmentCard_02)
+    {
+        $this->installmentCard_02 = $installmentCard_02;
+    }
+
+    public function getInstallmentCard_03()
+    {
+        return $this->installmentCard_03;
+    }
+
+    public function setInstallmentCard_03($installmentCard_03)
+    {
+        $this->installmentCard_03 = $installmentCard_03;
+    }
+
+    public function getInstallmentCard_04()
+    {
+        return $this->installmentCard_04;
+    }
+
+    public function setInstallmentCard_04($installmentCard_04)
+    {
+        $this->installmentCard_04 = $installmentCard_04;
+    }
+
+    public function getInstallmentCard_05()
+    {
+        return $this->installmentCard_05;
+    }
+
+    public function setInstallmentCard_05($installmentCard_05)
+    {
+        $this->installmentCard_05 = $installmentCard_05;
+    }
+
+    public function getInstallmentCard_06()
+    {
+        return $this->installmentCard_06;
+    }
+
+    public function setInstallmentCard_06($installmentCard_06)
+    {
+        $this->installmentCard_06 = $installmentCard_06;
+    }
+
+    public function getInstallmentCard_07()
+    {
+        return $this->installmentCard_07;
+    }
+
+    public function setInstallmentCard_07($installmentCard_07)
+    {
+        $this->installmentCard_07 = $installmentCard_07;
+    }
+
+    public function getInstallmentCard_08()
+    {
+        return $this->installmentCard_08;
+    }
+
+    public function setInstallmentCard_08($installmentCard_08)
+    {
+        $this->installmentCard_08 = $installmentCard_08;
+    }
+
+    public function getDeliveryOption_01()
+    {
+        return $this->deliveryOption_01;
+    }
+
+    public function setDeliveryOption_01($deliveryOption_01)
+    {
+        $this->deliveryOption_01 = $deliveryOption_01;
+    }
+
+    public function getDeliveryOption_02()
+    {
+        return $this->deliveryOption_02;
+    }
+
+    public function setDeliveryOption_02($deliveryOption_02)
+    {
+        $this->deliveryOption_02 = $deliveryOption_02;
+    }
+
+    public function getDeliveryOption_03()
+    {
+        return $this->deliveryOption_03;
+    }
+
+    public function setDeliveryOption_03($deliveryOption_03)
+    {
+        $this->deliveryOption_03 = $deliveryOption_03;
+    }
+
+    public function getDeliveryOption_04()
+    {
+        return $this->deliveryOption_04;
+    }
+
+    public function setDeliveryOption_04($deliveryOption_04)
+    {
+        $this->deliveryOption_04 = $deliveryOption_04;
+    }
+
+    public function getDeliveryOption_04_address()
+    {
+        return $this->deliveryOption_04_address;
+    }
+
+    public function setDeliveryOption_04_address($deliveryOption_04_address)
+    {
+        $this->deliveryOption_04_address = $deliveryOption_04_address;
+    }
+
+    public function getDeliveryOption_05()
+    {
+        return $this->deliveryOption_05;
+    }
+
+    public function setDeliveryOption_05($deliveryOption_05)
+    {
+        $this->deliveryOption_05 = $deliveryOption_05;
+    }
+
+    public function getDeliveryOption_06()
+    {
+        return $this->deliveryOption_06;
+    }
+
+    public function setDeliveryOption_06($deliveryOption_06)
+    {
+        $this->deliveryOption_06 = $deliveryOption_06;
+    }
+
+    public function getDeliveryOption_07()
+    {
+        return $this->deliveryOption_07;
+    }
+
+    public function setDeliveryOption_07($deliveryOption_07)
+    {
+        $this->deliveryOption_07 = $deliveryOption_07;
+    }
+
+    public function getDeliveryOption_08()
+    {
+        return $this->deliveryOption_08;
+    }
+
+    public function setDeliveryOption_08($deliveryOption_08)
+    {
+        $this->deliveryOption_08 = $deliveryOption_08;
     }
 }
