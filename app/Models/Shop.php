@@ -37,7 +37,7 @@ class Shop
     protected $deliveryOption_08;
 
     //constructor
-    function __construct($connection)
+    public function __construct($connection)
     {
         $this->setConnection($connection);
 
@@ -48,11 +48,11 @@ class Shop
         }
     }
 
-    function __construct1($connection)
+    public function __construct1($connection)
     {
     }
 
-    function __construct2($connection, $ID)
+    public function __construct2($connection, $ID)
     {
         $this->read($ID);
     }
@@ -62,7 +62,7 @@ class Shop
         $query = "SELECT * FROM __catalog45 WHERE ID=$ID";
 
         $result = mysqli_query($connection, $query)
-            or die(mysqli_error($connection));
+        or die(mysqli_error($connection));
 
         return $row = mysqli_fetch_array($result);
     }
@@ -72,7 +72,7 @@ class Shop
         $query = "SELECT * FROM __catalog45 WHERE Name = '$shopName' AND ID <> $shopID";
 
         $result = mysqli_query($connection, $query)
-            or die(mysqli_error($connection));
+        or die(mysqli_error($connection));
 
         $hasDupShopName = false;
         if ($row = mysqli_fetch_array($result)) {
@@ -87,7 +87,7 @@ class Shop
         $query = "SELECT * FROM __catalog45 WHERE Name = '$shopName' AND UserID = $userID";
 
         $result = mysqli_query($connection, $query)
-            or die(mysqli_error($connection));
+        or die(mysqli_error($connection));
 
         $hasDupShopName = false;
         if ($row = mysqli_fetch_array($result)) {
@@ -96,7 +96,6 @@ class Shop
 
         return $hasDupShopName;
     }
-
 
     public function __toString()
     {
@@ -122,7 +121,7 @@ class Shop
         $query = "INSERT INTO __catalog45 ($fields) VALUES ($values)";
 
         $result = mysqli_query($this->connection, $query)
-            or die(mysqli_error($this->connection));
+        or die(mysqli_error($this->connection));
     }
 
     public function read(int $ID)
@@ -130,13 +129,18 @@ class Shop
         $query = "SELECT * FROM __catalog45 WHERE ID=$ID";
 
         $result = mysqli_query($this->connection, $query)
-            or die(mysqli_error($this->connection));
+        or die(mysqli_error($this->connection));
 
-        if ($row = mysqli_fetch_array($result)) {
-
+        if ($row = mysqli_fetch_assoc($result)) {
+            
             foreach ($row as $key => $value) {
-                $fixedKey = lcfirst($key);
-                $this[$fixedKey] = $value;
+
+                try {
+                    $fixedKey = lcfirst($key);
+                    $this->{$fixedKey} = $value;
+                } catch (Throwable $t) {
+
+                }
             }
         }
 
@@ -147,7 +151,7 @@ class Shop
     {
         $shopID = $this->getID();
 
-        $query = "UPDATE __catalog45 
+        $query = "UPDATE __catalog45
         SET";
 
         $delim = "";
@@ -162,7 +166,7 @@ class Shop
         $query .= " WHERE ID=$shopID";
 
         $result = mysqli_query($this->connection, $query)
-            or die(mysqli_error($this->connection));
+        or die(mysqli_error($this->connection));
     }
 
     public static function delete($connection, int $ID)
@@ -171,9 +175,8 @@ class Shop
         WHERE ID=$ID";
 
         $result = mysqli_query($connection, $query)
-            or die(mysqli_error($connection));
+        or die(mysqli_error($connection));
     }
-
 
     //setters / getters
     public function getConnection()

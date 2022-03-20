@@ -1,6 +1,7 @@
 <?php
 
 //use App\Models\User2;
+require_once "app/Models/Shop.php";
 require_once "app/Models/User.php";
 require_once "setup.php";
 

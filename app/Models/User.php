@@ -24,6 +24,8 @@ class User
     protected $receiveMsgFromFavouriteShops;
     protected $receiveNewOrderNotifications;
     protected $accountStatus;
+
+    protected $shops;
     
     //constructor
     function __construct($connection) 
@@ -122,6 +124,7 @@ class User
         $obj["ReceiveMsgFromFavouriteShops"] = $this->receiveMsgFromFavouriteShops;
         $obj["ReceiveNewOrderNotifications"] = $this->receiveNewOrderNotifications;
         $obj["AccountStatus"] = $this->accountStatus;
+        $obj["Shops"] = $this->shops;
     
         return json_encode($obj, true);
     }
@@ -194,6 +197,11 @@ class User
     public function getAccountStatus()
     {
         return $this->accountStatus;
+    }
+
+    public function getShops()
+    {
+        return $this->shops;
     }
 
     // SET METHODS
@@ -294,8 +302,7 @@ class User
             $receiveMsgFromFavouriteShops = $row["ReceiveMsgFromFavouriteShops"];
             $receiveNewOrderNotifications = $row["ReceiveNewOrderNotifications"];
             $accountStatus= $row["AccountStatus"];
-
-            
+  
             $this->setID($ID);
             $this->setName($name);
             $this->setEmail($email);
@@ -309,6 +316,8 @@ class User
             $this->setReceiveMsgFromFavouriteShops($receiveMsgFromFavouriteShops);
             $this->setReceiveNewOrderNotifications($receiveNewOrderNotifications);
             $this->setAccountStatus($accountStatus);
+
+            $this->shops = $this->readShops();
         }
         
         return $this;
@@ -340,5 +349,23 @@ class User
     public function delete(int $ID)
     {
 
+    }
+
+    public function readShops() {
+        $shops = [];
+
+        $userID = $this->getID();
+        $query = "SELECT * FROM __catalog45 WHERE UserID=$userID";
+
+        $result = mysqli_query($this->getConnection(), $query)
+            or die(mysqli_error($this->getConnection()));
+
+        while($row = mysqli_fetch_array($result)) {
+            $shopID = $row["ID"];
+            $shop = new Shop($this->getConnection(), $shopID);
+            $shops[] = $shop;
+        }
+
+        return $shops;
     }
 }

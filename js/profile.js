@@ -38,6 +38,7 @@ async function getUserProfile(userID) {
     }
 
     let profile = await response.json();
+    alert(JSON.stringify(profile));
     return profile;
 }
 
@@ -131,12 +132,12 @@ async function saveShop() {
         let message = "<p>Поздравляем с успешным созданием магазина. Добавьте товары для успешного начала работы.</p><p>После добавления товаров необходимо опубликовать магазин. Магазины без товаров не отображаются в поиске.</p>";
         showToastCustom("toast-wrapper-custom", message);
 
-        $(`.toast-custom .command-close`).bind('click', function (e) {
+        $(`.toast-custom .command-close`).bind('click', function(e) {
             $(".toast-wrapper-custom").removeClass("visible");
             $('body').removeClass("overflow-hidden");
         });
 
-        $(`.toast-custom .content .button`).bind('click', function (e) {
+        $(`.toast-custom .content .button`).bind('click', function(e) {
             $(".toast-wrapper-custom").removeClass("visible");
             $('body').removeClass("overflow-hidden");
         });
@@ -166,7 +167,7 @@ async function saveProfile() {
     }
 
     //revert back input controls to read only state
-    $(".icon-edit").each(function () {
+    $(".icon-edit").each(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", true);
         $(`.${control}`).removeClass("input-border");
@@ -182,32 +183,32 @@ function editShop(shop) {
 
 function setupHandlers() {
 
-    $(".icon-edit").click(function () {
+    $(".icon-edit").click(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", false);
         $(`.${control}`).addClass("input-border");
         $(`.${control}`).focus();
     });
 
-    $(".tabs-3 .data .input").on("input", function () {
+    $(".tabs-3 .data .input").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         profile[field] = newValue;
     });
 
-    $("input[name='visibility-option']").change(function (event) {
+    $("input[name='visibility-option']").change(function(event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
         profile[field] = parseInt(newValue);
     });
 
-    $(".rcv-msg").change(function () {
+    $(".rcv-msg").change(function() {
         let field = $(this).data("field");
         let newValue = $(this).prop("checked");
         profile[field] = newValue;
     });
 
-    $(".cmd-account-status").click(function () {
+    $(".cmd-account-status").click(function() {
         let field = $(this).data("field");
         let newValue = $(this).data("value");
         profile[field] = newValue;
@@ -215,48 +216,48 @@ function setupHandlers() {
         updateCmdAccountStatus(newValue);
     });
 
-    $(".button-edit").click(function () { // select an avatar
+    $(".button-edit").click(function() { // select an avatar
         $(".new-avatar").click();
     });
 
-    $(".new-avatar").on("input", function () { //upload an avatar
+    $(".new-avatar").on("input", function() { //upload an avatar
         updateAvatar(this);
     });
 
-    $(".tabs-3 .save-button").click(function () {
+    $(".tabs-3 .save-button").click(function() {
         saveProfile();
     });
 
     // create a shop handlers
-    $(".tabs-1-wrapper .save-button").click(function () {
+    $(".tabs-1-wrapper .save-button").click(function() {
         saveShop();
     });
 
-    $(".cmd-shop-create").click(function () {
+    $(".cmd-shop-create").click(function() {
         shop = { UserID: userID };
         editShop(shop);
     });
 
-    $(".tabs-1-wrapper .page-2 .input").on("input", function () {
+    $(".tabs-1-wrapper .page-2 .input").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         shop[field] = newValue;
     });
 
-    $("input[name='category']").change(function (event) {
+    $("input[name='category']").change(function(event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
         shop[field] = parseInt(newValue);
     });
 
-    $(".shop-data").change(function () {
+    $(".shop-data").change(function() {
         let field = $(this).data("field");
         let newValue = $(this).prop("checked");
         shop[field] = newValue;
     });
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     setupSignupHandlers();
     setupSigninHandlers();
@@ -269,7 +270,6 @@ $(document).ready(function () {
 
     $(".tabs").tabs({
         active: 2,
-        activate: function (event, ui) {
-        }
+        activate: function(event, ui) {}
     });
 });
