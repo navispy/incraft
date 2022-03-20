@@ -30,6 +30,10 @@
 </head>
 
 <body>
+    <div class="toast-wrapper-custom">
+        <?php include 'toast-wrapper-custom.php'; ?>
+    </div>
+
     <div class="toast-wrapper">
         <?php include 'toast-wrapper.php'; ?>
     </div>

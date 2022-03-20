@@ -9,19 +9,14 @@ $shopJSON  = $_POST['shop'];
 setupSchema($schemaID);
 
 $shopData = json_decode($shopJSON, true);
-$shopName = $shop["Name"];
-$userID = $shop["UserID"];
-$shopID = -1;
+$shopName = $shopData["Name"];
+$userID = $shopData["UserID"];
 
-if(Shop::hasDupShopName($connection, $shopID, $shopName))
-{
+if (Shop::hasUserDupShopName($connection, $userID, $shopName)) {
     http_response_code(404);
     echo json_encode(["message" => "Магазин с такми именем уже существует!"]);
-} else 
-{ 
+} else {
     $shop = new Shop($connection);
     $shop->create($shopData);
-    
     echo json_encode(["status" => "ok"]);
 }
-

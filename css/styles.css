@@ -244,7 +244,7 @@ body {
 .login-wrapper,
 .signup-wrapper,
 .password-restore-wrapper,
-.password-change-wrapper {
+.password-change-wrapper{
     z-index: 0;
     visibility: hidden;
     position: absolute;
@@ -270,6 +270,98 @@ body {
     align-items: center;
 }
 
+/*********************************************************/
+.toast-wrapper-custom {
+    z-index: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.toast-custom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 651px;
+    height: auto;
+    background-color: white;
+    margin-top: 296px;
+    align-items: start;
+}
+
+.toast-custom .command-close {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toast-custom .command-close svg {
+    width: 9.8px;
+    height: 9.8px;
+}
+
+.toast-custom .content {
+    width: 518px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-left: 81px;
+    margin-top: 70px;
+    /*margin-right: 0;*/
+    margin-bottom: 32px;
+}
+
+.toast-custom .content .message {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast-custom .content span {
+    width: 100%;
+    font-family: 'Geometria';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.toast-custom .content .button {
+    width: 197px;
+    height: 46px;
+
+    background: #0079C4;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toast-custom .content .button .span {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    width: auto;
+    height: auto;
+    color: white;
+}
+/*********************************************************/
 
 .visible {
     visibility: visible;

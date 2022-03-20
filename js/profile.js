@@ -127,11 +127,22 @@ async function saveShop() {
     if (!response.ok) {
         showToast(data.message);
         throw new Error(data.message);
+    } else {
+        let message = "<p>Поздравляем с успешным созданием магазина. Добавьте товары для успешного начала работы.</p><p>После добавления товаров необходимо опубликовать магазин. Магазины без товаров не отображаются в поиске.</p>";
+        showToastCustom("toast-wrapper-custom", message);
+
+        $(`.toast-custom .command-close`).bind('click', function (e) {
+            $(".toast-wrapper-custom").removeClass("visible");
+            $('body').removeClass("overflow-hidden");
+        });
+
+        $(`.toast-custom .content .button`).bind('click', function (e) {
+            $(".toast-wrapper-custom").removeClass("visible");
+            $('body').removeClass("overflow-hidden");
+        });
+
     }
-
-    showToast("Магазин создан");
 }
-
 
 async function saveProfile() {
     var params = {
@@ -222,7 +233,7 @@ function setupHandlers() {
     });
 
     $(".cmd-shop-create").click(function () {
-        shop = {UserID : userID};
+        shop = { UserID: userID };
         editShop(shop);
     });
 

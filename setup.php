@@ -22,9 +22,11 @@ function setupSchema($schemaID) {
     
     $connection = mysqli_connect($server, $username, $password, $schemaID);
     if (!$connection) {
+        return null;
         die('Can\'t connect');
     }
 
+    return $connection;
 }
 
 function logMessage($logfile, $msg) {

@@ -74,13 +74,29 @@ class Shop
         $result = mysqli_query($connection, $query)
             or die(mysqli_error($connection));
 
-        $hasDupUserName = false;
+        $hasDupShopName = false;
         if ($row = mysqli_fetch_array($result)) {
             $hasDupShopName = true;
         }
 
         return $hasDupShopName;
     }
+
+    public static function hasUserDupShopName($connection, $userID, $shopName)
+    {
+        $query = "SELECT * FROM __catalog45 WHERE Name = '$shopName' AND UserID = $userID";
+
+        $result = mysqli_query($connection, $query)
+            or die(mysqli_error($connection));
+
+        $hasDupShopName = false;
+        if ($row = mysqli_fetch_array($result)) {
+            $hasDupShopName = true;
+        }
+
+        return $hasDupShopName;
+    }
+
 
     public function __toString()
     {
@@ -94,17 +110,16 @@ class Shop
         $delim2 = "";
         $fields = "";
         $values = "";
-        
-        foreach($data as $key => $value) {
+
+        foreach ($data as $key => $value) {
             $fields .= $delim1 . "`$key`";
             $delim1 = ",";
 
             $values .= $delim2 . "'$value'";
             $delim2 = ",";
         }
-        
+
         $query = "INSERT INTO __catalog45 ($fields) VALUES ($values)";
-        logMessage("log/shop-create-001.txt", $query);
 
         $result = mysqli_query($this->connection, $query)
             or die(mysqli_error($this->connection));

@@ -51,3 +51,13 @@ function showToast(str) {
         $('body').removeClass("overflow-hidden");
     });
 }
+
+function showToastCustom(wrapperClass, message) {
+    $('html, body').animate({
+        scrollTop: $(".header").offset().top
+    }, 100);
+
+    $(`.${wrapperClass}`).addClass("visible");
+    $('body').addClass("overflow-hidden");
+    $('.toast-custom .message').html(message);;
+}
