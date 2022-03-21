@@ -1,6 +1,6 @@
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
-    $(`.${dialog} input`).each(function (i, obj) {
+    $(`.${dialog} input`).each(function(i, obj) {
         let objValue = $(obj).val();
         thereAreEmptyFields = thereAreEmptyFields || objValue.trim() == "";
     });
@@ -14,12 +14,13 @@ function restoreUser() {
 
     if (userName !== null) {
         $("span[class='login']").html("Выход");
-                    
+
         let photoURL = window.sessionStorage.getItem("userPhoto");
         photoURL = photoURL == "" ? "img/account.svg" : photoURL;
 
         $(".login-commands-user").attr("src", photoURL);
         $(".login-commands-user").css("visibility", "visible");
+        $(".profile-command").css("visibility", "visible");
     }
 
     return userID;
@@ -32,7 +33,8 @@ function dateToString(str) {
     var y = str.substr(0, 4);
 
     var months = ["января", "февраля", "марта", "апреля", "мая", "июня",
-        "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    ];
 
     var mmmm = months[m - 1];
 

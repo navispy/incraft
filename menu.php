@@ -10,8 +10,8 @@
                 <a href="services-additional.php">Допуслуги</a>
                 <a href="about.php">О нас</a>
                 <a href="">Ремесленникам</a>
-                <a ркуа="../blog/">Статьи</a>
-                <a onclick="checkProfile()">Личный кабинет</a>
+                <a href="../blog/">Статьи</a>
+                <a class="profile-command" >Личный кабинет</a>
             </div>
         </div>
     </nav>

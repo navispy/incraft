@@ -119,7 +119,7 @@ body {
     object-fit: cover;
     border-radius: 50%;
     padding: 4px;
-    border: 2px solid white;    
+    border: 2px solid white;
 }
 
 .login-commands-user:hover {
@@ -129,6 +129,10 @@ body {
 .login-commands span {
     cursor: pointer;
     height: 48px;
+}
+
+.profile-command {
+    visibility: hidden;
 }
 
 .menu {
@@ -165,7 +169,8 @@ body {
     grid-row-gap: 9px;
 }
 
-.footer .footer__contacts a, .footer .footer__contacts p {
+.footer .footer__contacts a,
+.footer .footer__contacts p {
     font-size: 16px;
     line-height: 120%;
     font-style: normal;
@@ -213,6 +218,7 @@ body {
     height: 99px;
 }
 
+
 /******************************************************************************************************************/
 
 :root {
@@ -239,12 +245,13 @@ body {
     font-size: 27px;
 }
 
+
 /******************************************************************************************************************/
 
 .login-wrapper,
 .signup-wrapper,
 .password-restore-wrapper,
-.password-change-wrapper{
+.password-change-wrapper {
     z-index: 0;
     visibility: hidden;
     position: absolute;
@@ -270,7 +277,9 @@ body {
     align-items: center;
 }
 
+
 /*********************************************************/
+
 .toast-wrapper-custom {
     z-index: 0;
     visibility: hidden;
@@ -342,7 +351,6 @@ body {
 .toast-custom .content .button {
     width: 197px;
     height: 46px;
-
     background: #0079C4;
     border-radius: 4px;
     display: flex;
@@ -361,6 +369,8 @@ body {
     height: auto;
     color: white;
 }
+
+
 /*********************************************************/
 
 .visible {
@@ -414,8 +424,8 @@ body {
 
 .login-dialog .caption-wrapper .caption,
 .signup-dialog .caption-wrapper .caption,
-.password-restore-dialog .caption-wrapper .caption, 
-.password-change-dialog .caption-wrapper .caption{
+.password-restore-dialog .caption-wrapper .caption,
+.password-change-dialog .caption-wrapper .caption {
     width: 100%;
     height: 64px;
     display: flex;
@@ -463,7 +473,7 @@ body {
 
 .login-dialog .content-subwrapper,
 .signup-dialog .content-subwrapper,
-.password-restore-dialog .content-subwrapper, 
+.password-restore-dialog .content-subwrapper,
 .password-change-dialog .content-subwrapper {
     display: grid;
     padding: 24px;
@@ -471,7 +481,7 @@ body {
 }
 
 .login-dialog .content-subwrapper .caption,
-.signup-dialog .content-subwrapper .caption, 
+.signup-dialog .content-subwrapper .caption,
 .password-restore-dialog .content-subwrapper .caption,
 .password-change-dialog .content-subwrapper .caption {
     width: 100%;
@@ -510,7 +520,7 @@ body {
 }
 
 .login-dialog .content-subwrapper .input:focus-within,
-.signup-dialog .content-subwrapper .input:focus-within, 
+.signup-dialog .content-subwrapper .input:focus-within,
 .password-restore-dialog .content-subwrapper .input:focus-within,
 .password-change-dialog .content-subwrapper .input:focus-within {
     border: 1px solid #0079C4;
@@ -533,7 +543,7 @@ body {
 }
 
 .login-dialog .content-subwrapper input,
-.signup-dialog .content-subwrapper input, 
+.signup-dialog .content-subwrapper input,
 .password-restore-dialog .content-subwrapper input,
 .password-change-dialog .content-subwrapper input {
     width: 100%;
@@ -546,7 +556,7 @@ body {
 }
 
 .login-dialog .content-subwrapper input:focus,
-.signup-dialog .content-subwrapper input:focus, 
+.signup-dialog .content-subwrapper input:focus,
 .password-restore-dialog .content-subwrapper input:focus,
 .password-change-dialog .content-subwrapper input:focus {
     outline: none;

@@ -1,31 +1,32 @@
 function setupSigninHandlers() {
-    $(".signin").click(function () {
+    $(".signin").click(function() {
         tryLogin();
     });
 
-    $(".login-dialog .content-wrapper .input").click(function (event) {
+    $(".login-dialog .content-wrapper .input").click(function(event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
     });
 
-    $(".login-dialog .cancel").click(function () {
+    $(".login-dialog .cancel").click(function() {
         closeLogin();
     });
 
-    $("span[class='login']").click(function () { // login/logout
+    $("span[class='login']").click(function() { // login/logout
         let userName = window.sessionStorage.getItem("userName");
 
-        if(userName !== null) { //logout
+        if (userName !== null) { //logout
             window.sessionStorage.removeItem("userName");
             $("span[class='login']").html("Вход");
 
             $(".login-commands-user").attr("src", "");
             $(".login-commands-user").css("visibility", "hidden");
-            
+            $(".profile-command").css("visibility", "hidden");
+
             let href = document.location.href;
             let lastPathSegment = href.substr(href.lastIndexOf('/') + 1);
 
-            if(lastPathSegment !== "index.php") {
+            if (lastPathSegment !== "index.php") {
                 window.location.assign("index.php");
             }
         } else { // login
@@ -33,14 +34,19 @@ function setupSigninHandlers() {
         }
     });
 
-    $(".login-commands-user").click(function () { // show profile
+    $(".login-commands-user").click(function() { // show profile
         window.location.assign(`profile.php`);
     });
+
+    $(".profile-command").click(function() { // show profile
+        window.location.assign(`profile.php`);
+    });
+
 }
 
 function showLogin() {
     $(".login-wrapper").addClass("visible");
-    $(".login-dialog").slideToggle("medium", function () {
+    $(".login-dialog").slideToggle("medium", function() {
         $(".login-wrapper .error-msg").remove();
         $('.name').focus();
         $('body').addClass("overflow-hidden");
@@ -48,7 +54,7 @@ function showLogin() {
 }
 
 function closeLogin() {
-    $(".login-dialog").slideToggle("medium", function () {
+    $(".login-dialog").slideToggle("medium", function() {
         $(".login-wrapper").removeClass("visible");
         $('body').removeClass("overflow-hidden");
     })
@@ -56,7 +62,7 @@ function closeLogin() {
 
 async function tryLogin() {
     var thereAreEmptyFields = checkForEmptyFields("login-dialog");
-    if(thereAreEmptyFields) {
+    if (thereAreEmptyFields) {
         var errMsg = "Заполните пожалуйста все поля";
         var html =
             `<div class="error-msg">
@@ -64,7 +70,7 @@ async function tryLogin() {
         </div>`;
 
         $(".login-dialog .content-subwrapper .error-msg").remove();
-        $(html).insertBefore(".login-dialog .content-subwrapper .input-1");      
+        $(html).insertBefore(".login-dialog .content-subwrapper .input-1");
         return;
     }
 
@@ -72,15 +78,15 @@ async function tryLogin() {
     var pass = $(".login-dialog .password").val();
 
     data = await checkLogin(name, pass)
-    .catch(e => {
-        let html =
-            `<div class="error-msg">
+        .catch(e => {
+            let html =
+                `<div class="error-msg">
              <span>${e.message}</span>
         </div>`;
 
-        $(".login-dialog .content-subwrapper .error-msg").remove();
-        $(html).insertBefore(".login-dialog .content-subwrapper .input-1");
-    });
+            $(".login-dialog .content-subwrapper .error-msg").remove();
+            $(html).insertBefore(".login-dialog .content-subwrapper .input-1");
+        });
 
 }
 async function checkLogin(name, pass) {
@@ -96,7 +102,7 @@ async function checkLogin(name, pass) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        body: Object.entries(params).map(([k,v])=>{return k+'='+v}).join('&')
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
     });
 
     let data = await response.json();
@@ -106,19 +112,20 @@ async function checkLogin(name, pass) {
     }
 
     $("span[class='login']").html("Выход");
-                    
+
     let photoURL = data["photo"];
     photoURL = photoURL == "" ? "img/account.svg" : photoURL;
 
     $(".login-commands-user").attr("src", photoURL);
     $(".login-commands-user").css("visibility", "visible");
+    $(".profile-command").css("visibility", "visible");
     closeLogin();
 
     let userID = data["userID"];
 
     window.sessionStorage.setItem("userID", userID);
     window.sessionStorage.setItem("userName", name);
-    window.sessionStorage.setItem("userPhoto", photoURL);               
+    window.sessionStorage.setItem("userPhoto", photoURL);
 
     return data;
 }

@@ -363,7 +363,7 @@ class User
         while($row = mysqli_fetch_array($result)) {
             $shopID = $row["ID"];
             $shop = new Shop($this->getConnection(), $shopID);
-            $shops[] = $shop;
+            $shops[] = $shop->expose();
         }
 
         return $shops;

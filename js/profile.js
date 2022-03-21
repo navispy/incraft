@@ -38,7 +38,6 @@ async function getUserProfile(userID) {
     }
 
     let profile = await response.json();
-    alert(JSON.stringify(profile));
     return profile;
 }
 
@@ -78,6 +77,9 @@ async function showProfile(userID) {
     let accountStatus = profile["AccountStatus"];
     updateCmdAccountStatus(accountStatus);
 
+    if (profile["Shops"].length > 0) {
+        $('.page-1').hide();
+    }
     console.log(profile);
 }
 

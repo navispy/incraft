@@ -102,6 +102,9 @@ class Shop
         return json_encode($this, true);
     }
 
+    public function expose() {
+        return get_object_vars($this);
+    }
     // CRUD OPERATIONS
     public function create(array $data)
     {
@@ -136,7 +139,7 @@ class Shop
             foreach ($row as $key => $value) {
 
                 try {
-                    $fixedKey = lcfirst($key);
+                    $fixedKey = $key == "ID" ? $key : lcfirst($key);
                     $this->{$fixedKey} = $value;
                 } catch (Throwable $t) {
 

@@ -12,21 +12,21 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=9" type="text/css">
-    <link rel="stylesheet" href="css/custom-checkbox.css?version=9" type="text/css">
-    <link rel="stylesheet" href="css/custom-radio.css?version=9" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=14" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=9" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/custom-checkbox.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/custom-radio.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=10" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/profile.js?version=1p" type="text/javascript"></script>
-    <script src="js/signup.js?version=1p" type="text/javascript"></script>
-    <script src="js/login.js?version=1p" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=1p" type="text/javascript"></script>
-    <script src="js/password-change.js?version=1p" type="text/javascript"></script>
-    <script src="js/utils.js?version=1o" type="text/javascript"></script>
+    <script src="js/profile.js?version=1o" type="text/javascript"></script>
+    <script src="js/signup.js?version=1n" type="text/javascript"></script>
+    <script src="js/login.js?version=1n" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=1n" type="text/javascript"></script>
+    <script src="js/password-change.js?version=1n" type="text/javascript"></script>
+    <script src="js/utils.js?version=1n" type="text/javascript"></script>
 </head>
 
 <body>
