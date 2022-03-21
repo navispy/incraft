@@ -38,6 +38,7 @@
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .navbar .mobile .btn {
@@ -87,6 +88,11 @@
     font-size: 36px;
     margin-left: 50px;
 }
+
+.sidenav a {
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 950px) {
     .menu {

@@ -66,9 +66,14 @@
 
                 <div id="tabs-1-wrapper" class="tabs-1-wrapper">
                     <div class="page-1">
-                        <span class="span">Работа с нашей платформой позволит Вам жить долго и счастливо, для этого давайте создадим магазин, это не сложно:</span>
-                        <div class="cmd-shop-create">
-                            <span class="span">Создать магазин</span>
+                        <div class="page-1-no-shops">
+                            <span class="span">Работа с нашей платформой позволит Вам жить долго и счастливо, для этого давайте создадим магазин, это не сложно:</span>
+                            <div class="cmd-shop-create">
+                                <span class="span">Создать магазин</span>
+                            </div>
+                        </div>
+                        <div class="page-1-has-shops">
+                            <?php include 'profile-shops.php'; ?>
                         </div>
                     </div>
                     <div class="page-2">

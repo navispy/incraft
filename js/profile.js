@@ -78,7 +78,11 @@ async function showProfile(userID) {
     updateCmdAccountStatus(accountStatus);
 
     if (profile["Shops"].length > 0) {
-        $('.page-1').hide();
+        $('.page-1-no-shops').hide();
+        $('.page-1-has-shops').show();
+    } else {
+        $('.page-1-has-shops').hide();
+        $('.page-1-no-shops').show();
     }
     console.log(profile);
 }

@@ -24,6 +24,6 @@
         <a href="about.php">О нас</a>
         <a href="">Ремесленникам</a>
         <a href="../blog/">Статьи</a>
-        <a onclick="checkProfile()">Личный кабинет</a>
+        <a class="profile-command">Личный кабинет</a>
     </div>
 </div>
