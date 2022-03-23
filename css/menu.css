@@ -2,7 +2,7 @@
     display: grid;
     height: 100%;
     grid-template-areas: "mobile links";
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 32px 1fr;
     grid-template-rows: 1fr;
     grid-gap: 1.5em;
     padding: 0 40px;
@@ -23,7 +23,7 @@
 .navbar .links {
     grid-area: links;
     display: grid;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: center;
     grid-auto-flow: column;
     grid-gap: 1.5em;
