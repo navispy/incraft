@@ -18,8 +18,11 @@
 
 .main .tabs,
 .main .tabs ul,
-.main .tabs ul li/*, 
-.main .tabs * */{
+.main .tabs ul li
+/*, 
+.main .tabs * */
+
+{
     border: none;
 }
 
@@ -36,7 +39,6 @@
     font-family: Geometria;
     font-weight: 500;
     font-size: 18px;
-
     background: white;
     color: #929292;
 }
@@ -49,7 +51,9 @@
     color: #333333;
 }
 
+
 /************************************/
+
 #tabs-1-wrapper {
     min-height: 646px;
     padding-top: 22px;
@@ -66,23 +70,19 @@
 .tabs-1-wrapper .page-1-no-shops .span {
     width: 463px;
     height: 116px;
-
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
     line-height: 130%;
-
     color: #000000;
 }
 
 .tabs-1-wrapper .page-1-no-shops .cmd-shop-create {
     width: 167px;
     height: 48px;
-
     background: #0079C4;
     border-radius: 4px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +97,6 @@
     line-height: 130%;
     width: auto;
     height: auto;
-
     color: white;
 }
 
@@ -120,7 +119,6 @@
 
 .tabs-1-wrapper .page-1-has-shops .container {
     position: relative;
-    height: 256px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
@@ -152,7 +150,7 @@
 
 .tabs-1-wrapper .page-1-has-shops .container .item .info .name-desc {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .tabs-1-wrapper .page-1-has-shops .container .item .info .name-desc .name {
@@ -168,7 +166,6 @@
     font-weight: normal;
     line-height: 16px;
 }
-
 
 .tabs-1-wrapper .page-2 {
     display: none;
@@ -196,8 +193,8 @@
 .tabs-1-wrapper .page-2 .shop-categories .options,
 .tabs-1-wrapper .page-2 .delivery .options {
     margin-top: 25px;
-    display:flex;
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -230,7 +227,6 @@
     margin-top: 8px;
 }
 
-
 .tabs-1-wrapper .page-2 .shop-name .input,
 .tabs-1-wrapper .page-2 .pickup .input {
     height: 46px;
@@ -244,7 +240,7 @@
 .tabs-1-wrapper .page-2 .pickup .input:focus {
     outline: none;
 }
-    
+
 .tabs-1-wrapper .page-2 .payment-wrapper {
     display: grid;
     grid-template-columns: 567px 296px;
@@ -270,8 +266,8 @@
 
 .tabs-1-wrapper .page-2 .payment-wrapper .options {
     margin-top: 25px;
-    display:flex;
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -284,8 +280,84 @@
     line-height: 24px;
 }
 
+.tabs-1-wrapper .page-1-shop-edit {
+    margin-top: 40px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 334px 1fr;
+    grid-template-rows: 400px;
+    box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .cmd-img-left,
+.tabs-1-wrapper .page-1-shop-edit .cmd-img-right {
+    top: 228px;
+}
+
+.tabs-1-wrapper .page-1-shop-edit img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-1 {
+    font-family: Geometria;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-2 {
+    margin-top: 34px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-3 {
+    margin-top: 16px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper {
+    margin-top: 23px;
+    display: grid;
+    grid-template-columns: 32px 154px auto auto;
+    grid-column-gap: 8px;
+    align-self: flex-start;
+    align-items: center;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 32px 154px auto auto;
+    grid-column-gap: 8px;
+    align-self: flex-start;
+    align-items: center;
+}
+
+
+/*.tabs-1-wrapper .page-1-shop-edit .text svg {
+    position: absolute;
+    bottom: 0px;
+}*/
+
 
 /************************************/
+
 .tabs-3-wrapper {
     margin-top: 69px;
 }
@@ -296,15 +368,16 @@
     grid-column-gap: 96px;
 }
 
+
 /************************************/
+
 .tabs-3 .photo-wrapper {
-    position: relative;;
+    position: relative;
+    ;
     display: flex;
     flex-direction: column;
-
     height: 236px;
     width: 236px;
-
     /*border: 1px solid lightgray;
     width: 236px;
     height: 236px;*/
@@ -320,19 +393,22 @@
 
 .tabs-3 .photo-wrapper .button-edit {
     position: absolute;
-    z-index: 2;;
+    z-index: 2;
+    ;
     right: 16px;
     bottom: 16px;
     width: 48px;
     height: 48px;
     background: white;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
 /************************************/
+
 .tabs-3 .data {
     display: flex;
     flex-direction: column;
@@ -349,17 +425,16 @@
     font-size: 36px;
     font-weight: 700;
     width: 100%;
-    border: none;    
+    border: none;
 }
 
 .tabs-3 .data .input:focus {
-    outline: none;    
+    outline: none;
 }
 
 .tabs-3 .data .icon-edit {
     width: 100%;
     height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -376,17 +451,14 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 130%;
-
     color: #757575;
 }
-
 
 .tabs-3 .data .email-wrapper {
     margin-top: 23px;
     display: grid;
     grid-template-columns: 154px 32px auto auto;
     grid-column-gap: 32px;
-
     align-self: flex-start;
     align-items: center;
 }
@@ -396,12 +468,12 @@
     display: grid;
     grid-template-columns: 154px 32px auto auto;
     grid-column-gap: 32px;
-
     align-self: flex-start;
     align-items: center;
 }
 
-
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper span,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper span,
 .tabs-3 .data .email-wrapper span,
 .tabs-3 .data .phone-wrapper span {
     font-family: Geometria;
@@ -411,6 +483,8 @@
     color: #929292;
 }
 
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input,
 .tabs-3 .data .email-wrapper .input,
 .tabs-3 .data .phone-wrapper .input {
     width: 137px;
@@ -419,16 +493,20 @@
     font-weight: normal;
     font-size: 16px;
     color: #000000;
-    border: none;    
+    border: none;
 }
 
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input-border,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input-border,
 .tabs-3 .data .name-wrapper .input-border,
 .tabs-3 .data .email-wrapper .input-border,
 .tabs-3 .data .phone-wrapper .input-border {
     border: 1px solid #0079C4;
 }
 
+
 /*******************************************/
+
 .tabs-3 .data .visibility-wrapper {
     margin-top: 40px;
     display: flex;
@@ -446,8 +524,8 @@
 
 .tabs-3 .data .visibility-wrapper .options {
     margin-top: 25px;
-    display:flex;
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     gap: 11px;
 }
 
@@ -459,6 +537,7 @@
     color: #202020;
     line-height: 16px;
 }
+
 
 /***************************************************/
 
@@ -479,8 +558,8 @@
 
 .tabs-3 .data .white-list-wrapper .options {
     margin-top: 25px;
-    display:flex;
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -493,9 +572,13 @@
     line-height: 24px;
 }
 
+
 /***************************************************/
 
-/*.tabs-3 .data */.save-button {
+
+/*.tabs-3 .data */
+
+.save-button {
     margin-top: 32px;
     height: 48px;
     width: 218px;
@@ -510,7 +593,10 @@
     width: 198px;
 }
 
-/*.tabs-3 .data */.save-button span {
+
+/*.tabs-3 .data */
+
+.save-button span {
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
@@ -518,7 +604,9 @@
     color: #FFFFFF;
 }
 
+
 /***************************************************/
+
 .tabs-3 .commands-wrapper {
     display: flex;
     flex-direction: column;
@@ -526,13 +614,10 @@
 
 .tabs-3 .commands-wrapper .group {
     margin-top: 79px;
-
     width: 281px;
     height: 104px;
-
     background: #F5F0E2;
     border-radius: 4px;
-
     display: flex;
     flex-direction: column;
     gap: 13px;
@@ -541,7 +626,6 @@
 .tabs-3 .commands-wrapper .group .suspend-account {
     margin-top: 31px;
     margin-left: 22px;
-
     display: flex;
     align-items: center;
     gap: 8px;
@@ -549,20 +633,19 @@
 
 .tabs-3 .commands-wrapper .group .delete-account {
     margin-left: 23px;
-
     display: flex;
     align-items: center;
     gap: 9px;
 }
 
+
 /* Приостановить действие аккаунта Удалить аккаунт */
 
-.tabs-3 .commands-wrapper .group  span  {
+.tabs-3 .commands-wrapper .group span {
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
-
     text-decoration-line: underline;
     color: #000000;
 }
@@ -570,7 +653,6 @@
 .tabs-3 .commands-wrapper .password-change {
     margin-top: 36px;
     margin-left: 23px;
-
     display: flex;
     align-items: center;
     gap: 8px;
@@ -581,7 +663,6 @@
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-
     text-decoration-line: underline;
     color: #000000;
 }

@@ -12,11 +12,11 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=10" type="text/css">
-    <link rel="stylesheet" href="css/custom-checkbox.css?version=10" type="text/css">
-    <link rel="stylesheet" href="css/custom-radio.css?version=10" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=10" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=10" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=13" type="text/css">
+    <link rel="stylesheet" href="css/custom-checkbox.css?version=13" type="text/css">
+    <link rel="stylesheet" href="css/custom-radio.css?version=13" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=13" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=13" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
@@ -74,6 +74,10 @@
                         </div>
                         <div class="page-1-has-shops">
                             <?php include 'profile-shops.php'; ?>
+                        </div>
+
+                        <div class="page-1-shop-edit">
+                            <?php include 'profile-shop-edit.php'; ?>
                         </div>
                     </div>
                     <div class="page-2">

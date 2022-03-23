@@ -80,12 +80,47 @@ async function showProfile(userID) {
     if (profile["Shops"].length > 0) {
         $('.page-1-no-shops').hide();
         $('.page-1-has-shops').show();
+
+        showShops();
     } else {
         $('.page-1-has-shops').hide();
         $('.page-1-no-shops').show();
     }
     console.log(profile);
 }
+
+function showShops() {
+    let shops = profile["Shops"];
+    let html = "";
+
+    let num = 0;
+    for (let shop of shops) {
+
+        html +=
+            `<div class="item" onclick="editShop(${num})">
+            <img src="img/no-image-icon.jpg" />
+            <div class="info">
+                <div class="name-desc">
+                    <span class="name">${shop["name"]}</span>
+                    <span class="desc">No desc</span>
+                </div>
+            </div>
+        </div>`;
+
+        num++;
+    }
+
+    $(".page-1-has-shops .container").html(html);
+}
+
+function editShop(num) {
+    let shops = profile["Shops"];
+    let shop = shops[num];
+
+    $(".tabs-1-wrapper .page-1-has-shops").hide();
+    $(".tabs-1-wrapper .page-1-shop-edit").show();
+}
+
 
 async function updateAvatar(obj) {
     let file = $(obj)[0].files[0];
@@ -182,7 +217,7 @@ async function saveProfile() {
     showToast("Профиль обновлен");
 }
 
-function editShop(shop) {
+function createShop(shop) {
     $(".tabs-1-wrapper .page-1").css("display", "none");
     $(".tabs-1-wrapper .page-2").css("display", "flex");
 }
@@ -241,7 +276,7 @@ function setupHandlers() {
 
     $(".cmd-shop-create").click(function() {
         shop = { UserID: userID };
-        editShop(shop);
+        createShop(shop);
     });
 
     $(".tabs-1-wrapper .page-2 .input").on("input", function() {
