@@ -18,6 +18,7 @@
         <script src="js/jquery.min.js" type='text/javascript'></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
+        <script src="js/about.js?version=1o" type="text/javascript"></script>
         <script src="js/signup.js?version=1n" type="text/javascript"></script>
         <script src="js/login.js?version=1n" type="text/javascript"></script>
         <script src="js/password-restore.js?version=1n" type="text/javascript"></script>
@@ -50,6 +51,9 @@
         <div class="wrapper">
             <?php include 'header.php'; ?>
             <?php include 'menu.php'; ?>
+
+            <div class="main">
+            </div>
 
             <?php include 'footer.php'; ?>
         </div>
