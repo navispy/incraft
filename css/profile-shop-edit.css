@@ -1,0 +1,163 @@
+.tabs-1-wrapper .page-1-shop-edit {
+    margin-top: 40px;
+    position: relative;
+    display: none;
+    grid-template-columns: 334px 1fr;
+    grid-template-rows: 400px;
+    box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .cmd-img-left,
+.tabs-1-wrapper .page-1-shop-edit .cmd-img-right {
+    top: 228px;
+}
+
+.tabs-1-wrapper .page-1-shop-edit img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text { 
+    padding-top: 33px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-1 {
+    font-family: Geometria;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-2 {
+    margin-top: 34px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .text .text-3 {
+    margin-top: 16px;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .name-wrapper {
+    width: 100%;
+    height: 49px;
+    padding-left: 32px;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #EAEAEA;;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .name {
+    display: grid;
+    grid-template-columns: 1fr 32px;
+    grid-column-gap: 8px;
+    align-self: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper {
+    width: 100%;
+    height: 56px;
+    padding-left: 32px;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #EAEAEA;;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address {
+    display: grid;
+    grid-template-columns: 12px 1fr 32px;
+    grid-column-gap: 8px;
+    align-self: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address .input {
+    width: 100%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone div {
+    display: flex;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone .input {
+    width: 100%;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper {
+    width: 100%;
+    height: 56px;
+    padding-left: 32px;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone {
+    display: grid;
+    grid-template-columns: 12px 1fr 32px;
+    grid-column-gap: 8px;
+    align-self: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.name-edit-btn,
+.address-edit-btn,
+.phone-edit-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .name-wrapper .input {
+    font-family: Geometria;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input {
+    font-family: Geometria;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .input:focus {
+    outline: none;
+}
+
+.tabs-1-wrapper .page-1 .page-1-shop-edit .name-wrapper .input-border,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input-border,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input-border {
+    border: 1px solid #0079C4;
+}

@@ -80,7 +80,6 @@ async function showProfile(userID) {
     if (profile["Shops"].length > 0) {
         $('.page-1-no-shops').hide();
         $('.page-1-has-shops').show();
-
         showShops();
     } else {
         $('.page-1-has-shops').hide();
@@ -116,6 +115,18 @@ function showShops() {
 function editShop(num) {
     let shops = profile["Shops"];
     let shop = shops[num];
+    
+    let shopName = shop["name"];
+    let phone = profile["Phone"];
+
+    let region = shop["region"];
+    let district = shop["district"];
+    let address = shop["address"];
+
+    $(".page-1-shop-edit").css("display", "grid");
+    $(".input-shop-name").val(shopName);
+    $(".input-address").val(address);
+    $(".input-phone").val(phone);
 
     $(".tabs-1-wrapper .page-1-has-shops").hide();
     $(".tabs-1-wrapper .page-1-shop-edit").show();

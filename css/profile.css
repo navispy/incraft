@@ -280,78 +280,6 @@
     line-height: 24px;
 }
 
-.tabs-1-wrapper .page-1-shop-edit {
-    margin-top: 40px;
-    position: relative;
-    display: grid;
-    grid-template-columns: 334px 1fr;
-    grid-template-rows: 400px;
-    box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-}
-
-.tabs-1-wrapper .page-1-shop-edit .cmd-img-left,
-.tabs-1-wrapper .page-1-shop-edit .cmd-img-right {
-    top: 228px;
-}
-
-.tabs-1-wrapper .page-1-shop-edit img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.tabs-1-wrapper .page-1-shop-edit .text {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.tabs-1-wrapper .page-1-shop-edit .text .text-1 {
-    font-family: Geometria;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.tabs-1-wrapper .page-1-shop-edit .text .text-2 {
-    margin-top: 34px;
-    font-family: Geometria;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 130%;
-}
-
-.tabs-1-wrapper .page-1-shop-edit .text .text-3 {
-    margin-top: 16px;
-    font-family: Geometria;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
-}
-
-.tabs-1-wrapper .page-1 .page-1-shop-edit .name-wrapper,
-.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper,
-.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper {
-    margin-top: 16px;
-    display: grid;
-    grid-template-columns: 32px 1fr 32px;
-    grid-column-gap: 8px;
-    align-self: flex-start;
-    align-items: center;
-    width: 100%;
-}
-
-
-/*.tabs-1-wrapper .page-1-shop-edit .text svg {
-    position: absolute;
-    bottom: 0px;
-}*/
-
-
-/************************************/
-
 .tabs-3-wrapper {
     margin-top: 69px;
 }
@@ -361,7 +289,6 @@
     grid-template-columns: 236px 612px 1fr;
     grid-column-gap: 96px;
 }
-
 
 /************************************/
 
@@ -466,8 +393,8 @@
     align-items: center;
 }
 
-.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper span,
-.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper span,
+/*.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper span,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper span,*/
 .tabs-3 .data .email-wrapper span,
 .tabs-3 .data .phone-wrapper span {
     font-family: Geometria;
@@ -477,8 +404,8 @@
     color: #929292;
 }
 
-.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input,
-.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input,
+/*.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input,*/
 .tabs-3 .data .email-wrapper .input,
 .tabs-3 .data .phone-wrapper .input {
     width: 137px;
@@ -490,8 +417,8 @@
     border: none;
 }
 
-.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input-border,
-.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input-border,
+/*.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input-border,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input-border,*/
 .tabs-3 .data .name-wrapper .input-border,
 .tabs-3 .data .email-wrapper .input-border,
 .tabs-3 .data .phone-wrapper .input-border {

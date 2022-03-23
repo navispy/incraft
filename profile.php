@@ -12,10 +12,11 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=14" type="text/css">
-    <link rel="stylesheet" href="css/custom-checkbox.css?version=14" type="text/css">
-    <link rel="stylesheet" href="css/custom-radio.css?version=14" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=14" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=15" type="text/css">
+    <link rel="stylesheet" href="css/custom-checkbox.css?version=15" type="text/css">
+    <link rel="stylesheet" href="css/custom-radio.css?version=15" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=15" type="text/css">
+    <link rel="stylesheet" href="css/profile-shop-edit.css?version=15" type="text/css">
     <link rel="stylesheet" href="css/menu.css?version=14" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>

@@ -332,7 +332,7 @@ class User
         $delim = "";
         foreach($data as $field => $value) 
         {
-            if($field === "ID") {
+            if($field === "ID" || $field === "Shops") {
                 continue;
             }
             $query .= "$delim `$field`='$value'";

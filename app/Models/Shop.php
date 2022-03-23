@@ -36,6 +36,10 @@ class Shop
     protected $deliveryOption_07;
     protected $deliveryOption_08;
 
+    protected $region;
+    protected $district;
+    protected $address;
+
     //constructor
     public function __construct($connection)
     {
@@ -425,7 +429,23 @@ class Shop
     {
         $this->deliveryOption_04 = $deliveryOption_04;
     }
+    
+    public function setRegion($region)
+    {
+        $this->region = $region;
+    }
 
+    public function setDistrict($district)
+    {
+        $this->district = $district;
+    }
+
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+    
+    /////////////////////////////////////////////////////////
     public function getDeliveryOption_04_address()
     {
         return $this->deliveryOption_04_address;
@@ -474,5 +494,20 @@ class Shop
     public function setDeliveryOption_08($deliveryOption_08)
     {
         $this->deliveryOption_08 = $deliveryOption_08;
+    }
+
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
     }
 }
