@@ -331,22 +331,16 @@
     line-height: 130%;
 }
 
-.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper {
-    margin-top: 23px;
-    display: grid;
-    grid-template-columns: 32px 154px auto auto;
-    grid-column-gap: 8px;
-    align-self: flex-start;
-    align-items: center;
-}
-
+.tabs-1-wrapper .page-1 .page-1-shop-edit .name-wrapper,
+.tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper,
 .tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper {
     margin-top: 16px;
     display: grid;
-    grid-template-columns: 32px 154px auto auto;
+    grid-template-columns: 32px 1fr 32px;
     grid-column-gap: 8px;
     align-self: flex-start;
     align-items: center;
+    width: 100%;
 }
 
 
