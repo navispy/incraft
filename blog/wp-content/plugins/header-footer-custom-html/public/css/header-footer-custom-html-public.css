@@ -1,0 +1,14 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.hfch-header {
+	text-align:center;
+	background:#fafafa;
+	color:#444;
+}
+.hfch-footer {
+	text-align:center;
+	background:#2f333b;
+	color:#fbfbfb;
+}

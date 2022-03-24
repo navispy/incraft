@@ -35,7 +35,7 @@ function emailUser($connection, $customerName, $customerEmail, $userPass) {
     $to = array($customerEmail => $customerName);
     $bcc = array(
         $salesEmail => $salesRepName,
-        $sendCopy => "INAGRO Team"
+        $sendCopy => "INCRAFT Team"
     );
 
     $swift = Swift_Mailer::newInstance($transport);

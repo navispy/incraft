@@ -115,7 +115,7 @@ function showShops() {
 function editShop(num) {
     let shops = profile["Shops"];
     let shop = shops[num];
-    
+
     let shopName = shop["name"];
     let phone = profile["Phone"];
 
@@ -130,6 +130,12 @@ function editShop(num) {
 
     $(".tabs-1-wrapper .page-1-has-shops").hide();
     $(".tabs-1-wrapper .page-1-shop-edit").show();
+
+    $(".icon-edit").each(function() {
+        let control = $(this).data("control");
+        $(`.${control}`).attr("readonly", true);
+        $(`.${control}`).removeClass("input-border");
+    });
 }
 
 
@@ -231,6 +237,13 @@ async function saveProfile() {
 function createShop(shop) {
     $(".tabs-1-wrapper .page-1").css("display", "none");
     $(".tabs-1-wrapper .page-2").css("display", "flex");
+
+    $(".icon-edit").each(function() {
+        let control = $(this).data("control");
+        $(`.${control}`).attr("readonly", false);
+        //$(`.${control}`).removeClass("input-border");
+    });
+
 }
 
 function setupHandlers() {

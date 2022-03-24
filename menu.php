@@ -9,8 +9,8 @@
                 <a href="index.php">Каталог</a>
                 <!--<a href="services-additional.php">Допуслуги</a>-->
                 <a href="about.php">О нас</a>
-                <<!--a href="">Ремесленникам</a>-->
-                <a href="../blog/">Статьи</a>
+                <!--a href="">Ремесленникам</a>-->
+                <a href="blog/">Статьи</a>
                 <a class="profile-command" >Личный кабинет</a>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <!--<a href="services-additional.php">Допуслуги</a>-->
         <a href="about.php">О нас</a>
         <!--<a href="">Ремесленникам</a>-->
-        <a href="../blog/">Статьи</a>
+        <a href="blog/">Статьи</a>
         <a class="profile-command">Личный кабинет</a>
     </div>
 </div>

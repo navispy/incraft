@@ -1,0 +1,136 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    padding-top: 69px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-1 {
+    margin-bottom: 32px;
+    font-family: Geometria;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.header-2 {
+    margin-top: 64px;
+    margin-bottom: 32px;
+    font-family: Geometria;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.header-3 {
+    font-family: Geometria;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.our-partners {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px;
+    align-items: center;
+    gap: 10px;
+}
+
+.content p {
+    padding-left: 20px;
+    font-family: Geometria;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.our-partners img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.contact-us {
+    margin-top: 48px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 44px;
+    padding-bottom: 25px;
+    padding-left: 29.33px;
+    padding-right: 166.67px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.14);
+    border-radius: 22px;
+    gap: 40px;
+}
+
+.contact-us .input {
+    background: #F3F3F3;
+    border: none;
+    font-family: Gotham Pro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-indent: 16px;
+}
+
+.contact-us .input:focus {
+    background: #F3F3F3;
+    outline: none;
+}
+
+.input-contact-name,
+.input-contact-email {
+    height: 46px;
+}
+
+.input-contact-comment {
+    height: 140px;
+}
+
+.contact-comment-send {
+    width: 197px;
+    height: 46px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contact-comment-send span {
+    font-family: 'Gotham Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.about-image-1 {
+    margin-top: 32px;
+}

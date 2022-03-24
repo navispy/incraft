@@ -2,6 +2,7 @@
 //namespace App\Models;
 
 require_once "./setup.php";
+require_once "Shop.php";
 
 class User
 {

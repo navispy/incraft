@@ -1,6 +1,6 @@
 <div class="header">
     <a href="index.php" class="logo">
-        <img src="img/logo.svg" alt="ІnagroBy" />
+        <img src="img/logo.svg" alt="ІncraftBy" />
     </a>
 
     <div class="login">

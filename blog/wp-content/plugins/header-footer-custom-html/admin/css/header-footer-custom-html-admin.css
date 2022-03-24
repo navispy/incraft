@@ -1,0 +1,5 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+#hfch_header_html, #hfch_footer_html, #hfch_custom_css{width:100% !important;max-width:50em;}
