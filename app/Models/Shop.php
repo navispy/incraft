@@ -35,10 +35,13 @@ class Shop
     protected $deliveryOption_06;
     protected $deliveryOption_07;
     protected $deliveryOption_08;
+    protected $isPublished;
 
     protected $region;
     protected $district;
     protected $address;
+    protected $phone;
+    protected $photo;
 
     //constructor
     public function __construct($connection)
@@ -103,12 +106,19 @@ class Shop
 
     public function __toString()
     {
-        return json_encode($this, true);
+        $vars = get_object_vars($this);
+        $fixed = [];
+        foreach($vars as $key => $value) {
+            $fixedKey = ucfirst($key);
+            $fixed[$fixedKey] = $value;
+        }
+        return json_encode($fixed, true);
     }
 
     public function expose() {
         return get_object_vars($this);
     }
+
     // CRUD OPERATIONS
     public function create(array $data)
     {
@@ -129,6 +139,9 @@ class Shop
 
         $result = mysqli_query($this->connection, $query)
         or die(mysqli_error($this->connection));
+
+        $this->ID = mysqli_insert_id($this->connection);
+        return $this->ID;
     }
 
     public function read(int $ID)
@@ -445,6 +458,16 @@ class Shop
         $this->address = $address;
     }
     
+    public function getPublished()
+    {
+        return $this->isPublished;
+    }
+
+    public function setPublished($isPublished)
+    {
+        $this->isPublished = $isPublished;
+    }
+
     /////////////////////////////////////////////////////////
     public function getDeliveryOption_04_address()
     {
@@ -509,5 +532,45 @@ class Shop
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Get the value of phone
+     */ 
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     *
+     * @return  self
+     */ 
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of photo
+     */ 
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set the value of photo
+     *
+     * @return  self
+     */ 
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
     }
 }

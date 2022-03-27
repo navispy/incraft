@@ -294,7 +294,6 @@
 
 .tabs-3 .photo-wrapper {
     position: relative;
-    ;
     display: flex;
     flex-direction: column;
     height: 236px;
@@ -315,7 +314,6 @@
 .tabs-3 .photo-wrapper .button-edit {
     position: absolute;
     z-index: 2;
-    ;
     right: 16px;
     bottom: 16px;
     width: 48px;
@@ -326,7 +324,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 /************************************/
 

@@ -7,12 +7,21 @@ $schemaID = $_POST['schemaID'];
 $shopJSON  = $_POST['shop'];
 
 setupSchema($schemaID);
+global $connection;
 
 $shopData = json_decode($shopJSON, true);
-$shopID = $shop["ID"];
-$shopName = $shop["Name"];
+$shopID = $shopData["ID"];
 
-if(Shop::hasDupShopName($connection, $ahopID, $ahopName))
+$shopNameUnfixed = $shopData["Name"];
+$shopAddressUnfixed = $shopData["Address"];
+
+$shopName = mysqli_escape_string($connection, $shopNameUnfixed);
+$shopAddress = mysqli_escape_string($connection, $shopAddressUnfixed);
+
+$shopData["Name"] = $shopName;
+$shopData["Address"] = $shopAddress;
+
+if(Shop::hasDupShopName($connection, $shopID, $shopName))
 {
     http_response_code(404);
     echo json_encode(["message" => "Магазин с такми именем уже существует!"]);

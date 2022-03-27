@@ -22,9 +22,9 @@
                 <path d="M11.1 5.6C11.1 8.4 6 14 6 14C6 14 1 8.4 1 5.6C1 2.8 3.3 0.5 6.1 0.5C8.9 0.5 11.1 2.8 11.1 5.6Z" stroke="black" stroke-miterlimit="10" />
             </svg>
 
-            <input class="input input-address" readonly data-field="Addrees"></input>
+            <input class="input input-shop-address" readonly data-field="Address"></input>
 
-            <div class="icon-edit address-edit-btn" data-control="input-address">
+            <div class="icon-edit address-edit-btn" data-control="input-shop-address">
                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.4 12.2999L12.8 1.8999L15.6 4.6999L5.2 15.0999L1.5 16.0999L2.4 12.2999Z" fill="white" />
                     <path d="M12.8 3.3L14.2 4.7L4.69995 14.2L2.89995 14.7L3.29995 12.8L12.8 3.3ZM12.8 0.5L1.49995 11.8L0.199951 17.6L5.69995 16L17 4.7L12.8 0.5Z" fill="black" />
@@ -43,10 +43,10 @@
 
             <div>
                 <span>Тел:</span>
-                <input class="input input-phone" readonly data-field="Phone"></input>
+                <input class="input input-shop-phone" readonly data-field="Phone"></input>
             </div>
 
-            <div class="icon-edit phone-edit-btn" data-control="input-phone">
+            <div class="icon-edit phone-edit-btn" data-control="input-shop-phone">
                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.4 12.2999L12.8 1.8999L15.6 4.6999L5.2 15.0999L1.5 16.0999L2.4 12.2999Z" fill="white" />
                     <path d="M12.8 3.3L14.2 4.7L4.69995 14.2L2.89995 14.7L3.29995 12.8L12.8 3.3ZM12.8 0.5L1.49995 11.8L0.199951 17.6L5.69995 16L17 4.7L12.8 0.5Z" fill="black" />
@@ -58,4 +58,17 @@
         </div>
     </div>
 </div>
-<img src="img/no-image-icon.png">
+
+<div class="photo-wrapper">
+    <input class="new-photo" type="file" accept="image/*" data-field="Photo" />
+    <img class="photo-content" src="img/no-image-icon.png">
+    <div class="button-edit-photo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.4 15.2999L16.8 4.8999L19.6 7.6999L9.2 18.0999L5.5 19.0999L6.4 15.2999Z" fill="white"></path>
+            <path d="M16.8 6.3L18.2 7.7L8.69995 17.2L6.89995 17.7L7.29995 15.8L16.8 6.3ZM16.8 3.5L5.49995 14.8L4.19995 20.6L9.69995 19L21 7.7L16.8 3.5Z" fill="black"></path>
+            <path d="M14 7L17.5 10.5" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+            <path d="M6.19995 14.7998L9.69995 18.2998" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+            <path d="M5.5 15.5V19.5L9.5 18.5L5.5 15.5Z" fill="black"></path>
+        </svg>
+    </div>
+</div>

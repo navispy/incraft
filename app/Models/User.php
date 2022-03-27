@@ -1,4 +1,4 @@
-<?php 
+<?php
 //namespace App\Models;
 
 require_once "./setup.php";
@@ -26,10 +26,10 @@ class User
     protected $receiveNewOrderNotifications;
     protected $accountStatus;
 
-    protected $shops;
-    
+    protected $shops = [];
+
     //constructor
-    function __construct($connection) 
+    function __construct($connection)
     {
         $this->setConnection($connection);
 
@@ -38,25 +38,25 @@ class User
         if (method_exists($this, $f = '__construct' . $i)) {
             call_user_func_array(array($this, $f), $a);
         }
-
     }
 
-    function __construct2($connection, $ID) 
+    function __construct2($connection, $ID)
     {
         $this->read($ID);
     }
 
     public static function getStatus($name, $password, $connection)
     {
-        $status = ["credentials" => false,
-                   "account" => null];
+        $status = [
+            "credentials" => false,
+            "account" => null
+        ];
 
         $query = "SELECT * FROM __catalog43 WHERE Name='$name' AND Password='$password'";
         $result = mysqli_query($connection, $query)
             or die(mysqli_error($connection));
 
-        if ($row = mysqli_fetch_array($result)) 
-        {
+        if ($row = mysqli_fetch_array($result)) {
             $status["credentials"] = true;
             $status["account"] = $row["AccountStatus"];
 
@@ -66,7 +66,7 @@ class User
 
         return $status;
     }
-    public static function doesExist($ID, $connection) 
+    public static function doesExist($ID, $connection)
     {
         $query = "SELECT * FROM __catalog43 WHERE ID=$ID";
 
@@ -84,11 +84,10 @@ class User
             or die(mysqli_error($connection));
 
         $hasDupUserName = false;
-        if ($row = mysqli_fetch_array($result)) 
-        {
+        if ($row = mysqli_fetch_array($result)) {
             $hasDupUserName = true;
         }
-    
+
         return $hasDupUserName;
     }
 
@@ -100,11 +99,10 @@ class User
             or die(mysqli_error($connection));
 
         $hasDupUserEmail = false;
-        if ($row = mysqli_fetch_array($result)) 
-        {
+        if ($row = mysqli_fetch_array($result)) {
             $hasDupUserEmail = true;
         }
-    
+
         return $hasDupUserEmail;
     }
 
@@ -125,13 +123,28 @@ class User
         $obj["ReceiveMsgFromFavouriteShops"] = $this->receiveMsgFromFavouriteShops;
         $obj["ReceiveNewOrderNotifications"] = $this->receiveNewOrderNotifications;
         $obj["AccountStatus"] = $this->accountStatus;
-        $obj["Shops"] = $this->shops;
-    
+        
+        $fixedShops = [];
+        foreach ($this->shops as $shop) {
+            $fixedShop = [];
+            foreach($shop as $key => $value) {
+                if($key == "connection") {
+                    continue;
+                }
+                $fixedKey = ucfirst($key);
+                $fixedShop[$fixedKey] = $value;
+            }
+            $fixedShops[] = $fixedShop;
+        };
+
+        $obj["Shops"] = $fixedShops; //$this->shops;
+
         return json_encode($obj, true);
     }
 
     // GET METHODS
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->connection;
     }
 
@@ -207,11 +220,12 @@ class User
 
     // SET METHODS
 
-    public function setConnection($connection) {
+    public function setConnection($connection)
+    {
         $this->connection = $connection;
     }
 
-    public function setID(int $ID) 
+    public function setID(int $ID)
     {
         $this->ID = $ID;
     }
@@ -279,7 +293,6 @@ class User
     // CRUD OPERATIONS
     public function create(array $data)
     {
-
     }
 
     public function read(int $ID)
@@ -302,8 +315,8 @@ class User
             $receiveMsgFromSystem = $row["ReceiveMsgFromSystem"];
             $receiveMsgFromFavouriteShops = $row["ReceiveMsgFromFavouriteShops"];
             $receiveNewOrderNotifications = $row["ReceiveNewOrderNotifications"];
-            $accountStatus= $row["AccountStatus"];
-  
+            $accountStatus = $row["AccountStatus"];
+
             $this->setID($ID);
             $this->setName($name);
             $this->setEmail($email);
@@ -320,7 +333,7 @@ class User
 
             $this->shops = $this->readShops();
         }
-        
+
         return $this;
     }
 
@@ -331,9 +344,8 @@ class User
         SET";
 
         $delim = "";
-        foreach($data as $field => $value) 
-        {
-            if($field === "ID" || $field === "Shops") {
+        foreach ($data as $field => $value) {
+            if ($field === "ID" || $field === "Shops") {
                 continue;
             }
             $query .= "$delim `$field`='$value'";
@@ -344,15 +356,14 @@ class User
 
         $result = mysqli_query($this->connection, $query)
             or die(mysqli_error($this->connection));
-  
     }
 
     public function delete(int $ID)
     {
-
     }
 
-    public function readShops() {
+    public function readShops()
+    {
         $shops = [];
 
         $userID = $this->getID();
@@ -361,7 +372,7 @@ class User
         $result = mysqli_query($this->getConnection(), $query)
             or die(mysqli_error($this->getConnection()));
 
-        while($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             $shopID = $row["ID"];
             $shop = new Shop($this->getConnection(), $shopID);
             $shops[] = $shop->expose();

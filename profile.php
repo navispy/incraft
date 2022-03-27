@@ -59,11 +59,15 @@
         <div class="main">
 
             <div class="tabs">
-                <ul>
-                    <li><a href="#tabs-1-wrapper">Управление магазинами</a></li>
-                    <li><a href="#tabs-2-wrapper">История просмотров</a></li>
-                    <li><a href="#tabs-3-wrapper">Профиль</a></li>
-                </ul>
+
+                <div class="tabs-ul-wrapper">
+                    <ul class="tabs-ul">
+                        <li><a href="#tabs-1-wrapper">Управление магазинами</a></li>
+                        <li><a href="#tabs-2-wrapper">История просмотров</a></li>
+                        <li><a href="#tabs-3-wrapper">Профиль</a></li>
+                    </ul>
+                    <div class="cmd-publish"><span>Опубликовать магазин</span></div>
+                </div>
 
                 <div id="tabs-1-wrapper" class="tabs-1-wrapper">
                     <div class="page-1">

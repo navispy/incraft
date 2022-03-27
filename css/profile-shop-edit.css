@@ -13,11 +13,41 @@
     top: 228px;
 }
 
-.tabs-1-wrapper .page-1-shop-edit img {
+/*****************************************************/
+.new-photo {
+    display: none;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .photo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.tabs-1-wrapper .page-1-shop-edit .photo-wrapper .photo-content {
+    z-index: 1;
+    cursor: pointer;
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
+
+.tabs-1-wrapper .page-1-shop-edit .photo-wrapper .button-edit-photo {
+    position: absolute;
+    z-index: 2;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*****************************************************/
 
 .tabs-1-wrapper .page-1-shop-edit .text { 
     padding-top: 33px;
@@ -160,4 +190,31 @@
 .tabs-1-wrapper .page-1 .page-1-shop-edit .address-wrapper .input-border,
 .tabs-1-wrapper .page-1 .page-1-shop-edit .phone-wrapper .input-border {
     border: 1px solid #0079C4;
+}
+
+.tabs-ul-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.tabs-ul {
+    display: flex;
+    align-items: center;
+}
+
+.cmd-publish {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+}
+
+.cmd-publish span {
+    font-family: 'Geometria';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 130%;    
+    color: #000000;
 }
