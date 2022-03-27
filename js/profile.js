@@ -126,13 +126,13 @@ function editShop(num) {
 
     let photo = shop["Photo"];
 
-    $(".page-1-shop-edit").css("display", "grid");
+    $(".page-1-shop-edit").css("display", "flex");
     $(".input-shop-name").val(shopName);
     $(".input-shop-address").val(address);
     $(".input-shop-phone").val(phone);
 
     $(".tabs-1-wrapper .page-1-has-shops").hide();
-    $(".tabs-1-wrapper .page-1-shop-edit").show();
+    //$(".tabs-1-wrapper .page-1-shop-edit").show();
 
     $(".cmd-publish").css("visibility", "visible");
 
@@ -244,7 +244,7 @@ function editFirstShop() {
     $(".tabs-1-wrapper .page-2").css("display", "none");
 
     $(".page-1-no-shops").hide();
-    $(".page-1-shop-edit").show();
+    $(".page-1-shop-edit").css("display", "flex");
 
     profile["Shops"] = [shop];
     editShop(0);
@@ -434,7 +434,7 @@ $(document).ready(function () {
         active: 2,
         activate: function (event, ui) {
             let act = $(".tabs").tabs("option", "active");
-            if (act == 0 && $(".page-1-shop-edit").css("display") == "grid") {
+            if (act == 0 && $(".page-1-shop-edit").css("display") == "flex") {
                 $(".cmd-publish").css("visibility", "visible");
             } else if (act == 1 || act == 2) {
                 $(".cmd-publish").css("visibility", "hidden");

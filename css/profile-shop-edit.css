@@ -1,7 +1,12 @@
 .tabs-1-wrapper .page-1-shop-edit {
+    display: none;
+    flex-direction: column;
+} 
+
+.tabs-1-wrapper .page-1-shop-edit-wrapper {
     margin-top: 40px;
     position: relative;
-    display: none;
+    display: grid;
     grid-template-columns: 334px 1fr;
     grid-template-rows: 400px;
     box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.15);
@@ -11,6 +16,12 @@
 .tabs-1-wrapper .page-1-shop-edit .cmd-img-left,
 .tabs-1-wrapper .page-1-shop-edit .cmd-img-right {
     top: 228px;
+}
+
+.tabs-1-wrapper .page-1-goods-edit-wrapper {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
 }
 
 /*****************************************************/
