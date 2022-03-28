@@ -89,7 +89,6 @@
         </div>
     </div>
 
-
     <div class="top-10-craftsmen">
         <span>Топ 10 ремесленников и магазинов</span>
         <div class="container">

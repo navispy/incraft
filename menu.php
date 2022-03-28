@@ -6,7 +6,7 @@
                 <div class="btn" onclick="openNav()">&#9776;</div>
             </div>
             <div class="links">
-                <a href="index.php">Каталог</a>
+                <a href="catalog.php">Каталог</a>
                 <!--<a href="services-additional.php">Допуслуги</a>-->
                 <a href="about.php">О нас</a>
                 <!--a href="">Ремесленникам</a>-->
@@ -19,7 +19,7 @@
     <!-- Mobile Menu -->
     <div class="sideNav">
         <a class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.htm;">Каталог</a>
+        <a href="catalog.htm;">Каталог</a>
         <!--<a href="services-additional.php">Допуслуги</a>-->
         <a href="about.php">О нас</a>
         <!--<a href="">Ремесленникам</a>-->

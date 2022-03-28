@@ -76,4 +76,80 @@
 </div>
 
 <div class="page-1-goods-edit-wrapper">
+    <div class="goods-edit-commands">
+        <div class="goods-edit-select-all">
+            <label class="container">
+                <input class="rcv-msg rcv-msg-from-visitors" type="checkbox" data-field="ReceiveMsgFromVisitors">
+                <span class="checkmark fixed"></span>
+            </label>
+        </div>
+        <div class="goods-edit-cmd">
+            <svg width="21" height="7" viewBox="0 0 21 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 0C20 2 15.7467 6 10.5 6C5.25329 6 1 2 1 0" stroke="#929292" />
+            </svg>
+            <span>Скрыть</span>
+        </div>
+        <div class="goods-edit-cmd">
+            <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5H5V18H15V5Z" stroke="#929292" stroke-miterlimit="10" />
+                <path d="M11 1H1V14H11V1Z" stroke="#929292" stroke-miterlimit="10" />
+            </svg>
+            <span>Копировать</span>
+        </div>
+        <div class="goods-edit-cmd">
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.9001 15.5004H2.1001L1.1001 2.90039H10.9001L9.9001 15.5004Z" stroke="#929292" stroke-miterlimit="10" />
+                <path d="M4 2.9C4 1.9 4.8 1 5.9 1C7 1 7.8 1.8 7.8 2.9" stroke="#929292" stroke-miterlimit="10" />
+                <path d="M7.5 6V13" stroke="#929292" stroke-miterlimit="10" />
+            </svg>
+            <span>Удалить</span>
+        </div>
+
+    </div>
+    <div class="goods-edit-command-add">
+        <span>Добавить товар</span>
+    </div>
+</div>
+
+<div class="page-1-goods-list-wrapper">
+
+    <!--<div class="item">
+        <img src="img/temp01.png">
+        <div class="info">
+            <div class="name-desc">
+                <span class="name">Серьги "Папараць"</span>
+                <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+            </div>
+            <div class="price">
+                <span class="shop-name"></span>
+                <span class="value">1500 руб</span>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <img src="img/temp02.png">
+        <div class="info">
+            <div class="name-desc">
+                <span class="name">Купон "звезда"</span>
+                <span class="desc">Золото</span>
+            </div>
+            <div class="price">
+                <span class="shop-name"></span>
+                <span class="value">1500 руб</span>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <img src="img/temp03.png">
+        <div class="info">
+            <div class="name-desc">
+                <span class="name">Кольца "Олимпия"</span>
+                <span class="desc">Платина</span>
+            </div>
+            <div class="price">
+                <span class="shop-name"></span>
+                <span class="value">1500 руб</span>
+            </div>
+        </div>
+    </div>-->
 </div>
