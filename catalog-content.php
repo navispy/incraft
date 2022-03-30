@@ -1,7 +1,7 @@
 <?php
 ?>
 
-<div class="content">
+<div class="catalog-content">
     <span>Украшения</span>
     <div class="container">
         <!--<div class="item">

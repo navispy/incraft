@@ -679,3 +679,7 @@ body {
     font-weight: 700;
     color: #FC970D;
 }
+
+.block.search {
+    cursor: pointer;
+}

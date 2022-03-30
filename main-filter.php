@@ -30,7 +30,7 @@
             <option disabled="" selected="">Район</option>
         </select>
         <div class="chk-bychow">
-            <input class="checkbox" type="checkbox" name="chk-00" id="chk-00">
+            <input class="checkbox chk-00" type="checkbox" name="chk-00" id="chk-00">
             <label for="chk-00">Только Быхов</label>
         </div>
     </div>
@@ -38,9 +38,9 @@
     <div class="block availability">
         <p>Наличие</p>
         <select class="cb-availability">
-            <option value="1">В наличии и под заказ</option>
-            <option value="2">В наличии</option>
-            <option value="3">Под заказ</option>
+            <option value="-1">В наличии и под заказ</option>
+            <option value="1">В наличии</option>
+            <option value="0">Под заказ</option>
         </select>
     </div>
 
