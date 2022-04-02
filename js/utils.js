@@ -1,6 +1,8 @@
+var goods = [];
+
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
-    $(`.${dialog} input`).each(function(i, obj) {
+    $(`.${dialog} input`).each(function (i, obj) {
         let objValue = $(obj).val();
         thereAreEmptyFields = thereAreEmptyFields || objValue.trim() == "";
     });
@@ -48,7 +50,7 @@ function showToast(str) {
 
     $(".toast-wrapper").addClass("visible");
     $('body').addClass("overflow-hidden");
-    $('.toast span').html(str).fadeIn(1000).delay(1000).fadeOut('medium', function() {
+    $('.toast span').html(str).fadeIn(1000).delay(1000).fadeOut('medium', function () {
         $(".toast-wrapper").removeClass("visible");
         $('body').removeClass("overflow-hidden");
     });
@@ -65,7 +67,7 @@ function showToastCustom(wrapperClass, message) {
 }
 
 async function search(toDisplay = true) {
-    filters = {};
+    let filters = {};
 
     let min = $(".range .from").val();
     let max = $(".range .to").val();
@@ -99,7 +101,6 @@ async function search(toDisplay = true) {
     }
 
     let availability = $(".cb-availability").val();
-    //let availability_text = $(".cb-availability").text();
 
     if (parseInt(availability) !== -1) {
         filters["IsAvailable"] = { "operator": "EQUAL", "value1": parseInt(availability), "value2": "" };
@@ -126,7 +127,7 @@ async function search(toDisplay = true) {
 
     //alert(data["goods"].length);
 
-    let goods = data["goods"];
+    goods = data["goods"];
     $(".block.search").html(`<span>Найдено ${goods.length} предложений</span`);
 
     if (toDisplay) {
@@ -137,9 +138,12 @@ async function search(toDisplay = true) {
 function showGoods(goods) {
 
     let html = "";
-    for (good of goods) {
+    let num = 0;
+    for (let good of goods) {
+        let ID = good["ID"];
+
         let item_html =
-            `<div class="item">
+            `<div data-num="${num}" class="item item-${ID}">
             <img src="${good['Photo1']}" />
             <div class="info">
                 <div class="name-desc">
@@ -154,22 +158,41 @@ function showGoods(goods) {
         </div>`;
 
         html += item_html;
+        num++;
     }
     $(".catalog-content .container").html(html);
+
+    //bind click event
+    for (let good of goods) {
+        let ID = good["ID"];
+
+        $(`.item-${ID}`).bind('click', function (e) {
+            let num = $(this).data("num");
+            let good = goods[num];
+            window.sessionStorage.setItem("good", JSON.stringify(good));
+            window.location.assign("item.php");
+        });
+    }
+
+}
+
+function setComboByText(combo, text) {
+    $(`.${combo} option:contains(${text})`).attr('selected', 'selected');
+    let selIndex = $(`.${combo} option:contains(${text})`).index();
+    $(`.${combo}`).prop("selectedIndex", selIndex);
 }
 
 function showBychowOnly() {
     if ($(".chk-00").is(":checked")) {
 
         let region = "Могилевская";
-        $(".cb-region option:contains(" + region + ")").attr('selected', 'selected');
 
-        $(".cb-region").prop("selectedIndex", 7);
+        setComboByText("cb-region", region);
 
         filterDistricts();
 
         let district = "Быховский";
-        $(".cb-district option:contains(" + district + ")").attr('selected', 'selected');
+        setComboByText("cb-district", district);
     }
 
     search();
@@ -181,7 +204,7 @@ function setupSearcHandlers() {
         min: 0,
         max: 10000,
         values: [0, 10000],
-        slide: function(event, ui) {
+        slide: function (event, ui) {
             let a = ui.values[0];
             let b = ui.values[1];
 
@@ -206,55 +229,54 @@ function setupSearcHandlers() {
     $(".range .from").val(a);
     $(".range .to").val(b);
 
-
-    $(".range .from").bind("input", function() {
+    $(".range .from").bind("input", function () {
         let min = $(".range .from").val();
         let max = $(".range .to").val();
 
         $(".main-filter .price .slider").slider("values", 0, parseInt(min));
         $(".main-filter .price .slider").slider("values", 1, parseInt(max));
-        $(".main-filter .price .slider").slider('refresh');
+        //$(".main-filter .price .slider").slider('refresh');
 
         search();
     });
 
-    $('.range .to').bind("input", function() {
+    $('.range .to').bind("input", function () {
         let min = $(".range .from").val();
         let max = $(".range .to").val();
 
         $(".main-filter .price .slider").slider("values", 0, parseInt(min));
         $(".main-filter .price .slider").slider("values", 1, parseInt(max));
-        $(".main-filter .price .slider").slider('refresh');
+        //$(".main-filter .price .slider").slider('refresh');
 
         search();
     });
 
-    $('.chk-00').click(function() {
+    $('.chk-00').click(function () {
         showBychowOnly();
     });
 
-    $('.block.search').click(function() {
+    $('.block.search').click(function () {
         //alert("display results");
     });
 
-    $(".cb-region").on('change', function() {
+    $(".cb-region").on('change', function () {
         search();
         filterDistricts();
     });
 
-    $(".cb-district").on('change', function() {
+    $(".cb-district").on('change', function () {
         search();
     });
 
-    $(".cb-material").on('change', function() {
+    $(".cb-material").on('change', function () {
         search();
     });
 
-    $(".cb-scope").on('change', function() {
+    $(".cb-scope").on('change', function () {
         search();
     });
 
-    $(".cb-availability").on('change', function() {
+    $(".cb-availability").on('change', function () {
         search();
     });
 
@@ -330,34 +352,37 @@ function updateScopeCombo(recs) {
     $(".cb-scope").html(html);
 }
 
-function initUI(toFilter) {
+async function initUI(toFilter) {
     toFilter = toFilter == undefined ? true : toFilter;
     var calcTime = new Date().getTime();
 
-    $.ajax({
-        url: "post_json_catalogs.php",
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            calcTime: calcTime,
-            schemaID: "incraft"
-        },
-        success: function(data) {
+    var params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
 
-            if (data["calcTime"] == calcTime) {
-                regions = data["regions"];
-                districts = data["districts"];
-                materials = data["materials"];
-                scope = data["scope"];
-
-                updateRegionCombo(regions);
-                updateMaterialCombo(materials);
-                updateScopeCombo(scope);
-            }
+    let response = await fetch(`post_json_catalogs.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        error: function(data) {
-            alert("Error initUI()");
-        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
     });
 
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    regions = data["regions"];
+    districts = data["districts"];
+    materials = data["materials"];
+    scope = data["scope"];
+
+    updateRegionCombo(regions);
+    updateMaterialCombo(materials);
+    updateScopeCombo(scope);
+
+    return data;
 }

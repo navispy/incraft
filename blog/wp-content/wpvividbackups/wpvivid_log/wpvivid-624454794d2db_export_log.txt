@@ -1,0 +1,9 @@
+Log created: 2022-03-30 13:00:41
+Type: export
+[2022-03-30 13:00:41][notice]Start export posts.
+[2022-03-30 13:00:41][notice]server info fcgi:Off max execution time: 900 wp version:5.9.2 php version:7.4.3 db version:8.0.27 php ini:safe_mode: memory_limit:128M memory_get_usage:4.27 MB memory_get_peak_usage:4.29 MB extensions:PDO enabled curl enabled zlib enabled   is_multisite:0
+[2022-03-30 13:00:41][notice]Prepare to export post incraftexport2xip_wpvivid-624454794d2db_2022-03-30-13-00
+[2022-03-30 13:00:41][notice]Finished to export post incraftexport2xip_wpvivid-624454794d2db_2022-03-30-13-00
+[2022-03-30 13:00:41][notice]Prepare to zip file incraftexport2xip_wpvivid-624454794d2db_2022-03-30-13-00
+[2022-03-30 13:00:41][notice]Finished to zip file incraftexport2xip_wpvivid-624454794d2db_2022-03-30-13-00
+[2022-03-30 13:00:41][notice]Finished to export post
