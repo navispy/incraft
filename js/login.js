@@ -45,6 +45,10 @@ function setupSigninHandlers() {
 }
 
 function showLogin() {
+    $('html, body').animate({
+        scrollTop: $(".header").offset().top
+    }, 100);
+    
     $(".login-wrapper").addClass("visible");
     $(".login-dialog").slideToggle("medium", function() {
         $(".login-wrapper .error-msg").remove();
@@ -119,6 +123,7 @@ async function checkLogin(name, pass) {
     $(".login-commands-user").attr("src", photoURL);
     $(".login-commands-user").css("visibility", "visible");
     $(".profile-command").css("visibility", "visible");
+    
     closeLogin();
 
     let userID = data["userID"];

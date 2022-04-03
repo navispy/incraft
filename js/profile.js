@@ -384,6 +384,43 @@ function setupHandlers() {
     $(".new-photo").on("input", function () { //upload an avatar
         updatePhoto(this);
     });
+
+    $(".goods-edit-command-add").click(function() { // login/logout
+        showGoodEdit();
+    });
+
+    $(".good-edit-dialog .cancel").click(function() {
+        closeGoodEdit();
+    });
+
+    $(".good-edit-dialog .content-wrapper .input.input-1").click(function(event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
+    $(".good-edit-dialog .content-wrapper .input.input-3").click(function(event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
+    $(".good-edit-dialog .content-wrapper .input.input-2").click(function(event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] select`).focus();
+    });
+
+    $(".good-edit-dialog .content-wrapper .input.input-4").click(function(event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] textarea`).focus();
+    });
+
+    $(".upload-photo-button").click(function () { // select a photo
+        $(".good-photo").click();
+    });
+
+    $(".good-photo").on("input", function () { //upload a photo
+        updateGoodPhoto(this);
+    });
+
 }
 
 async function publishShop() {

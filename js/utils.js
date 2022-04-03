@@ -324,7 +324,7 @@ function updateRegionCombo(regions) {
     $(".cb-district").html(html);
 }
 
-function updateMaterialCombo(recs) {
+function updateMaterialCombo(recs, control) {
     var numRecs = recs.length;
     var html = `<option value=0>Любой (всего ${numRecs})</option>`;
 
@@ -335,7 +335,7 @@ function updateMaterialCombo(recs) {
         html += `<option value="${num}">${name}</option>`;
     }
 
-    $(".cb-material").html(html);
+    $(control).html(html);
 }
 
 function updateScopeCombo(recs) {
@@ -354,9 +354,9 @@ function updateScopeCombo(recs) {
 
 async function initUI(toFilter) {
     toFilter = toFilter == undefined ? true : toFilter;
-    var calcTime = new Date().getTime();
+    let calcTime = new Date().getTime();
 
-    var params = {
+    let params = {
         calcTime: calcTime,
         schemaID: "incraft"
     }
@@ -381,8 +381,35 @@ async function initUI(toFilter) {
     scope = data["scope"];
 
     updateRegionCombo(regions);
-    updateMaterialCombo(materials);
+    updateMaterialCombo(materials, ".cb-material");
     updateScopeCombo(scope);
 
     return data;
+}
+
+async function getMaterials() {
+    let calcTime = new Date().getTime();
+
+    let params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_catalogs.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    let recs = data["materials"];
+
+    return recs;
 }

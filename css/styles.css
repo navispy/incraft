@@ -378,6 +378,11 @@ body {
     z-index: 3;
 }
 
+.invisible {
+    visibility: hidden;
+    z-index: 0;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
