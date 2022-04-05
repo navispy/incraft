@@ -141,10 +141,13 @@ function showGoods(goods) {
     let num = 0;
     for (let good of goods) {
         let ID = good["ID"];
+        let photoJSON = good["PhotoJSON"];
+        let photos = JSON.parse(photoJSON);
+        let photo = photos[0];
 
         let item_html =
             `<div data-num="${num}" class="item item-${ID}">
-            <img src="${good['Photo1']}" />
+            <img src="${photo}" />
             <div class="info">
                 <div class="name-desc">
                     <span class="name">${good["Name"]}</span>

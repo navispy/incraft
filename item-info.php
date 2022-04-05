@@ -6,10 +6,18 @@
         </div>
         <span>Серьги “Папараць”</span>
         <div class="stack">
-            <img class="item-photo-01" src="img/temp17.png" />
-            <img class="item-photo-02" src="img/temp17.png" />
-            <img class="item-photo-03" src="img/temp17.png" />
-            <img class="item-photo-04" src="img/temp17.png" />
+            <div>
+                <img class="item-photo-01" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-02" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-03" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-04" src="img/temp17.png" />
+            </div>
         </div>
         <div class="selected">
             <img class="item-photo-00" src="img/temp17.png" />

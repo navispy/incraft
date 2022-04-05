@@ -9,7 +9,7 @@
 }
 
 .navbar .mobile {
-    display: flex;
+    display: none;
     grid-area: mobile;
     justify-content: start;
     align-content: center;
@@ -104,6 +104,7 @@
         display: block;
         padding: unset;
     }
+
     .navbar .mobile {
         display: flex;
         justify-content: flex-end;

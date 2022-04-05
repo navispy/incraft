@@ -2,6 +2,7 @@
 //namespace App\Models;
 
 require_once "./setup.php";
+require_once "Good.php";
 
 class Shop
 {
@@ -42,6 +43,8 @@ class Shop
     protected $address;
     protected $phone;
     protected $photo;
+
+    protected $goods = [];
 
     //constructor
     public function __construct($connection)
@@ -163,6 +166,8 @@ class Shop
                 }
             }
         }
+
+        $this->goods = $this->readGoods();
 
         return $this;
     }
@@ -572,5 +577,46 @@ class Shop
         $this->photo = $photo;
 
         return $this;
+    }
+
+    /**
+     * Get the value of goods
+     */ 
+    public function getGoods()
+    {
+        return $this->goods;
+    }
+
+    /**
+     * Set the value of goods
+     *
+     * @return  self
+     */ 
+    public function setGoods($goods)
+    {
+        $this->goods = $goods;
+
+        return $this;
+    }
+
+    public function readGoods()
+    {
+        $shopID = $this->ID;
+
+        $goods = [];
+
+
+        $query = "SELECT * FROM __catalog46 WHERE shop=$shopID";
+
+        $result = mysqli_query($this->getConnection(), $query)
+            or die(mysqli_error($this->getConnection()));
+
+        while ($row = mysqli_fetch_array($result)) {
+            $goodID = $row["ID"];
+            $good = new Good($this->getConnection(), $goodID);
+            $goods[] = $good->expose();
+        }
+
+        return $goods;
     }
 }

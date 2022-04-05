@@ -19,22 +19,22 @@
             <div class="content">
                 <div class="input input-1">
                     <span>Наименование</span>
-                    <input class="input-class name" />
+                    <input class="input-class name" data-field="Name"/>
                 </div>
                 <div class="input input-2">
                     <span>Материал</span>
-                    <select class="cb-material">
+                    <select class="cb-material" data-field="Material">
                     </select>
                 </div>
                 <div class="input input-3">
                     <span>Цена</span>
-                    <input class="input-class price" type="number">
+                    <input class="input-class price" type="number" data-field="Price">
                 </div>
             </div>
             <div class="content">
                 <div class="input input-4">
                     <span>Описание</span>
-                    <textarea class="input-class description"></textarea>
+                    <textarea class="input-class description" data-field="Description"></textarea>
                 </div>
 
                 <label class="checkmark-container">

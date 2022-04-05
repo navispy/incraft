@@ -50,7 +50,8 @@ body {
 }
 
 .login-shop {
-    display: flex;
+    /*display: flex;*/
+    display: none;
     align-items: flex-end;
     gap: 6px;
     cursor: pointer;
@@ -68,6 +69,7 @@ body {
 }
 
 .login-notifications-counter {
+    visibility: hidden;
     height: 28px;
     width: 28px;
     display: flex;

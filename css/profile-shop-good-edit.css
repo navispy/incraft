@@ -371,3 +371,15 @@ div.stack-photo-wrapper::-webkit-scrollbar-track {
     display: flex;
     gap: 16px;
 }
+
+.good-photo-item {
+    width:250px;
+    height: 100%;
+    display: flex;
+}
+
+.good-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

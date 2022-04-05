@@ -32,7 +32,10 @@ function setupLocalHandlers() {
 }
 
 function showGood(good) {
-    let photo = good["Photo1"];
+    let photoJSON = good["PhotoJSON"];
+    let photos = JSON.parse(photoJSON);
+
+    let photo = photos[0]; //good["Photo1"];
     let price = good["Price"];
     let isAvailableUnfixed = good["IsAvailable"];
     let isAvailable = parseInt(isAvailableUnfixed) === 1;

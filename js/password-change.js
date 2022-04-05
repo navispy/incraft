@@ -26,7 +26,6 @@ function showPasswordChange() {
     })
 }
 
-
 async function tryPasswordChange(profile) {
     let password = $(".password-change-dialog .password").val(); // new password
     profile["Password"] = password;

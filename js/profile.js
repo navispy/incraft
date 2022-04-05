@@ -8,6 +8,7 @@ var shop = {};
 var photoJSON;
 var photos = [];
 var photoNums = [];
+var good = {};
 
 function updateCmdAccountStatus(status) {
     let accountCmdText = "";
@@ -292,7 +293,27 @@ function createShop(shop) {
     $(".icon-edit").each(function () {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", false);
-        //$(`.${control}`).removeClass("input-border");
+    });
+}
+
+function setupGoodHandlers() {
+
+    $(".good-edit-dialog .input-class").on("input", function () {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        good[field] = newValue;
+    });
+
+    $(".good-edit-dialog .is-available").change(function () {
+        let field = $(this).data("field");
+        let newValue = $(this).prop("checked");
+        good[field] = newValue;
+    });
+
+    $(".good-edit-dialog .cb-material").on('change', function () {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        good[field] = newValue;
     });
 }
 
@@ -389,30 +410,36 @@ function setupHandlers() {
         updatePhoto(this);
     });
 
-    $(".goods-edit-command-add").click(function() { // login/logout
-        showGoodEdit();
+    $(".goods-edit-command-add").click(function () { // login/logout
+        good = {};
+        setupGoodHandlers();
+        showGoodEdit(good);
     });
 
-    $(".good-edit-dialog .cancel").click(function() {
+    $(".good-edit-dialog .cancel").click(function () {
         closeGoodEdit();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-1").click(function(event) {
+    $(".good-edit-dialog .save").click(function () {
+        saveGood();
+    });
+
+    $(".good-edit-dialog .content-wrapper .input.input-1").click(function (event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-3").click(function(event) {
+    $(".good-edit-dialog .content-wrapper .input.input-3").click(function (event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-2").click(function(event) {
+    $(".good-edit-dialog .content-wrapper .input.input-2").click(function (event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] select`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-4").click(function(event) {
+    $(".good-edit-dialog .content-wrapper .input.input-4").click(function (event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] textarea`).focus();
     });
