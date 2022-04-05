@@ -5,6 +5,10 @@ var userID;
 var profile = {};
 var shop = {};
 
+var photoJSON;
+var photos = [];
+var photoNums = [];
+
 function updateCmdAccountStatus(status) {
     let accountCmdText = "";
     let statusNext; //as we toggle status

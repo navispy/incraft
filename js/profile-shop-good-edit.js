@@ -11,6 +11,24 @@ async function showGoodEdit() {
 
     let materials = await getMaterials();
     updateMaterialCombo(materials, ".cb-material");
+
+    photoJSON = "";//shop["PhotoJSON"];
+    try {
+        photos = JSON.parse(photoJSON);
+    } catch (e) {
+
+    } finally {
+        photos = [];
+    }
+
+    photoNums = [];
+
+    let i = 0;
+    for (let obj of photos) {
+        let num = i + 1;
+        photoNums.push(num);
+        i++;
+    }
 }
 
 function closeGoodEdit() {
@@ -35,10 +53,8 @@ function processFiles(droppedFiles) {
     let numFiles = droppedFiles.length;
     let step = 1.00 / parseFloat(numFiles) * 100;
 
-    let numFilesUploaded = filesUploaded.length;
-
-    let numPhotos = 0; //photoNums.length;
-    let lastPhotoNum = 0; //numPhotos == 0 ? 0 : photoNums[numPhotos - 1];
+    let numPhotos = photos.length;
+    let lastPhotoNum = numPhotos == 0 ? 0 : photoNums[numPhotos - 1];
 
     let imgHash = {};
 
@@ -48,11 +64,12 @@ function processFiles(droppedFiles) {
         i++;
     }
 
-    for (let i = 0; i < numFiles; i++) {
-        let file = droppedFiles[i];
-        var fileName = file.name;
-        filesUploaded.push(fileName); //photos are adding as well
+    i = 0;
+    for (let file of droppedFiles) {
+        let fileName = file.name;
+        photos.push(fileName); //photos are adding as well
         photoNums.push(lastPhotoNum + i + 1);
+        i++;
     }
 
 }
