@@ -389,7 +389,7 @@ class Good
      *
      * @return  self
      */ 
-    public function setIsAvailable($isAvailable)
+    public function setIsAvailable(bool $isAvailable)
     {
         $this->isAvailable = $isAvailable;
 

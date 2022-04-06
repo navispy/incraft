@@ -17,11 +17,13 @@ async function showGoodEdit(good) {
     let material = good["Material"];
     let price = good["Price"];
     let desc = good["Description"];
+    let isAvailable = good["IsAvailable"] === "1";
 
     $(`.good-edit-dialog .input-class.name`).val(name);
     $(`.good-edit-dialog .input-class.price`).val(price);
     $(`.good-edit-dialog .input-class.description`).val(desc);
     $(`.good-edit-dialog .cb-material`).val(material);
+    $(`.good-edit-dialog .is-available`).prop("checked", isAvailable);
 
     photoJSON = good["PhotoJSON"];
     try {
@@ -52,36 +54,36 @@ function closeGoodEdit() {
 }
 
 async function saveGood() {
-    if (good["ID"] !== undefined) {
-
-    } else {
-
-        var params = {
-            shop: shop["ID"],
-            good: JSON.stringify(good),
-            schemaID: "incraft"
-        }
-
-        let response = await fetch(`post_json_good_create.php`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },
-            body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
-        });
-
-        let data = await response.json();
-
-        if (!response.ok) {
-            showToast(data.message);
-            throw new Error(data.message);
-        } else {
-            good["ID"] = data["good"]["ID"];
-        }
-
-        closeGoodEdit();
-        showToast("Товар сохранен");
+    var params = {
+        shop: shop["ID"],
+        good: JSON.stringify(good),
+        schemaID: "incraft"
     }
+
+    let url = `post_json_good_create.php`;
+    if (good["ID"] !== undefined) {
+        url = `post_json_good_update.php`;
+    }
+
+    let response = await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        showToast(data.message);
+        throw new Error(data.message);
+    } else {
+        good["ID"] = data["good"]["ID"];
+    }
+
+    closeGoodEdit();
+    showToast("Товар сохранен");
 }
 
 function processGoodPhotos(obj) {

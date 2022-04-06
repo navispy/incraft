@@ -6,3 +6,23 @@ INSERT INTO __catalog46 (`Name`,`Material`,`Price`,`Description`,`IsAvailable`,`
 INSERT INTO __catalog46 (`PhotoJSON`,`Name`,`Description`,`Price`,`Material`,`Shop`) VALUES ('["files/temp22.png?ver=1649191486485","files/temp21.png?ver=1649191486491","files/temp20.png?ver=1649191486497"]','NAME','DESC','1000','1','59')
 59
 INSERT INTO __catalog46 (`Name`,`Material`,`Price`,`Description`,`PhotoJSON`,`Shop`) VALUES ('TEST 2','9','2000','DESC 2','["files/user01.png?ver=1649192112058"]','59')
+64
+INSERT INTO __catalog46 (`Name`,`Description`,`Material`,`Price`,`PhotoJSON`,`Shop`) VALUES ('Открытки и картины','Стильно, изящно, иногда с юмором.
+Стильно, изящно, иногда с юмором.','0','0','["files/new01-21.png?ver=1649267252577","files/new01-21.png?ver=1649267258501"]','64')
+64
+INSERT INTO __catalog46 (`PhotoJSON`,`Shop`) VALUES ('["files/new01-02.png?ver=1649268745434","files/new01-01.png?ver=1649268745449"]','64')
+65
+INSERT INTO __catalog46 (`PhotoJSON`,`Description`,`Name`,`Price`,`Shop`) VALUES ('["files/new02-02.png?ver=1649278022782","files/new02-01.png?ver=1649278022798"]','Разнообразие ароматов, масел и цветов. Мыло, бомбочки и скрабы. Ручная работа с заботой о вас.
+Могилев. Каленская Ирина  37529 542-83-04 Instagram @handmade_soap_mogolev','Мыло ручной работы ','0','65')
+65
+INSERT INTO __catalog46 (`Shop`) VALUES ('65')
+65
+INSERT INTO __catalog46 (`PhotoJSON`,`Price`,`Description`,`Name`,`Shop`) VALUES ('["files/new02-02.png?ver=1649278088841","files/new02-01.png?ver=1649278088851"]','0','Разнообразие ароматов, масел и цветов. Мыло, бомбочки и скрабы. Ручная работа с заботой о вас.
+
+Могилев. Каленская Ирина  37529 542-83-04 Instagram @handmade_soap_mogolev','Мыло ручной работы ','65')
+65
+INSERT INTO __catalog46 (`Shop`) VALUES ('65')
+65
+INSERT INTO __catalog46 (`Shop`) VALUES ('65')
+65
+INSERT INTO __catalog46 (`Shop`) VALUES ('65')

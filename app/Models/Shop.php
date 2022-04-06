@@ -197,7 +197,7 @@ class Shop
 
         $delim = "";
         foreach ($data as $field => $value) {
-            if ($field === "ID") {
+            if ($field === "ID" || $field === "Connection" || $field === "Goods") {
                 continue;
             }
             $query .= "$delim `$field`='$value'";
