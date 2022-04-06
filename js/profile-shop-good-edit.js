@@ -1,3 +1,4 @@
+var addedPhotos = [];
 async function showGoodEdit(good) {
     $('html, body').animate({
         scrollTop: $(".header").offset().top
@@ -11,6 +12,16 @@ async function showGoodEdit(good) {
 
     let materials = await getMaterials();
     updateMaterialCombo(materials, ".cb-material");
+
+    let name = good["Name"];
+    let material = good["Material"];
+    let price = good["Price"];
+    let desc = good["Description"];
+
+    $(`.good-edit-dialog .input-class.name`).val(name);
+    $(`.good-edit-dialog .input-class.price`).val(price);
+    $(`.good-edit-dialog .input-class.description`).val(desc);
+    $(`.good-edit-dialog .cb-material`).val(material);
 
     photoJSON = good["PhotoJSON"];
     try {
@@ -28,7 +39,7 @@ async function showGoodEdit(good) {
         i++;
     }
 
-    updateGoodPhotos();
+    updateGoodPhotos(photos);
 }
 
 function closeGoodEdit() {
@@ -106,27 +117,27 @@ async function uploadPhoto(file) {
 async function processFiles(droppedFiles) {
     //let progressPhoto = 0;
     //$(".progress-bar").val(progressPhoto);
-
+    addedPhotos = [];
     let numPhotos = photos.length;
     let lastPhotoNum = numPhotos == 0 ? 0 : photoNums[numPhotos - 1];
 
     let i = 0;
-    let html = "";
     for (let file of droppedFiles) {
         let fileName = await uploadPhoto(file);
         photos.push(fileName); //photos are adding as well
+        addedPhotos.push(fileName); //photos are adding as well
         photoNums.push(lastPhotoNum + i + 1);
     }
 
     good["PhotoJSON"] = JSON.stringify(photos);
 
-    updateGoodPhotos();
+    updateGoodPhotos(addedPhotos);
 }
 
-function updateGoodPhotos() {
+function updateGoodPhotos(addedPhotos) {
     let i = 0;
     let html = "";
-    for (let photo of photos) {
+    for (let photo of addedPhotos) {
 
         let item_html =
             `<div data-num="${i}" class="good-photo-item good-photo-item-${i}">
