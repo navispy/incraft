@@ -6,13 +6,21 @@
         </div>
         <span>Серьги “Папараць”</span>
         <div class="stack">
-            <img src="img/temp17.png" />
-            <img src="img/temp17.png" />
-            <img src="img/temp17.png" />
-            <img src="img/temp17.png" />
+            <div>
+                <img class="item-photo-01" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-02" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-03" src="img/temp17.png" />
+            </div>
+            <div>
+                <img class="item-photo-04" src="img/temp17.png" />
+            </div>
         </div>
         <div class="selected">
-            <img src="img/temp17.png" />
+            <img class="item-photo-00" src="img/temp17.png" />
             <div class="cmd-img-left">
                 <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.90002 1.9L1.80002 9C1.30002 9.5 1.30002 10.4 1.80002 11L8.90002 18.1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />
@@ -36,18 +44,18 @@
     </div>
     <div class="order">
         <div class="instock">
-            <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="instock-svg" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0H10V8H0L4 4L0 0Z" fill="#19B829" />
                 <line x1="10.5" y1="2.18556e-08" x2="10.5" y2="14" stroke="#19B829" />
             </svg>
-            <span>В наличии</span>
+            <span class="instock-span">В наличии</span>
         </div>
         <div class="price-wrapper">
             <div class="price">
                 <input class="qty" type="number" value="1" />
                 <span>шт.</span>
             </div>
-            <div class="total"><span>436 руб.</span></div>
+            <div class="total"><span></span></div>
             <div class="button"><span>Разместить заказ</span></div>
             <div></div>
         </div>

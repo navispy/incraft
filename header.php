@@ -17,7 +17,7 @@
                 <path d="M12.7 2V3.2" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />
             </svg>
             <div class="login-notifications-counter">
-                <span class="login-notifications-counter-span">43</span>
+                <span class="login-notifications-counter-span"></span>
             </div>
         </div>
 

@@ -1,0 +1,385 @@
+.checkmark-container {
+    display: flex;
+    position: relative;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkmark-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark-new {
+    position: relative;
+    margin-top: 0;
+    margin-left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+
+/* On mouse-over, add a grey background color */
+.checkmark-container:hover input ~ .checkmark-new {
+    background-color: white;
+}
+  
+/* When the checkbox is checked, add a blue background */
+.checkmark-container input:checked ~ .checkmark-new {
+    background-color: white;
+}
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-new:after {
+    content: "";
+    position: relative;
+    display: none;
+}
+  
+/* Show the checkmark when checked */
+.checkmark-container input:checked ~ .checkmark-new:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.checkmark-container .checkmark-new:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/********************************************/
+
+.shop-good-edit {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.good-edit-dialog {
+    position: relative;
+    background-color: white;
+    border: 2px solid lightgray;
+    width: 800px;
+    max-height: calc(100% - 200px);
+    height: auto;
+    display: none;
+    flex-direction: column;
+    box-shadow: rgb(0 0 0 / 28%) 0px 8px 28px;
+    overflow: overlay;
+}
+
+.good-edit-dialog .caption-wrapper {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: white;
+}
+
+.good-edit-dialog .caption-wrapper .caption {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.good-edit-dialog .caption-wrapper .caption span {
+    font-family: 'Geometria';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.good-edit-dialog .cancel {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.good-edit-dialog .cancel svg {
+    width: 24px;
+    height: 24px;
+}
+
+.good-edit-dialog .content-wrapper {
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+}
+
+.good-edit-dialog .content-subwrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 16px;
+}
+
+.good-edit-dialog .content-subwrapper .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.good-edit-dialog .content-subwrapper .caption {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.good-edit-dialog .photo-subwrapper .caption {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.good-edit-dialog .content-subwrapper .caption span,
+.good-edit-dialog .photo-subwrapper .caption span {
+    font-family: 'Geometria';
+    font-size: 22px;
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+}
+
+.good-edit-dialog .content-subwrapper .input {
+    height: 56px;
+    width: 100%;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.good-edit-dialog .content-subwrapper .input.input-4 {
+    height: 184px;
+}
+
+.good-edit-dialog .content-subwrapper .input:focus-within {
+    border: 1px solid #0079C4;
+    outline-style: solid;
+    outline-width: thin;
+    outline-color: #0079C4;
+}
+
+.good-edit-dialog .content-wrapper .input span {
+    top: 18px;
+    font-family: 'Arial';
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    text-indent: 10px;
+    color: rgb(113, 113, 113);
+}
+
+.good-edit-dialog .content-subwrapper .input-class,
+.good-edit-dialog .content-subwrapper select {
+    width: 100%;
+    height: 20px;
+    border: none;
+    text-indent: 10px;
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.good-edit-dialog .content-subwrapper textarea[class="input-class description"] {
+    width: 100%;
+    height: 128px;
+    border: none;
+    text-indent: 10px;
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.good-edit-dialog .content-subwrapper select {
+    -webkit-appearance: none;
+    background: url(../img/arrow-down.svg) no-repeat right white;
+    background-position-x: calc(100% - 10px);
+    text-indent: 10px;
+}
+
+.good-edit-dialog .content-subwrapper .input-class:focus, 
+.good-edit-dialog .content-subwrapper select:focus,
+.good-edit-dialog .content-subwrapper textarea:focus {
+    outline: none;
+}
+
+.good-edit-dialog .content-wrapper .save {
+    margin-top: 8px;
+    height: 48px;
+    background: #0079C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.good-edit-dialog .content-wrapper .save span {
+    color: white;
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.good-edit-dialog .photo-subwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+/*****************************************************/
+
+.add-photo {
+    grid-template-rows: 183px 150px;
+    grid-gap: 16px;
+    display: grid;
+}
+
+.grid {
+    display: grid;
+}
+
+.upload-photo {
+    border: 1px solid #0079C4;
+
+    display: grid;
+    grid-template-areas: " . . . "
+        " upload-photo-text    upload-photo-button    . "
+        " progress-bar-wrapper progress-bar-wrapper    progress-bar-wrapper ";
+    grid-template-columns: 1fr 72px 1fr;
+    grid-template-rows: 1fr 72px 1fr;
+}
+
+.upload-photo-text {
+    grid-area: upload-photo-text;
+    display: flex;
+    align-items: center;
+}
+
+.upload-photo-comment {
+    width: 304px;
+    height: 49px;
+    color: #0079C4;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Geometria;
+    padding-left: 16px;
+    line-height: 170%;
+}
+
+.upload-photo-button {
+    grid-area: upload-photo-button;
+    border: 1px solid #0079C4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-photo-button:hover {
+    border: 2px solid #0079C4;
+}
+
+.good-photo {
+    display: none;
+}
+
+.progress-bar-wrapper {
+    grid-area: progress-bar-wrapper;
+    display: flex;
+    align-items: flex-end;
+}
+
+.progress-bar {
+    width: 100%;
+}
+
+progress {
+    height: 4px;
+    visibility: hidden;
+}
+.stack-photo-wrapper {
+    border: 1px solid #0079C4;
+    overflow-x: auto;
+    display: flex;
+}
+
+div.stack-photo-wrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+div.stack-photo-wrapper::-webkit-scrollbar-thumb {
+    background: #0079C4;
+}
+
+div.stack-photo-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .1);
+}
+
+.stack-photo {
+    display: flex;
+    gap: 16px;
+}
+
+.good-photo-item {
+    width:250px;
+    height: 100%;
+    display: flex;
+}
+
+.good-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

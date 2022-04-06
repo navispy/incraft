@@ -16,7 +16,6 @@ $userID = $shopData["UserID"];
 $shopNameUnfixed = $shopData["Name"];
 $deliveryOption_04_AddressUnfixed = $shopData["DeliveryOption_04_Address"];
 
-
 $shopName = mysqli_escape_string($connection, $shopNameUnfixed);
 $deliveryOption_04_Address = mysqli_escape_string($connection, $deliveryOption_04_AddressUnfixed);
 

@@ -12,22 +12,24 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=16" type="text/css">
-    <link rel="stylesheet" href="css/custom-checkbox.css?version=16" type="text/css">
-    <link rel="stylesheet" href="css/custom-radio.css?version=16" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=16" type="text/css">
-    <link rel="stylesheet" href="css/profile-shop-edit.css?version=16" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=16" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/custom-checkbox.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/custom-radio.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/profile-shop-edit.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/profile-shop-good-edit.css?version=20" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=20" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/profile.js?version=18" type="text/javascript"></script>
-    <script src="js/signup.js?version=18" type="text/javascript"></script>
-    <script src="js/login.js?version=18" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=18" type="text/javascript"></script>
-    <script src="js/password-change.js?version=18" type="text/javascript"></script>
-    <script src="js/utils.js?version=18" type="text/javascript"></script>
+    <script src="js/profile-shop-good-edit.js?version=21" type="text/javascript"></script>
+    <script src="js/profile.js?version=21" type="text/javascript"></script>
+    <script src="js/signup.js?version=21" type="text/javascript"></script>
+    <script src="js/login.js?version=21" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=21" type="text/javascript"></script>
+    <script src="js/password-change.js?version=21" type="text/javascript"></script>
+    <script src="js/utils.js?version=21" type="text/javascript"></script>
 </head>
 
 <body>
@@ -50,6 +52,10 @@
     </div>
     <div class="password-change-wrapper">
         <?php include 'password-change-wrapper.php'; ?>
+    </div>
+
+    <div class="shop-good-edit invisible">
+        <?php include 'profile-shop-good-edit.php'; ?>
     </div>
 
     <div class="wrapper">

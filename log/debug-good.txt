@@ -1,0 +1,8 @@
+
+INSERT INTO __catalog46 (`Name`,`Price`) VALUES ('name','1000')
+59
+INSERT INTO __catalog46 (`Name`,`Material`,`Price`,`Description`,`IsAvailable`,`PhotoJSON`,`Shop`) VALUES ('TEST','1','1000','DESC','1','["files/user01.png?ver=1649189882208","files/temp22.png?ver=1649189882216","files/temp21.png?ver=1649189882230","files/temp20.png?ver=1649189882240","files/temp19.png?ver=1649189882253","files/temp18.png?ver=1649189882264","files/temp17.png?ver=1649189882277","files/temp16.png?ver=1649189882288","files/temp15.png?ver=1649189882295","files/temp14.png?ver=1649189882302","files/temp13.png?ver=1649189882310","files/temp12.png?ver=1649189882318","files/temp11.png?ver=1649189882327","files/temp10.png?ver=1649189882340","files/temp09.png?ver=1649189882346","files/temp08.png?ver=1649189882357","files/temp07.png?ver=1649189882364","files/temp06.png?ver=1649189882376","files/temp05.png?ver=1649189882382","files/temp04.png?ver=1649189882393","files/temp03.png?ver=1649189882402","files/temp02.png?ver=1649189882411","files/temp01.png?ver=1649189882420"]','59')
+59
+INSERT INTO __catalog46 (`PhotoJSON`,`Name`,`Description`,`Price`,`Material`,`Shop`) VALUES ('["files/temp22.png?ver=1649191486485","files/temp21.png?ver=1649191486491","files/temp20.png?ver=1649191486497"]','NAME','DESC','1000','1','59')
+59
+INSERT INTO __catalog46 (`Name`,`Material`,`Price`,`Description`,`PhotoJSON`,`Shop`) VALUES ('TEST 2','9','2000','DESC 2','["files/user01.png?ver=1649192112058"]','59')
