@@ -5,7 +5,7 @@ async function showGoodEdit(good) {
 
     $(".shop-good-edit").addClass("visible");
     $(".shop-good-edit").removeClass("invisible");
-    $(".good-edit-dialog").slideToggle("medium", function () {
+    $(".good-edit-dialog").slideToggle("medium", function() {
         $('body').addClass("overflow-hidden");
     });
 
@@ -17,9 +17,7 @@ async function showGoodEdit(good) {
         photos = JSON.parse(photoJSON);
     } catch (e) {
 
-    } finally {
-        photos = [];
-    }
+    } finally {}
 
     photoNums = [];
 
@@ -29,10 +27,12 @@ async function showGoodEdit(good) {
         photoNums.push(num);
         i++;
     }
+
+    updateGoodPhotos();
 }
 
 function closeGoodEdit() {
-    $(".good-edit-dialog").slideToggle("medium", function () {
+    $(".good-edit-dialog").slideToggle("medium", function() {
         $(".shop-good-edit").addClass("invisible");
         $(".shop-good-edit").removeClass("visible");
 
@@ -41,7 +41,7 @@ function closeGoodEdit() {
 }
 
 async function saveGood() {
-    if(good["ID"] !== undefined) {
+    if (good["ID"] !== undefined) {
 
     } else {
 
@@ -50,7 +50,7 @@ async function saveGood() {
             good: JSON.stringify(good),
             schemaID: "incraft"
         }
-    
+
         let response = await fetch(`post_json_good_create.php`, {
             method: "POST",
             headers: {
@@ -58,9 +58,9 @@ async function saveGood() {
             },
             body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
         });
-    
+
         let data = await response.json();
-    
+
         if (!response.ok) {
             showToast(data.message);
             throw new Error(data.message);
@@ -73,7 +73,7 @@ async function saveGood() {
     }
 }
 
-function updateGoodPhoto(obj) {
+function processGoodPhotos(obj) {
     //console.log("update good photo");
     let files = $(".good-photo")[0].files;
     processFiles(files);
@@ -116,16 +116,25 @@ async function processFiles(droppedFiles) {
         let fileName = await uploadPhoto(file);
         photos.push(fileName); //photos are adding as well
         photoNums.push(lastPhotoNum + i + 1);
-        i++;
+    }
+
+    good["PhotoJSON"] = JSON.stringify(photos);
+
+    updateGoodPhotos();
+}
+
+function updateGoodPhotos() {
+    let i = 0;
+    let html = "";
+    for (let photo of photos) {
 
         let item_html =
             `<div data-num="${i}" class="good-photo-item good-photo-item-${i}">
-                <img src="${fileName}" />
+                <img src="${photo}" />
             </div>`;
 
         html += item_html;
     }
 
-    good["PhotoJSON"] = JSON.stringify(photos);
     $(`.stack-photo`).append(html);
 }

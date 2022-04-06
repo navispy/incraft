@@ -115,6 +115,22 @@ class Shop
             $fixedKey = ucfirst($key);
             $fixed[$fixedKey] = $value;
         }
+
+        $fixedGoods = [];
+        foreach ($this->goods as $good) {
+            $fixedGood = [];
+            foreach($good as $key => $value) {
+                if($key == "connection") {
+                    continue;
+                }
+                $fixedKey = ucfirst($key);
+                $fixedGood[$fixedKey] = $value;
+            }
+            $fixedGoods[] = $fixedGood;
+        };
+
+        $fixed["Goods"] = $fixedGoods; //$this->shops;
+
         return json_encode($fixed, true);
     }
 

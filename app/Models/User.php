@@ -375,7 +375,7 @@ class User
         while ($row = mysqli_fetch_array($result)) {
             $shopID = $row["ID"];
             $shop = new Shop($this->getConnection(), $shopID);
-            $shops[] = $shop->expose();
+            $shops[] = json_decode($shop->__toString());
         }
 
         return $shops;

@@ -2,7 +2,7 @@ var goods = [];
 
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
-    $(`.${dialog} input`).each(function (i, obj) {
+    $(`.${dialog} input`).each(function(i, obj) {
         let objValue = $(obj).val();
         thereAreEmptyFields = thereAreEmptyFields || objValue.trim() == "";
     });
@@ -50,7 +50,7 @@ function showToast(str) {
 
     $(".toast-wrapper").addClass("visible");
     $('body').addClass("overflow-hidden");
-    $('.toast span').html(str).fadeIn(1000).delay(1000).fadeOut('medium', function () {
+    $('.toast span').html(str).fadeIn(1000).delay(1000).fadeOut('medium', function() {
         $(".toast-wrapper").removeClass("visible");
         $('body').removeClass("overflow-hidden");
     });
@@ -169,14 +169,13 @@ function showGoods(goods) {
     for (let good of goods) {
         let ID = good["ID"];
 
-        $(`.item-${ID}`).bind('click', function (e) {
+        $(`.item-${ID}`).bind('click', function(e) {
             let num = $(this).data("num");
             let good = goods[num];
             window.sessionStorage.setItem("good", JSON.stringify(good));
             window.location.assign("item.php");
         });
     }
-
 }
 
 function setComboByText(combo, text) {
@@ -207,7 +206,7 @@ function setupSearcHandlers() {
         min: 0,
         max: 10000,
         values: [0, 10000],
-        slide: function (event, ui) {
+        slide: function(event, ui) {
             let a = ui.values[0];
             let b = ui.values[1];
 
@@ -232,7 +231,7 @@ function setupSearcHandlers() {
     $(".range .from").val(a);
     $(".range .to").val(b);
 
-    $(".range .from").bind("input", function () {
+    $(".range .from").bind("input", function() {
         let min = $(".range .from").val();
         let max = $(".range .to").val();
 
@@ -243,7 +242,7 @@ function setupSearcHandlers() {
         search();
     });
 
-    $('.range .to').bind("input", function () {
+    $('.range .to').bind("input", function() {
         let min = $(".range .from").val();
         let max = $(".range .to").val();
 
@@ -254,32 +253,32 @@ function setupSearcHandlers() {
         search();
     });
 
-    $('.chk-00').click(function () {
+    $('.chk-00').click(function() {
         showBychowOnly();
     });
 
-    $('.block.search').click(function () {
+    $('.block.search').click(function() {
         //alert("display results");
     });
 
-    $(".cb-region").on('change', function () {
+    $(".cb-region").on('change', function() {
         search();
         filterDistricts();
     });
 
-    $(".cb-district").on('change', function () {
+    $(".cb-district").on('change', function() {
         search();
     });
 
-    $(".cb-material").on('change', function () {
+    $(".cb-material").on('change', function() {
         search();
     });
 
-    $(".cb-scope").on('change', function () {
+    $(".cb-scope").on('change', function() {
         search();
     });
 
-    $(".cb-availability").on('change', function () {
+    $(".cb-availability").on('change', function() {
         search();
     });
 

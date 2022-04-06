@@ -9,6 +9,7 @@ var photoJSON;
 var photos = [];
 var photoNums = [];
 var good = {};
+var goods = [];
 
 function updateCmdAccountStatus(status) {
     let accountCmdText = "";
@@ -141,13 +142,61 @@ function editShop(num) {
 
     $(".cmd-publish").css("visibility", "visible");
 
-    $(".icon-edit").each(function () {
+    $(".icon-edit").each(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", true);
         $(`.${control}`).removeClass("input-border");
     });
 
     $(".photo-content").attr("src", photo);
+
+    showShopGoods();
+}
+
+function showShopGoods() {
+
+    goods = shop["Goods"];
+
+    let html = "";
+    let num = 0;
+    for (let good of goods) {
+        let ID = good["ID"];
+        let photoJSON = good["PhotoJSON"];
+        let photos = JSON.parse(photoJSON);
+        let photo = photos[0];
+        let name = good["Name"];
+
+        let item_html =
+            `<div data-num="${num}" class="item item-${ID}">
+            <img src="${photo}" />
+            <div class="info">
+                <div class="name-desc">
+                    <span class="name">${name}</span>
+                    <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                </div>
+                <div class="price">
+                    <span class="shop-name">ИП "Дел Мастер"</span>
+                    <span class="value">1500 руб</span>
+                </div>
+            </div>
+        </div>`;
+
+        html += item_html;
+        num++;
+    }
+    $(".page-1-goods-list-wrapper").html(html);
+
+    //bind click event
+    for (let good of goods) {
+        let ID = good["ID"];
+
+        $(`.item-${ID}`).bind('click', function(e) {
+            let num = $(this).data("num");
+            good = goods[num];
+            showGoodEdit(good);
+        });
+    }
+
 }
 
 async function updateAvatar(obj) {
@@ -231,12 +280,12 @@ async function saveShop() {
         let message = "<p>Поздравляем с успешным созданием магазина. Добавьте товары для успешного начала работы.</p><p>После добавления товаров необходимо опубликовать магазин. Магазины без товаров не отображаются в поиске.</p>";
         showToastCustom("toast-wrapper-custom", message);
 
-        $(`.toast-custom .command-close`).bind('click', function (e) {
+        $(`.toast-custom .command-close`).bind('click', function(e) {
             $(".toast-wrapper-custom").removeClass("visible");
             $('body').removeClass("overflow-hidden");
         });
 
-        $(`.toast-custom .content .button`).bind('click', function (e) {
+        $(`.toast-custom .content .button`).bind('click', function(e) {
             $(".toast-wrapper-custom").removeClass("visible");
             $('body').removeClass("overflow-hidden");
             editFirstShop();
@@ -277,7 +326,7 @@ async function saveProfile() {
     }
 
     //revert back input controls to read only state
-    $(".icon-edit").each(function () {
+    $(".icon-edit").each(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", true);
         $(`.${control}`).removeClass("input-border");
@@ -290,7 +339,7 @@ function createShop(shop) {
     $(".tabs-1-wrapper .page-1").css("display", "none");
     $(".tabs-1-wrapper .page-2").css("display", "flex");
 
-    $(".icon-edit").each(function () {
+    $(".icon-edit").each(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", false);
     });
@@ -298,19 +347,19 @@ function createShop(shop) {
 
 function setupGoodHandlers() {
 
-    $(".good-edit-dialog .input-class").on("input", function () {
+    $(".good-edit-dialog .input-class").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         good[field] = newValue;
     });
 
-    $(".good-edit-dialog .is-available").change(function () {
+    $(".good-edit-dialog .is-available").change(function() {
         let field = $(this).data("field");
         let newValue = $(this).prop("checked");
         good[field] = newValue;
     });
 
-    $(".good-edit-dialog .cb-material").on('change', function () {
+    $(".good-edit-dialog .cb-material").on('change', function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         good[field] = newValue;
@@ -319,32 +368,32 @@ function setupGoodHandlers() {
 
 function setupHandlers() {
 
-    $(".icon-edit").click(function () {
+    $(".icon-edit").click(function() {
         let control = $(this).data("control");
         $(`.${control}`).attr("readonly", false);
         $(`.${control}`).addClass("input-border");
         $(`.${control}`).focus();
     });
 
-    $(".tabs-3 .data .input").on("input", function () {
+    $(".tabs-3 .data .input").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         profile[field] = newValue;
     });
 
-    $("input[name='visibility-option']").change(function (event) {
+    $("input[name='visibility-option']").change(function(event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
         profile[field] = parseInt(newValue);
     });
 
-    $(".rcv-msg").change(function () {
+    $(".rcv-msg").change(function() {
         let field = $(this).data("field");
         let newValue = $(this).prop("checked");
         profile[field] = newValue;
     });
 
-    $(".cmd-account-status").click(function () {
+    $(".cmd-account-status").click(function() {
         let field = $(this).data("field");
         let newValue = $(this).data("value");
         profile[field] = newValue;
@@ -352,104 +401,104 @@ function setupHandlers() {
         updateCmdAccountStatus(newValue);
     });
 
-    $(".button-edit").click(function () { // select an avatar
+    $(".button-edit").click(function() { // select an avatar
         $(".new-avatar").click();
     });
 
-    $(".new-avatar").on("input", function () { //upload an avatar
+    $(".new-avatar").on("input", function() { //upload an avatar
         updateAvatar(this);
     });
 
-    $(".tabs-3 .save-button").click(function () {
+    $(".tabs-3 .save-button").click(function() {
         saveProfile();
     });
 
     // create a shop handlers
-    $(".tabs-1-wrapper .save-button").click(function () {
+    $(".tabs-1-wrapper .save-button").click(function() {
         saveShop();
     });
 
-    $(".cmd-shop-create").click(function () {
+    $(".cmd-shop-create").click(function() {
         shop = { UserID: userID };
         createShop(shop);
     });
 
-    $(".tabs-1-wrapper .page-2 .input").on("input", function () {
+    $(".tabs-1-wrapper .page-2 .input").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         shop[field] = newValue;
     });
 
-    $(".tabs-1-wrapper .page-1-shop-edit .input").on("input", function () {
+    $(".tabs-1-wrapper .page-1-shop-edit .input").on("input", function() {
         let field = $(this).data("field");
         let newValue = $(this).val();
         shop[field] = newValue;
     });
 
-    $("input[name='category']").change(function (event) {
+    $("input[name='category']").change(function(event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
         shop[field] = parseInt(newValue);
     });
 
-    $(".shop-data").change(function () {
+    $(".shop-data").change(function() {
         let field = $(this).data("field");
         let newValue = $(this).prop("checked");
         shop[field] = newValue;
     });
 
-    $(".cmd-publish").click(function (event) {
+    $(".cmd-publish").click(function(event) {
         publishShop();
     });
 
-    $(".button-edit-photo").click(function () { // select an avatar
+    $(".button-edit-photo").click(function() { // select an avatar
         $(".new-photo").click();
     });
 
-    $(".new-photo").on("input", function () { //upload an avatar
+    $(".new-photo").on("input", function() { //upload an avatar
         updatePhoto(this);
     });
 
-    $(".goods-edit-command-add").click(function () { // login/logout
+    $(".goods-edit-command-add").click(function() { // login/logout
         good = {};
         setupGoodHandlers();
         showGoodEdit(good);
     });
 
-    $(".good-edit-dialog .cancel").click(function () {
+    $(".good-edit-dialog .cancel").click(function() {
         closeGoodEdit();
     });
 
-    $(".good-edit-dialog .save").click(function () {
+    $(".good-edit-dialog .save").click(function() {
         saveGood();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-1").click(function (event) {
+    $(".good-edit-dialog .content-wrapper .input.input-1").click(function(event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-3").click(function (event) {
+    $(".good-edit-dialog .content-wrapper .input.input-3").click(function(event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-2").click(function (event) {
+    $(".good-edit-dialog .content-wrapper .input.input-2").click(function(event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] select`).focus();
     });
 
-    $(".good-edit-dialog .content-wrapper .input.input-4").click(function (event) {
+    $(".good-edit-dialog .content-wrapper .input.input-4").click(function(event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] textarea`).focus();
     });
 
-    $(".upload-photo-button").click(function () { // select a photo
+    $(".upload-photo-button").click(function() { // select a photo
         $(".good-photo").click();
     });
 
-    $(".good-photo").on("input", function () { //upload a photo
-        updateGoodPhoto(this);
+    $(".good-photo").on("input", function() { //upload a photo
+        processGoodPhotos(this);
     });
 
 }
@@ -487,7 +536,7 @@ async function publishShop() {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     setupSignupHandlers();
     setupSigninHandlers();
@@ -500,7 +549,7 @@ $(document).ready(function () {
 
     $(".tabs").tabs({
         active: 2,
-        activate: function (event, ui) {
+        activate: function(event, ui) {
             let act = $(".tabs").tabs("option", "active");
             if (act == 0 && $(".page-1-shop-edit").css("display") == "flex") {
                 $(".cmd-publish").css("visibility", "visible");
