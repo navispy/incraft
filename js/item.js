@@ -33,6 +33,8 @@ function setupLocalHandlers() {
 
 function showGood(good) {
     let name = good["Name"];
+    let desc = good["Description"];
+    let shop = good["ShopName"];
 
     let photoJSON = good["PhotoJSON"];
     let photos = JSON.parse(photoJSON);
@@ -51,6 +53,9 @@ function showGood(good) {
     $(".order .total").html(`<span>${price} руб</span>`);
 
     $(".main .info .photo span").html(name);
+    $(`.description .text span`).html(desc);
+    $(`.feedback .shop-name`).html(shop);
+
 
     let strIsAvailble = isAvailable ? "В наличии" : "Нет в наличии";
     let availabilityColor = isAvailable ? "#19B829" : "#FF0000";
@@ -59,5 +64,6 @@ function showGood(good) {
     $('.order .instock-span').css("color", availabilityColor);
     $('.order .instock-svg path').css("fill", availabilityColor);
     $('.order .instock-svg line').css("stroke", availabilityColor);
+
     //$('.order .instock-svg').css("visibility", isAvailable ? "visible" : "hidden");
 }
