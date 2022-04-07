@@ -26,7 +26,7 @@ function setupLocalHandlers() {
 
     $(".cmd-img-left.goods-top").click(function() {
         let num = 0;
-        for(index of goods_top_window) {
+        for (index of goods_top_window) {
             index = index + 1;
             index = index === 10 ? 0 : index;;
             goods_top_window[num] = index;
@@ -37,13 +37,35 @@ function setupLocalHandlers() {
 
     $(".cmd-img-right.goods-top").click(function() {
         let num = 0;
-        for(index of goods_top_window) {
+        for (index of goods_top_window) {
             index = index - 1;
             index = index === -1 ? 9 : index;;
             goods_top_window[num] = index;
             num++;
         }
         showTop10Goods();
+    });
+
+    $(".cmd-img-left.shops-top").click(function() {
+        let num = 0;
+        for (index of shops_top_window) {
+            index = index + 1;
+            index = index === 10 ? 0 : index;;
+            shops_top_window[num] = index;
+            num++;
+        }
+        showTop10Shops();
+    });
+
+    $(".cmd-img-right.shops-top").click(function() {
+        let num = 0;
+        for (index of shops_top_window) {
+            index = index - 1;
+            index = index === -1 ? 9 : index;;
+            shops_top_window[num] = index;
+            num++;
+        }
+        showTop10Shops();
     });
 }
 
@@ -61,4 +83,5 @@ $(document).ready(function() {
 
     search(true);
     getTop10Goods();
+    getTop10Shops();
 })

@@ -2,6 +2,9 @@ var goods = [];
 var goods_top = [];
 var goods_top_window = [0, 1, 2];
 
+var shops_top = [];
+var shops_top_window = [0, 1, 2];
+
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
     $(`.${dialog} input`).each(function(i, obj) {
@@ -502,4 +505,76 @@ async function getTop10Goods() {
     goods_top_window = [0, 1, 2];
 
     showTop10Goods();
+}
+
+async function getTop10Shops() {
+    let calcTime = new Date().getTime();
+
+    let params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_shops_top.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    shops_top = data["shops"];
+    shops_top_window = [0, 1, 2];
+
+    showTop10Shops();
+}
+
+function showTop10Shops() {
+
+    let html = "";
+
+    for (let index of shops_top_window) {
+        let shop = shops_top[index];
+        let ID = shop["ID"];
+        let nameUnfixed = shop["Name"];
+        let name = nameUnfixed; //nameUnfixed.substr(0, 15) + "...";
+        //let descUnfixed = shop["Description"];
+        let desc = ""; //descUnfixed.substr(0, 20) + "...";
+        let photo = shop["Photo"];
+
+        let item_html =
+
+            `<div data-num="${index}" class="item shop-${ID}">
+            <img src="${photo}" />
+            <div class="info">
+                <div class="name-desc">
+                    <span class="name">${name}</span>
+                    <span class="desc">${desc}</span>
+                </div>
+            </div>
+        </div>`;
+
+        html += item_html;
+    }
+    $(".main .top-10-craftsmen .container").html(html);
+
+    //bind click event
+    for (let index of shops_top_window) {
+        let shop = shops_top[index];
+        let ID = shop["ID"];
+
+        $(`.shop-${ID}`).bind('click', function(e) {
+            let num = $(this).data("num");
+            let shop = shops_top[num];
+            console.log(num);
+            //window.sessionStorage.setItem("good", JSON.stringify(good));
+            //window.location.assign("item.php");
+        });
+    }
 }

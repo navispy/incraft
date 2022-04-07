@@ -3,15 +3,13 @@
 include 'setup.php';
 include 'app/Models/Shop.php';
 
-$filtersJSON = $_POST['filters'];
-$filters = json_decode($filtersJSON, true);
-
 $schemaID = $_POST['schemaID'];
 
 setupSchema($schemaID);
 
 function getGoods($connection, $filters)
 {
+    $goods = [];
     $query = "SELECT * FROM __catalog46 LIMIT 10";
     $result = mysqli_query($connection, $query)
     or die(mysqli_error($connection));
