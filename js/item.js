@@ -1,10 +1,10 @@
 var good = {};
 
-$(document).ready(function () {
+$(document).ready(function() {
     setupSignupHandlers();
     setupSigninHandlers();
     setupPasswordRestoreHandlers();
-    
+
     setupLocalHandlers();
 
     restoreUser();
@@ -32,6 +32,8 @@ function setupLocalHandlers() {
 }
 
 function showGood(good) {
+    let name = good["Name"];
+
     let photoJSON = good["PhotoJSON"];
     let photos = JSON.parse(photoJSON);
 
@@ -47,6 +49,8 @@ function showGood(good) {
     $(".item-photo-04").attr("src", photo);
 
     $(".order .total").html(`<span>${price} руб</span>`);
+
+    $(".main .info .photo span").html(name);
 
     let strIsAvailble = isAvailable ? "В наличии" : "Нет в наличии";
     let availabilityColor = isAvailable ? "#19B829" : "#FF0000";

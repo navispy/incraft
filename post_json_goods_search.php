@@ -1,13 +1,12 @@
 <?php
 
 include 'setup.php';
+include 'app/Models/Shop.php';
 
 $filtersJSON = $_POST['filters'];
 $filters = json_decode($filtersJSON, true);
 
 $schemaID = $_POST['schemaID'];
-
-logMessage("log/debug-1.txt", json_encode($filetrs));
 
 setupSchema($schemaID);
 
@@ -39,6 +38,9 @@ function getGoods($connection, $filters)
     or die(mysqli_error($connection));
 
     while ($row = mysqli_fetch_array($result)) {
+        $shopID = $row["Shop"];
+        $shopName =Shop::getShopName($connection, $shopID);
+        $row["ShopName"] = $shopName;
         $goods[] = $row;
     }
 

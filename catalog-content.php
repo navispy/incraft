@@ -2,7 +2,7 @@
 ?>
 
 <div class="catalog-content">
-    <span>Украшения</span>
+    <span>Изделия</span>
     <div class="container">
     </div>
 </div>

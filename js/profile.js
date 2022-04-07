@@ -159,12 +159,13 @@ function showShopGoods() {
 
     let html = "";
     let num = 0;
-    for (let good of goods) {
-        let ID = good["ID"];
-        let photoJSON = good["PhotoJSON"];
+    for (let obj of goods) {
+        let ID = obj["ID"];
+        let photoJSON = obj["PhotoJSON"];
         let photos = JSON.parse(photoJSON);
         let photo = photos[0];
-        let name = good["Name"];
+        let name = obj["Name"];
+        let price = obj["Price"];
 
         let item_html =
             `<div data-num="${num}" class="item item-${ID}">
@@ -172,11 +173,11 @@ function showShopGoods() {
             <div class="info">
                 <div class="name-desc">
                     <span class="name">${name}</span>
-                    <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                    <span class="desc"></span>
                 </div>
                 <div class="price">
-                    <span class="shop-name">ИП "Дел Мастер"</span>
-                    <span class="value">1500 руб</span>
+                    <span class="shop-name"></span>
+                    <span class="value">${price}</span>
                 </div>
             </div>
         </div>`;
@@ -187,8 +188,8 @@ function showShopGoods() {
     $(".page-1-goods-list-wrapper").html(html);
 
     //bind click event
-    for (let good of goods) {
-        let ID = good["ID"];
+    for (let obj of goods) {
+        let ID = obj["ID"];
 
         $(`.item-${ID}`).bind('click', function(e) {
             let num = $(this).data("num");

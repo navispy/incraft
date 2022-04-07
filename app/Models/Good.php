@@ -107,9 +107,9 @@ class Good
  
      public function update(array $data)
      {
-         $shopID = $this->getID();
+         $ID = $data["ID"];
  
-         $query = "UPDATE __catalog45
+         $query = "UPDATE __catalog46
          SET";
  
          $delim = "";
@@ -121,7 +121,7 @@ class Good
              $delim = " ,";
          }
  
-         $query .= " WHERE ID=$shopID";
+         $query .= " WHERE ID=$ID";
  
          $result = mysqli_query($this->connection, $query)
          or die(mysqli_error($this->connection));

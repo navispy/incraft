@@ -19,11 +19,11 @@
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/item.js?version=23" type="text/javascript"></script>
-    <script src="js/signup.js?version=23" type="text/javascript"></script>
-    <script src="js/login.js?version=23" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=23" type="text/javascript"></script>
-    <script src="js/utils.js?version=23" type="text/javascript"></script>
+    <script src="js/item.js?version=25" type="text/javascript"></script>
+    <script src="js/signup.js?version=25" type="text/javascript"></script>
+    <script src="js/login.js?version=25" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=25" type="text/javascript"></script>
+    <script src="js/utils.js?version=25" type="text/javascript"></script>
 </head>
 
 <body>

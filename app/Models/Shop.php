@@ -107,6 +107,22 @@ class Shop
         return $hasDupShopName;
     }
 
+    public static function getShopName($connection, $shopID)
+    {
+        $query = "SELECT Name FROM __catalog45 WHERE ID = $shopID";
+
+        $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+
+        $name = "";
+        if ($row = mysqli_fetch_array($result)) {
+            $name = $row["Name"];
+        }
+
+        return $name;
+    }
+
+
     public function __toString()
     {
         $vars = get_object_vars($this);

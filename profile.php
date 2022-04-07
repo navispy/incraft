@@ -23,13 +23,13 @@
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/profile-shop-good-edit.js?version=21" type="text/javascript"></script>
-    <script src="js/profile.js?version=21" type="text/javascript"></script>
-    <script src="js/signup.js?version=21" type="text/javascript"></script>
-    <script src="js/login.js?version=21" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=21" type="text/javascript"></script>
-    <script src="js/password-change.js?version=21" type="text/javascript"></script>
-    <script src="js/utils.js?version=21" type="text/javascript"></script>
+    <script src="js/profile-shop-good-edit.js?version=25" type="text/javascript"></script>
+    <script src="js/profile.js?version=25" type="text/javascript"></script>
+    <script src="js/signup.js?version=25" type="text/javascript"></script>
+    <script src="js/login.js?version=25" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=25" type="text/javascript"></script>
+    <script src="js/password-change.js?version=25" type="text/javascript"></script>
+    <script src="js/utils.js?version=25" type="text/javascript"></script>
 </head>
 
 <body>

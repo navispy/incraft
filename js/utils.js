@@ -141,6 +141,13 @@ function showGoods(goods) {
     let num = 0;
     for (let good of goods) {
         let ID = good["ID"];
+        let nameUnfixed = good["Name"];
+        let name = nameUnfixed.substr(0, 15) + "...";
+        let descUnfixed = good["Description"];
+        let desc = descUnfixed.substr(0, 20) + "...";
+        let shopName = good["ShopName"];
+        let price = good["Price"];
+        let priceText = price == 0 ? "цена договорная" : `${price} руб`;
         let photoJSON = good["PhotoJSON"];
         let photos = JSON.parse(photoJSON);
         let photo = photos[0];
@@ -150,12 +157,12 @@ function showGoods(goods) {
             <img src="${photo}" />
             <div class="info">
                 <div class="name-desc">
-                    <span class="name">${good["Name"]}</span>
-                    <span class="desc">Бронза, малахит, что-там еще и немного чего-то еще</span>
+                    <span class="name">${name}</span>
+                    <span class="desc">${desc}</span>
                 </div>
                 <div class="price">
-                    <span class="shop-name">ИП "Дел Мастер"</span>
-                    <span class="value">1500 руб</span>
+                    <span class="shop-name">${shopName}</span>
+                    <span class="value">${price} руб</span>
                 </div>
             </div>
         </div>`;
