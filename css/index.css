@@ -31,9 +31,14 @@
     color: #000000;
 }
 
-.main .content .top-10 .container {
+.main .content .top-10 .container-wrapper {
     position: relative;
     height: 280px;
+}
+
+.main .content .top-10 .container {
+    position: relative;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
@@ -218,11 +223,13 @@
     justify-content: center;
 }
 
-.main .content .top-10 .container .cmd-img-left, .main .content .top-10 .container .cmd-img-right {
+.main .content .top-10 .container-wrapper .cmd-img-left, 
+.main .content .top-10 .container-wrapper .cmd-img-right {
     top: 64px;
 }
 
-.main .content .top-10-craftsmen .container .cmd-img-left, .main .content .top-10-craftsmen .container .cmd-img-right {
+.main .content .top-10-craftsmen .container-wrapper .cmd-img-left, 
+.main .content .top-10-craftsmen .container-wrapper .cmd-img-right {
     top: 64px;
 }
 
