@@ -144,7 +144,7 @@
             <div class="info">
                 <div class="details">
                     <span class="info-1">Праздник ремесел в Быхове</span>
-                    <span class="info-2">24 фото</span>
+                     <!--<span class="info-2">24 фото</span>-->
                     <span class="info-3">Если вы любите этот праздник и готовы пить три-четыре дня без остановки, а так же водить хоровод и спать голым в снегу, то рекомендуем приехать в Быхов. У нас тут будет весело </span>
 
                     <svg width="107" height="8" viewBox="0 0 107 8" fill="none" xmlns="http://www.w3.org/2000/svg">
