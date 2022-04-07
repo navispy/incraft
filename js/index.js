@@ -6,6 +6,11 @@ var materials = [];
 var scope = [];
 
 function setupLocalHandlers() {
+    $(".holidays .container").click(function() {
+        let url = $(this).data("url");
+        window.location.assign(url);
+    });
+
     $(".item").click(function() {
         window.location.assign(`item.php`);
     });
@@ -84,4 +89,5 @@ $(document).ready(function() {
     search(true);
     getTop10Goods();
     getTop10Shops();
+    getLatestGoods();
 })

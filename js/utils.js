@@ -2,6 +2,8 @@ var goods = [];
 var goods_top = [];
 var goods_top_window = [0, 1, 2];
 
+var goods_latest = [];
+
 var shops_top = [];
 var shops_top_window = [0, 1, 2];
 
@@ -575,6 +577,83 @@ function showTop10Shops() {
             console.log(num);
             //window.sessionStorage.setItem("good", JSON.stringify(good));
             //window.location.assign("item.php");
+        });
+    }
+}
+
+async function getLatestGoods() {
+    let calcTime = new Date().getTime();
+
+    let params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_goods_latest.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    goods_latest = data["goods"];
+
+    showLatestGoods();
+}
+
+function showLatestGoods() {
+
+    let html = "";
+    let num = 0;
+    for (let good of goods_latest) {
+        let ID = good["ID"];
+        let nameUnfixed = good["Name"];
+        let name = nameUnfixed.substr(0, 15) + "...";
+        let descUnfixed = good["Description"];
+        let desc = descUnfixed.substr(0, 20) + "...";
+        let shopName = good["ShopName"];
+        let price = good["Price"];
+        let priceText = price == 0 ? "цена договорная" : `${price} руб`;
+        let photoJSON = good["PhotoJSON"];
+        let photos = JSON.parse(photoJSON);
+        let photo = photos[0];
+
+        let item_html =
+            `<div data-num="${num}" class="item item-latest-${ID}">
+            <img src="${photo}" />
+            <div class="info">
+                <div class="name-desc">
+                    <span class="name">${name}</span>
+                    <span class="desc">${desc}</span>
+                </div>
+                <div class="price">
+                    <span class="shop-name">${shopName}</span>
+                    <span class="value">${price} руб</span>
+                </div>
+            </div>
+        </div>`;
+
+        html += item_html;
+        num++;
+    }
+    $(".main .latest-works .container").html(html);
+
+    //bind click event
+    for (let good of goods_latest) {
+        let ID = good["ID"];
+
+        $(`.item-latest-${ID}`).bind('click', function(e) {
+            let num = $(this).data("num");
+            let good = goods_latest[num];
+            window.sessionStorage.setItem("good", JSON.stringify(good));
+            window.location.assign("item.php");
         });
     }
 }
