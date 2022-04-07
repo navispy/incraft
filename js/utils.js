@@ -1,4 +1,6 @@
 var goods = [];
+var goods_top = [];
+var goods_top_window = [0, 1, 2];
 
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
@@ -174,6 +176,57 @@ function showGoods(goods) {
 
     //bind click event
     for (let good of goods) {
+        let ID = good["ID"];
+
+        $(`.item-${ID}`).bind('click', function(e) {
+            let num = $(this).data("num");
+            let good = goods[num];
+            window.sessionStorage.setItem("good", JSON.stringify(good));
+            window.location.assign("item.php");
+        });
+    }
+}
+
+function showTop10Goods() {
+
+    let html = "";
+
+    for (let index of goods_top_window) {
+        let good = goods_top[index];
+        let ID = good["ID"];
+        let nameUnfixed = good["Name"];
+        let name = nameUnfixed.substr(0, 15) + "...";
+        let descUnfixed = good["Description"];
+        let desc = descUnfixed.substr(0, 20) + "...";
+        let shopName = good["ShopName"];
+        let price = good["Price"];
+        let priceText = price == 0 ? "цена договорная" : `${price} руб`;
+        let photoJSON = good["PhotoJSON"];
+        let photos = JSON.parse(photoJSON);
+        let photo = photos[0];
+
+        let item_html =
+            `<div data-num="${index}" class="item item-${ID}">
+            <img src="${photo}" />
+            <div class="info">
+                <div class="name-desc">
+                    <span class="name">${name}</span>
+                    <span class="desc">${desc}</span>
+                </div>
+                <div class="price">
+                    <span class="shop-name">${shopName}</span>
+                    <span class="value">${price} руб</span>
+                </div>
+            </div>
+        </div>`;
+
+        html += item_html;
+    }
+    $(".main .top-10 .container").html(html);
+
+    //bind click event
+    for (let index of goods_top_window) {
+        let good = goods_top[index];
         let ID = good["ID"];
 
         $(`.item-${ID}`).bind('click', function(e) {
@@ -421,4 +474,32 @@ async function getMaterials() {
     let recs = data["materials"];
 
     return recs;
+}
+
+async function getTop10Goods() {
+    let calcTime = new Date().getTime();
+
+    let params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_goods_top.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    goods_top = data["goods"];
+    goods_top_window = [0, 1, 2];
+
+    showTop10Goods();
 }

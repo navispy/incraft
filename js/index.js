@@ -23,6 +23,28 @@ function setupLocalHandlers() {
         window.sessionStorage.setItem("filterControls", JSON.stringify(filterControls));
         window.location.assign(`catalog.php`);
     });
+
+    $(".cmd-img-left.goods-top").click(function() {
+        let num = 0;
+        for(index of goods_top_window) {
+            index = index + 1;
+            index = index === 10 ? 0 : index;;
+            goods_top_window[num] = index;
+            num++;
+        }
+        showTop10Goods();
+    });
+
+    $(".cmd-img-right.goods-top").click(function() {
+        let num = 0;
+        for(index of goods_top_window) {
+            index = index - 1;
+            index = index === -1 ? 9 : index;;
+            goods_top_window[num] = index;
+            num++;
+        }
+        showTop10Goods();
+    });
 }
 
 $(document).ready(function() {
@@ -38,4 +60,5 @@ $(document).ready(function() {
     setupSearcHandlers();
 
     search(true);
+    getTop10Goods();
 })
