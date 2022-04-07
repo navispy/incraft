@@ -7,6 +7,10 @@ var goods_latest = [];
 var shops_top = [];
 var shops_top_window = [0, 1, 2];
 
+var feedback_latest = [];
+var feedback_latest_goods = [];
+var feedback_latest_index = 0;
+
 function checkForEmptyFields(dialog) {
     var thereAreEmptyFields = false;
     $(`.${dialog} input`).each(function(i, obj) {
@@ -656,4 +660,65 @@ function showLatestGoods() {
             window.location.assign("item.php");
         });
     }
+}
+
+async function getLatestFeedback() {
+    let calcTime = new Date().getTime();
+
+    let params = {
+        calcTime: calcTime,
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_feedback_latest.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    feedback_latest = data["feedback"];
+    feedback_latest_goods = data["goods"];
+    feedback_latest_index = 0;
+
+    showLatestFeedback();
+}
+
+function showLatestFeedback() {
+
+    let feedback = feedback_latest[feedback_latest_index];
+    let name = feedback["Name"];
+    let comment = feedback["Comment"];
+    let feeback_good = feedback_latest_goods[feedback_latest_index];
+    
+    let photoJSON = feeback_good["PhotoJSON"];
+    let photos = JSON.parse(photoJSON);
+    
+    let photo = "";
+    try {
+        photo = photos[0];
+    } catch (e) {
+
+    }
+
+    $(".latest-reviews .text-2").html(name);
+    $(".latest-reviews .text-3").html(comment);
+    $(".latest-reviews img").attr("src", photo);
+
+    $(".latest-reviews img").data("num", feedback_latest_index);
+
+    $(".latest-reviews img").bind('click', function(e) {
+        let num = $(this).data("num");
+        let feedback_good = feedback_latest_goods[num];
+        window.sessionStorage.setItem("good", JSON.stringify(feedback_good));
+        window.location.assign("item.php");
+    });
+
 }

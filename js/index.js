@@ -72,6 +72,20 @@ function setupLocalHandlers() {
         }
         showTop10Shops();
     });
+
+    $(".cmd-img-left.feedback-latest").click(function() {
+        feedback_latest_index++;
+        feedback_latest_index = feedback_latest_index === feedback_latest.length ? 0 : feedback_latest_index;;
+        
+        showLatestFeedback();
+    });
+
+    $(".cmd-img-right.feedback-latest").click(function() {
+        feedback_latest_index--;
+        feedback_latest_index = feedback_latest_index === -1 ? feedback_latest.length - 1 : feedback_latest_index;;
+
+        showLatestFeedback();
+    });
 }
 
 $(document).ready(function() {
@@ -90,4 +104,5 @@ $(document).ready(function() {
     getTop10Goods();
     getTop10Shops();
     getLatestGoods();
+    getLatestFeedback();
 })

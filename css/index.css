@@ -255,7 +255,7 @@
     top: 64px;
 }
 
-.main .content .last-reviews {
+.main .content .latest-reviews {
     position: relative;
     height: 500px;
     display: grid;
@@ -264,18 +264,26 @@
     border-radius: 6px;
 }
 
-.main .content .last-reviews .cmd-img-left,
-.main .content .last-reviews .cmd-img-right {
+.main .content .latest-reviews .cmd-img-left,
+.main .content .latest-reviews .cmd-img-right {
     top: 228px;
 }
 
-.main .content .last-reviews img {
+.main .content .latest-reviews .image-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.main .content .latest-reviews .image-wrapper img {
+    position: absolute;
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.main .content .last-reviews .text {
+.main .content .latest-reviews .text {
     margin-left: 83px;
     margin-top: 65px;
     margin-right: 36px;
@@ -285,13 +293,13 @@
     position: relative;
 }
 
-.main .content .last-reviews .text .text-1 {
+.main .content .latest-reviews .text .text-1 {
     font-family: Geometria;
     font-size: 36px;
     font-weight: bold;
 }
 
-.main .content .last-reviews .text .text-2 {
+.main .content .latest-reviews .text .text-2 {
     margin-top: 34px;
     font-family: Geometria;
     font-style: normal;
@@ -300,7 +308,7 @@
     line-height: 130%;
 }
 
-.main .content .last-reviews .text .text-3 {
+.main .content .latest-reviews .text .text-3 {
     margin-top: 16px;
     font-family: Geometria;
     font-style: normal;
@@ -309,7 +317,7 @@
     line-height: 130%;
 }
 
-.main .content .last-reviews .text svg {
+.main .content .latest-reviews .text svg {
     position: absolute;
     bottom: 0px;
 }

@@ -51,6 +51,7 @@ function showGood(good) {
     $(".item-photo-04").attr("src", photo);
 
     $(".order .total").html(`<span>${price} руб</span>`);
+    $(`.order .desc span`).html(desc);
 
     $(".main .info .photo span").html(name);
     $(`.description .text span`).html(desc);

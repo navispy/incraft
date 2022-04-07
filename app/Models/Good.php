@@ -43,102 +43,117 @@ class Good
     {
         $vars = get_object_vars($this);
         $fixed = [];
-        foreach($vars as $key => $value) {
+        foreach ($vars as $key => $value) {
             $fixedKey = ucfirst($key);
             $fixed[$fixedKey] = $value;
         }
         return json_encode($fixed, true);
     }
 
-    public function expose() {
+    public function getFixedObj()
+    {
+        $vars = get_object_vars($this);
+        $fixed = [];
+        foreach ($vars as $key => $value) {
+            if ($key == "connection" || $key == "feedback") {
+                continue;
+            }
+            $fixedKey = ucfirst($key);
+            $fixed[$fixedKey] = $value;
+        }
+        return $fixed;
+    }
+
+
+    public function expose()
+    {
         return get_object_vars($this);
     }
 
-     // CRUD OPERATIONS
-     public function create(array $data)
-     {
-         $delim1 = "";
-         $delim2 = "";
-         $fields = "";
-         $values = "";
- 
-         foreach ($data as $key => $value) {
-             $fields .= $delim1 . "`$key`";
-             $delim1 = ",";
- 
-             $values .= $delim2 . "'$value'";
-             $delim2 = ",";
-         }
- 
-         $query = "INSERT INTO __catalog46 ($fields) VALUES ($values)";
+    // CRUD OPERATIONS
+    public function create(array $data)
+    {
+        $delim1 = "";
+        $delim2 = "";
+        $fields = "";
+        $values = "";
 
-         logMessage("log/debug-good.txt", $data["Shop"]);
-         logMessage("log/debug-good.txt", $query);
- 
-         $result = mysqli_query($this->connection, $query)
-         or die(mysqli_error($this->connection));
- 
-         $this->ID = mysqli_insert_id($this->connection);
-         return $this->ID;
-     }
- 
-     public function read(int $ID)
-     {
-         $query = "SELECT * FROM __catalog46 WHERE ID=$ID";
- 
-         $result = mysqli_query($this->connection, $query)
-         or die(mysqli_error($this->connection));
- 
-         if ($row = mysqli_fetch_assoc($result)) {
-             
-             foreach ($row as $key => $value) {
- 
-                 try {
-                     $fixedKey = $key == "ID" ? $key : lcfirst($key);
-                     $this->{$fixedKey} = $value;
-                 } catch (Throwable $t) {
- 
-                 }
-             }
-         }
-  
-         return $this;
-     }
- 
-     public function update(array $data)
-     {
-         $ID = $data["ID"];
- 
-         $query = "UPDATE __catalog46
+        foreach ($data as $key => $value) {
+            $fields .= $delim1 . "`$key`";
+            $delim1 = ",";
+
+            $values .= $delim2 . "'$value'";
+            $delim2 = ",";
+        }
+
+        $query = "INSERT INTO __catalog46 ($fields) VALUES ($values)";
+
+        logMessage("log/debug-good.txt", $data["Shop"]);
+        logMessage("log/debug-good.txt", $query);
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+
+        $this->ID = mysqli_insert_id($this->connection);
+        return $this->ID;
+    }
+
+    public function read(int $ID)
+    {
+        $query = "SELECT * FROM __catalog46 WHERE ID=$ID";
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+
+        if ($row = mysqli_fetch_assoc($result)) {
+
+            foreach ($row as $key => $value) {
+
+                try {
+                    $fixedKey = $key == "ID" ? $key : lcfirst($key);
+                    $this->{$fixedKey} = $value;
+                } catch (Throwable $t) {
+                }
+            }
+        }
+
+        return $this;
+    }
+
+    public function update(array $data)
+    {
+        $ID = $data["ID"];
+
+        $query = "UPDATE __catalog46
          SET";
- 
-         $delim = "";
-         foreach ($data as $field => $value) {
-             if ($field === "ID") {
-                 continue;
-             }
-             $query .= "$delim `$field`='$value'";
-             $delim = " ,";
-         }
- 
-         $query .= " WHERE ID=$ID";
- 
-         $result = mysqli_query($this->connection, $query)
-         or die(mysqli_error($this->connection));
-     }
- 
-     public static function delete($connection, int $ID)
-     {
-         $query = "DELETE FROM `__catalog45`
+
+        $delim = "";
+        foreach ($data as $field => $value) {
+            if ($field === "ID") {
+                continue;
+            }
+            $query .= "$delim `$field`='$value'";
+            $delim = " ,";
+        }
+
+        $query .= " WHERE ID=$ID";
+
+        $result = mysqli_query($this->connection, $query)
+            or die(mysqli_error($this->connection));
+    }
+
+    public static function delete($connection, int $ID)
+    {
+        $query = "DELETE FROM `__catalog45`
          WHERE ID=$ID";
- 
-         $result = mysqli_query($connection, $query)
-         or die(mysqli_error($connection));
-     }
+
+        $result = mysqli_query($connection, $query)
+            or die(mysqli_error($connection));
+    }
 
     /**
      * Get the value of connection
-     */ 
+     */
     public function getConnection()
     {
         return $this->connection;
@@ -148,7 +163,7 @@ class Good
      * Set the value of connection
      *
      * @return  self
-     */ 
+     */
     public function setConnection($connection)
     {
         $this->connection = $connection;
@@ -158,7 +173,7 @@ class Good
 
     /**
      * Get the value of ID
-     */ 
+     */
     public function getID()
     {
         return $this->ID;
@@ -168,7 +183,7 @@ class Good
      * Set the value of ID
      *
      * @return  self
-     */ 
+     */
     public function setID($ID)
     {
         $this->ID = $ID;
@@ -178,7 +193,7 @@ class Good
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -188,7 +203,7 @@ class Good
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -198,7 +213,7 @@ class Good
 
     /**
      * Get the value of material
-     */ 
+     */
     public function getMaterial()
     {
         return $this->material;
@@ -208,7 +223,7 @@ class Good
      * Set the value of material
      *
      * @return  self
-     */ 
+     */
     public function setMaterial($material)
     {
         $this->material = $material;
@@ -218,7 +233,7 @@ class Good
 
     /**
      * Get the value of price
-     */ 
+     */
     public function getPrice()
     {
         return $this->price;
@@ -228,7 +243,7 @@ class Good
      * Set the value of price
      *
      * @return  self
-     */ 
+     */
     public function setPrice($price)
     {
         $this->price = $price;
@@ -238,7 +253,7 @@ class Good
 
     /**
      * Get the value of photoJSON
-     */ 
+     */
     public function getPhotoJSON()
     {
         return $this->photoJSON;
@@ -248,7 +263,7 @@ class Good
      * Set the value of photoJSON
      *
      * @return  self
-     */ 
+     */
     public function setPhotoJSON($photoJSON)
     {
         $this->photoJSON = $photoJSON;
@@ -258,7 +273,7 @@ class Good
 
     /**
      * Get the value of shop
-     */ 
+     */
     public function getShop()
     {
         return $this->shop;
@@ -268,7 +283,7 @@ class Good
      * Set the value of shop
      *
      * @return  self
-     */ 
+     */
     public function setShop($shop)
     {
         $this->shop = $shop;
@@ -278,7 +293,7 @@ class Good
 
     /**
      * Get the value of photo1
-     */ 
+     */
     public function getPhoto1()
     {
         return $this->photo1;
@@ -288,7 +303,7 @@ class Good
      * Set the value of photo1
      *
      * @return  self
-     */ 
+     */
     public function setPhoto1($photo1)
     {
         $this->photo1 = $photo1;
@@ -298,7 +313,7 @@ class Good
 
     /**
      * Get the value of photo2
-     */ 
+     */
     public function getPhoto2()
     {
         return $this->photo2;
@@ -308,7 +323,7 @@ class Good
      * Set the value of photo2
      *
      * @return  self
-     */ 
+     */
     public function setPhoto2($photo2)
     {
         $this->photo2 = $photo2;
@@ -318,7 +333,7 @@ class Good
 
     /**
      * Get the value of photo3
-     */ 
+     */
     public function getPhoto3()
     {
         return $this->photo3;
@@ -328,7 +343,7 @@ class Good
      * Set the value of photo3
      *
      * @return  self
-     */ 
+     */
     public function setPhoto3($photo3)
     {
         $this->photo3 = $photo3;
@@ -338,7 +353,7 @@ class Good
 
     /**
      * Get the value of photo4
-     */ 
+     */
     public function getPhoto4()
     {
         return $this->photo4;
@@ -348,7 +363,7 @@ class Good
      * Set the value of photo4
      *
      * @return  self
-     */ 
+     */
     public function setPhoto4($photo4)
     {
         $this->photo4 = $photo4;
@@ -358,7 +373,7 @@ class Good
 
     /**
      * Get the value of description
-     */ 
+     */
     public function getDescription()
     {
         return $this->description;
@@ -368,7 +383,7 @@ class Good
      * Set the value of description
      *
      * @return  self
-     */ 
+     */
     public function setDescription($description)
     {
         $this->description = $description;
@@ -378,7 +393,7 @@ class Good
 
     /**
      * Get the value of isAvailable
-     */ 
+     */
     public function getIsAvailable()
     {
         return $this->isAvailable;
@@ -388,7 +403,7 @@ class Good
      * Set the value of isAvailable
      *
      * @return  self
-     */ 
+     */
     public function setIsAvailable(bool $isAvailable)
     {
         $this->isAvailable = $isAvailable;

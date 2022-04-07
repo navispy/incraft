@@ -4,7 +4,7 @@
     <div class="photo">
         <div>
         </div>
-        <span>Серьги “Папараць”</span>
+        <span></span>
         <div class="stack">
             <div>
                 <img class="item-photo-01" src="img/temp17.png" />
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="desc">
-            <span>Серьги с малахитом от известного бренда бижутерии.<br>Безопасный, гипоаллергенный сплав. Покрытие - черненое серебро. </span>
+            <span></span>
         </div>
         <div class="feedback">
             <span class="shop-name"></span>
