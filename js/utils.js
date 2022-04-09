@@ -269,7 +269,7 @@ function showBychowOnly() {
     search();
 }
 
-function setupSearcHandlers() {
+function setupSearchHandlers() {
     $(".main-filter .price .slider").slider({
         range: true,
         min: 0,
@@ -331,8 +331,8 @@ function setupSearcHandlers() {
     });
 
     $(".cb-region").on('change', function() {
-        search();
         filterDistricts();
+        search();
     });
 
     $(".cb-district").on('change', function() {
@@ -361,6 +361,7 @@ function filterDistricts() {
 
     if (region == "Все" || region == "Область") {
         $(".cb-district").html(html);
+        $(".chk-00").prop("checked", false);
         return;
     }
 

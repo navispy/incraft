@@ -122,6 +122,21 @@ class Shop
         return $name;
     }
 
+    public static function getShopPhone($connection, $shopID)
+    {
+        $query = "SELECT Phone FROM __catalog45 WHERE ID = $shopID";
+
+        $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+
+        $phone = "";
+        if ($row = mysqli_fetch_array($result)) {
+            $phone = $row["Phone"];
+        }
+
+        return $phone;
+    }
+
 
     public function __toString()
     {

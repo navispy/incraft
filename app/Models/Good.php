@@ -88,9 +88,6 @@ class Good
 
         $query = "INSERT INTO __catalog46 ($fields) VALUES ($values)";
 
-        logMessage("log/debug-good.txt", $data["Shop"]);
-        logMessage("log/debug-good.txt", $query);
-
         $result = mysqli_query($this->connection, $query)
             or die(mysqli_error($this->connection));
 

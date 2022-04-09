@@ -207,20 +207,23 @@
     border-bottom: 1px solid #EAEAEA;
 }
 
-.main .info .order .contact .phone, .main .info .order .contact .email {
+.main .info .order .contact .phone, 
+.main .info .order .contact .email {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
 }
 
-.main .info .order .contact .phone span, .main .info .order .contact .email span {
+.main .info .order .contact .phone span, 
+.main .info .order .contact .email span {
     font-family: Geometria;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     text-decoration-line: underline;
     color: #FC970D;
+    cursor: pointer;
 }
 
 .main .info .order .desc {
@@ -277,7 +280,8 @@
 
 .main .info .order .payment-shipment {
     margin-top: 16px;
-    display: flex;
+    /*display: flex;*/
+    display: none;
     gap: 50px;
     padding-left: 10px;
     padding-right: 10px;

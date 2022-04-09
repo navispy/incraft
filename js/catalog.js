@@ -14,9 +14,11 @@ function setupLocalHandlers() {
 function restoreFilters() {
     let filterControlsJSON = window.sessionStorage.getItem("filterControls");
 
-    console.log(filterControlsJSON);
-    let filterControls = JSON.parse(filterControlsJSON);
+    if(filterControlsJSON == null) {
+        return;
+    }
 
+    let filterControls = JSON.parse(filterControlsJSON);
     let priceFromUnfixed = filterControls["price-from"];
     let priceToUnfixed = filterControls["price-to"];
     let material = filterControls["material"];
@@ -30,6 +32,8 @@ function restoreFilters() {
 
     $('.range .from').val(priceFrom);
     $('.range .to').val(priceTo);
+
+    $('.chk-00').prop("checked", bychowOnly);
 
     setComboByText("cb-material", material);
     setComboByText("cb-scope", scope);
@@ -48,9 +52,13 @@ $(document).ready(function () {
 
     initUI().then(function () {
         setupLocalHandlers();
-        setupSearcHandlers();
+        setupSearchHandlers();
 
-        restoreFilters();
+        try {
+            restoreFilters();
+        } catch (e) {
+            console.log(e);
+        }
         search(true);
     });
 })

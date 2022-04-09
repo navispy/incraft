@@ -29,6 +29,11 @@ function setupLocalHandlers() {
         showToast("Заказ успешно размещен");
     });
 
+    $(".order .contact .phone").bind("click", function() {
+        let phone = good["ShopPhone"];
+        phone = phone === "" ? "телефон не указан" : phone;
+        $(".order .contact .phone span").html(phone);
+    });
 }
 
 function showGood(good) {

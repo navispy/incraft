@@ -98,7 +98,7 @@ $(document).ready(function() {
     initUI();
 
     setupLocalHandlers();
-    setupSearcHandlers();
+    setupSearchHandlers();
 
     search(true);
     getTop10Goods();
