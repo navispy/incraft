@@ -143,6 +143,9 @@ class Shop
         $vars = get_object_vars($this);
         $fixed = [];
         foreach($vars as $key => $value) {
+            if($key === "connection") {
+                continue;
+            } 
             $fixedKey = ucfirst($key);
             $fixed[$fixedKey] = $value;
         }

@@ -38,11 +38,11 @@ function getGoods($connection, $filters)
     or die(mysqli_error($connection));
 
     while ($row = mysqli_fetch_array($result)) {
-        $shopID = $row["Shop"];
-        $shopName = Shop::getShopName($connection, $shopID);
-        $shopPhone = Shop::getShopPhone($connection, $shopID);
-        $row["ShopName"] = $shopName;
-        $row["ShopPhone"] = $shopPhone;
+        //$shopID = $row["Shop"];
+        //$shopName = Shop::getShopName($connection, $shopID);
+        //$shopPhone = Shop::getShopPhone($connection, $shopID);
+        //$row["ShopName"] = $shopName;
+        //$row["ShopPhone"] = $shopPhone;
         $goods[] = $row;
     }
 

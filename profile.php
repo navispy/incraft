@@ -131,151 +131,17 @@
                         <div class="payment-wrapper">
                             <div class="methods">
                                 <span class="caption">Какими способами Вы можете принимать оплату</span>
-                                <div class="options">
-                                    <label class="container">
-                                        <span>Наличные</span>
-                                        <input class="shop-data payment method-1" type="checkbox" data-field="PaymentMethod_01" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>По банковской карте (только бесконтактные платежи)</span>
-                                        <input class="shop-data payment method-2" type="checkbox" data-field="PaymentMethod_02" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>По банковской карте (все платежи)</span>
-                                        <input class="shop-data payment method-3" type="checkbox" data-field="PaymentMethod_03" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>По картам рассрочки</span>
-                                        <input class="shop-data payment method-4" type="checkbox" data-field="PaymentMethod_04" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Через ЕРИП</span>
-                                        <input class="shop-data payment method-5" type="checkbox" data-field="PaymentMethod_05" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Наложенный платеж</span>
-                                        <input class="shop-data payment method-6" type="checkbox" data-field="PaymentMethod_06" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Прочее</span>
-                                        <input class="shop-data payment method-7" type="checkbox" data-field="PaymentMethod_07" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
+                                <?php include 'payment-methods.php'; ?>
                             </div>
                             <div class="credit-cards">
                                 <span class="caption">Какие карты рассрочки Вы можете принимать</span>
-
-                                <div class="options">
-                                    <label class="container">
-                                        <span>Халва</span>
-                                        <input class="shop-data installment card-1" type="checkbox" data-field="InstallmentCard_01" />
-                                        <span class="checkmark"></span>
-                                    </label>
-
-                                    <label class="container">
-                                        <span>Черепаха</span>
-                                        <input class="shop-data installment card-2" type="checkbox" data-field="InstallmentCard_02" />
-                                        <span class="checkmark"></span>
-                                    </label>
-
-                                    <label class="container">
-                                        <span>Карта покупок</span>
-                                        <input class="shop-data installment card-3" type="checkbox" data-field="InstallmentCard_03" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Смарт-карта</span>
-                                        <input class="shop-data installment card-4" type="checkbox" data-field="InstallmentCard_04" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>LeGard</span>
-                                        <input class="shop-data installment card-5" type="checkbox" data-field="InstallmentCard_05" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Магнит</span>
-                                        <input class="shop-data installment card-6" type="checkbox" data-field="InstallmentCard_06" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Карта Fun</span>
-                                        <input class="shop-data installment card-7" type="checkbox" data-field="InstallmentCard_07" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                        <span>Прочее</span>
-                                        <input class="shop-data installment card-8" type="checkbox" data-field="InstallmentCard_08" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
+                                <?php include 'credit-card-options.php'; ?>
                             </div>
-
                         </div>
 
                         <div class="delivery">
                             <span class="caption">Доставка. Укажите возможные варианты доставки товара до покупателя.</span>
-                            <div class="options">
-                                <label class="container">
-                                    <span>Почтовым отправлением (Белпочта)</span>
-                                    <input class="shop-data delivery option-1" type="checkbox" data-field="DeliveryOption_01" />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">
-                                    <span>Курьерской службой</span>
-                                    <input class="shop-data delivery option-2" type="checkbox" data-field="DeliveryOption_02" />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">
-                                    <span>Доставка сотрудником магазина</span>
-                                    <input class="shop-data delivery option-3" type="checkbox" data-field="DeliveryOption_03" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <div class="container-wrapper">
-                                    <label class="container">
-                                        <span>Самовывоз по адресу</span>
-                                        <input class="shop-data delivery option-4" type="checkbox" data-field="DeliveryOption_04" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <div class="pickup">
-                                        <input class="input input-pickup-address" data-field="DeliveryOption_04_Address" placeholder="Введите адрес самовывоза"></input>
-                                    </div>
-                                </div>
-
-                                <label class="container">
-                                    <span>Возможна передача через маршрутное такси/автобус </span>
-                                    <input class="shop-data delivery option-5" type="checkbox" data-field="DeliveryOption_05" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container">
-                                    <span>Наложенный платеж </span>
-                                    <input class="shop-data delivery option-6" type="checkbox" data-field="DeliveryOption_06" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container">
-                                    <span>Прочее </span>
-                                    <input class="shop-data delivery option-7" type="checkbox" data-field="DeliveryOption_07" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container">
-                                    <span>Возможна отправка почтой за пределы Республики Беларусь </span>
-                                    <input class="shop-data delivery option-8" type="checkbox" data-field="DeliveryOption_08" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                            </div>
+                            <?php include 'delivery-options.php'; ?>
                         </div>
 
                         <div class="save-button">

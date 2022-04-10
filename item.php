@@ -12,9 +12,10 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/item.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=30" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=32" type="text/css">
+    <link rel="stylesheet" href="css/item.css?version=32" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=32" type="text/css">
+    <link rel="stylesheet" href="css/fixed-radio.css?version=32" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
@@ -27,6 +28,10 @@
 </head>
 
 <body>
+    <div class="order-details-wrapper">
+        <?php include 'order-details-wrapper.php'; ?>
+    </div>
+
     <div class="toast-wrapper">
         <?php include 'toast-wrapper.php'; ?>
     </div>
