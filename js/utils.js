@@ -161,8 +161,14 @@ function showGoods(goods) {
         let priceText = price == 0 ? "цена договорная" : `${price} руб`;
         let photoJSON = good["PhotoJSON"];
         let photos = JSON.parse(photoJSON);
-        let photo = photos[0];
 
+        let photo = "files/no-image-icon.png";
+        try {
+            photo = photos[0]; //good["Photo1"];
+        } catch(e) {
+    
+        }
+    
         let item_html =
             `<div data-num="${num}" class="item item-${ID}">
             <img src="${photo}" />

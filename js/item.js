@@ -1,5 +1,6 @@
 var good = {};
 var goodShop = {};
+var order = {};
 
 async function getShop(ID) {
 
@@ -133,7 +134,13 @@ function showGood(good) {
     let photoJSON = good["PhotoJSON"];
     let photos = JSON.parse(photoJSON);
 
-    let photo = photos[0]; //good["Photo1"];
+    let photo = "files/no-image-icon.png";
+    try {
+        photo = photos[0]; //good["Photo1"];
+    } catch(e) {
+
+    }
+
     let price = good["Price"];
     let isAvailableUnfixed = good["IsAvailable"];
     let isAvailable = parseInt(isAvailableUnfixed) === 1;
