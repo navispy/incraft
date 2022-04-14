@@ -58,8 +58,18 @@ function setupLocalHandlers() {
         editOrderDetails();
     });
 
+    $(".order-details-dialog .content-wrapper .input").click(function (event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
     $(".order-details-dialog .cancel").bind("click", function () {
         closeOrderDetails();
+    });
+
+    $(".order-details-dialog .place").bind("click", function () {
+        console.log(JSON.stringify(order));
+        closeOrderDetails("Заказ успешно размещен");
     });
 
     $(".order .contact .phone").bind("click", function () {
@@ -72,6 +82,28 @@ function setupLocalHandlers() {
         let paymentMethod = $(this).val();
         let displayMode = paymentMethod == "PaymentMethod_04" ? "flex" : "none";
         $(".order-details-dialog .options-credit-cards").css("display", displayMode);
+
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        order[field] = parseInt(newValue);
+    });
+
+    $("input[name='delivery-option']").change(function (event) {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        order[field] = parseInt(newValue);
+    });
+
+    $("input[name='installment-card']").change(function (event) {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        order[field] = parseInt(newValue);
+    });
+
+    $(".order-details-dialog .content-wrapper .detail").on("input", function () {
+        let field = $(this).data("field");
+        let newValue = $(this).val();
+        order[field] = newValue;
     });
 }
 
@@ -95,7 +127,7 @@ function editOrderDetails() {
     paymentMethods["PaymentMethod_06"] = goodShop["PaymentMethod_06"] === "1" ? "PaymentMethod_06" : "";
     paymentMethods["PaymentMethod_07"] = goodShop["PaymentMethod_07"] === "1" ? "PaymentMethod_07" : "";
 
-    for(let control in paymentMethods) {
+    for (let control in paymentMethods) {
         let displayMode = paymentMethods[control] === "" ? "none" : "flex";
         $(`.payment-wrapper .${control}`).css("display", displayMode);
     }
@@ -112,18 +144,26 @@ function editOrderDetails() {
     deliveryOptions["DeliveryOption_07"] = goodShop["DeliveryOption_07"] === "1" ? "DeliveryOption_07" : "";
     deliveryOptions["DeliveryOption_08"] = goodShop["DeliveryOption_08"] === "1" ? "DeliveryOption_08" : "";
 
-    for(let control in deliveryOptions) {
+    for (let control in deliveryOptions) {
         let displayMode = deliveryOptions[control] === "" ? "none" : "flex";
         $(`.delivery .${control}`).css("display", displayMode);
     }
 
 }
 
-function closeOrderDetails() {
+function closeOrderDetails(msg) {
     $(".order-details-dialog").slideToggle("medium", function () {
         $(".order-details-wrapper").removeClass("visible");
         $('body').removeClass("overflow-hidden");
+
+        if (msg !== undefined) {
+            showToast(msg);
+        }
     })
+}
+
+function placeOrderDetails() {
+    closeOrderDetails("Заказ успешно размещен");
 }
 
 function showGood(good) {
@@ -137,7 +177,7 @@ function showGood(good) {
     let photo = "files/no-image-icon.png";
     try {
         photo = photos[0]; //good["Photo1"];
-    } catch(e) {
+    } catch (e) {
 
     }
 

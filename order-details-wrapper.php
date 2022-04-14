@@ -18,19 +18,19 @@
         <div class="content-subwrapper">
             <div class="input input-1">
                 <span>Имя пользователя</span>
-                <input class="name" />
+                <input class="detail name" data-field="User"/>
             </div>
             <div class="input input-2">
                 <span>Email</span>
-                <input class="email" type="email" />
+                <input class="detail email" data-field="Email" />
             </div>
             <div class="input input-3">
                 <span>Телефон</span>
-                <input class="phone" type="phone" />
+                <input class="detail phone" data-field="Phone" />
             </div>
             <div class="input input-4">
                 <span>Адрес</span>
-                <input class="address" type="address" />
+                <input class="detail address" data-field="Address" />
             </div>
 
             <div class="payment-wrapper">
