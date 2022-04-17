@@ -44,6 +44,14 @@ $(document).ready(function () {
     });
 });
 
+function onPaymentMethodChange(control) {
+    control = control == undefined ? "input[name='payment-methods']" : control;
+
+    let paymentMethod = $(control).val();
+    let displayMode = paymentMethod == "PaymentMethod_04" ? "flex" : "none";
+    $(".order-details-dialog .options-credit-cards").css("display", displayMode);
+}
+
 function setupLocalHandlers() {
     $(".price .qty").bind("input", function () {
         let priceUnfixed = good["Price"];
@@ -68,8 +76,9 @@ function setupLocalHandlers() {
     });
 
     $(".order-details-dialog .place").bind("click", function () {
-        console.log(JSON.stringify(order));
-        closeOrderDetails("Заказ успешно размещен");
+        //console.log(JSON.stringify(order));
+        placeOrder();
+        //closeOrderDetails("Заказ успешно размещен");
     });
 
     $(".order .contact .phone").bind("click", function () {
@@ -79,25 +88,23 @@ function setupLocalHandlers() {
     });
 
     $("input[name='payment-methods']").change(function (event) {
-        let paymentMethod = $(this).val();
-        let displayMode = paymentMethod == "PaymentMethod_04" ? "flex" : "none";
-        $(".order-details-dialog .options-credit-cards").css("display", displayMode);
+        onPaymentMethodChange(this);
 
         let field = $(this).data("field");
         let newValue = $(this).val();
-        order[field] = parseInt(newValue);
+        order[field] = newValue;
     });
 
     $("input[name='delivery-option']").change(function (event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
-        order[field] = parseInt(newValue);
+        order[field] = newValue;
     });
 
     $("input[name='installment-card']").change(function (event) {
         let field = $(this).data("field");
         let newValue = $(this).val();
-        order[field] = parseInt(newValue);
+        order[field] = newValue;
     });
 
     $(".order-details-dialog .content-wrapper .detail").on("input", function () {
@@ -149,6 +156,9 @@ function editOrderDetails() {
         $(`.delivery .${control}`).css("display", displayMode);
     }
 
+    $("input[name='payment-methods']").prop("checked", false);
+    $("input[name='installment-card']").prop("checked", false);
+    onPaymentMethodChange();
 }
 
 function closeOrderDetails(msg) {
@@ -162,8 +172,31 @@ function closeOrderDetails(msg) {
     })
 }
 
-function placeOrderDetails() {
-    closeOrderDetails("Заказ успешно размещен");
+async function placeOrder() {
+    var params = {
+        order: JSON.stringify(order),
+        schemaID: "incraft"
+    }
+
+    let response = await fetch(`post_json_order_place.php`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: Object.entries(params).map(([k, v]) => { return k + '=' + v }).join('&')
+    });
+
+    let data = await response.json();
+
+    if (!response.ok) {
+        showToast(data.message);
+        throw new Error(data.message);
+    } else {
+
+        //order["ID"] = data["order"]["ID"];
+        closeOrderDetails("Заказ успешно размещен");
+    }
+    
 }
 
 function showGood(good) {
@@ -197,7 +230,6 @@ function showGood(good) {
     $(".main .info .photo span").html(name);
     $(`.description .text span`).html(desc);
     $(`.feedback .shop-name`).html(shop);
-
 
     let strIsAvailble = isAvailable ? "В наличии" : "Нет в наличии";
     let availabilityColor = isAvailable ? "#19B829" : "#FF0000";
