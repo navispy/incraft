@@ -20,7 +20,7 @@
 <label class="container-radio DeliveryOption_04">
     <input name="delivery-option" type="radio" data-field="DeliveryOption" value="DeliveryOption_04" />
     <span class="checkmark-radio"></span>
-    <span>Самовывоз по адресу</span>
+    <span class="delivery-text"></span>
 </label>
 
 <label class="container-radio DeliveryOption_05">

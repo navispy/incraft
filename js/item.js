@@ -154,6 +154,11 @@ function editOrderDetails() {
     for (let control in deliveryOptions) {
         let displayMode = deliveryOptions[control] === "" ? "none" : "flex";
         $(`.delivery .${control}`).css("display", displayMode);
+
+        if(control === "DeliveryOption_04" && displayMode === "flex") {
+            let address = goodShop["DeliveryOption_04_address"];
+            $(`.delivery .${control} .delivery-text`).html(`Самовывоз по адресу: <b>${address}</b>`);
+        }
     }
 
     $("input[name='payment-methods']").prop("checked", false);
@@ -173,6 +178,16 @@ function closeOrderDetails(msg) {
 }
 
 async function placeOrder() {
+
+    let goodID = good["ID"];
+    let price = good["Price"];
+    let QTY = $(".info .order .price .qty").val();;
+    
+    order["Good"] = goodID;
+    order["Price"] = price;
+    order["QTY"] = QTY;
+    order["Cost"] = price * QTY;
+
     var params = {
         order: JSON.stringify(order),
         schemaID: "incraft"

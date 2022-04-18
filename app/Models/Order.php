@@ -76,6 +76,8 @@ class Order
         $fields = "";
         $values = "";
 
+        $data["Date"] = date("Y-m-d");
+
         foreach ($data as $key => $value) {
             $fields .= $delim1 . "`$key`";
             $delim1 = ",";
