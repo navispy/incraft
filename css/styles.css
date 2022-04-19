@@ -254,7 +254,8 @@ body {
 .signup-wrapper,
 .password-restore-wrapper,
 .password-change-wrapper,
-.order-details-wrapper {
+.order-details-wrapper,
+.send-message-wrapper {
     z-index: 0;
     visibility: hidden;
     position: absolute;
@@ -394,7 +395,8 @@ body {
 .signup-dialog,
 .password-restore-dialog,
 .password-change-dialog,
-.order-details-dialog {
+.order-details-dialog,
+.send-message-dialog {
     position: relative;
     background-color: white;
     border: 2px solid lightgray;
@@ -423,7 +425,8 @@ body {
 .signup-dialog .caption-wrapper,
 .password-restore-dialog .caption-wrapper,
 .password-change-dialog .caption-wrapper,
-.order-details-dialog .caption-wrapper {
+.order-details-dialog .caption-wrapper,
+.send-message-dialog .caption-wrapper {
     height: 64px;
     display: flex;
     justify-content: space-between;
@@ -444,7 +447,8 @@ body {
 .signup-dialog .caption-wrapper .caption,
 .password-restore-dialog .caption-wrapper .caption,
 .password-change-dialog .caption-wrapper .caption,
-.order-details-dialog .caption-wrapper .caption {
+.order-details-dialog .caption-wrapper .caption,
+.send-message-dialog .caption-wrapper .caption {
     width: 100%;
     height: 64px;
     display: flex;
@@ -457,6 +461,7 @@ body {
 .password-restore-dialog .caption-wrapper .caption span,
 .password-change-dialog .caption-wrapper .caption span,
 .order-details-dialog .caption-wrapper .caption span,
+.send-message-dialog .caption-wrapper .caption span,
 .toast span {
     font-family: 'Geometria';
     font-size: 16px;
@@ -467,7 +472,8 @@ body {
 .signup-dialog .cancel,
 .password-restore-dialog .cancel,
 .password-change-dialog .cancel,
-.order-details-dialog .cancel {
+.order-details-dialog .cancel,
+.send-message-dialog .cancel {
     width: 36px;
     height: 36px;
     cursor: pointer;
@@ -480,7 +486,8 @@ body {
 .signup-dialog .cancel svg,
 .password-restore-dialog .cancel svg,
 .password-change-dialog .cancel svg,
-.order-details-dialog .cancel svg {
+.order-details-dialog .cancel svg,
+.send-message-dialog .cancel svg {
     width: 24px;
     height: 24px;
 }
@@ -489,7 +496,8 @@ body {
 .signup-dialog .content-wrapper,
 .password-restore-dialog .content-wrapper,
 .password-change-dialog .content-wrapper,
-.order-details-dialog .content-wrapper {
+.order-details-dialog .content-wrapper,
+.send-message-dialog .content-wrapper {
     overflow: auto;
     height: 100%;
 }
@@ -498,7 +506,8 @@ body {
 .signup-dialog .content-subwrapper,
 .password-restore-dialog .content-subwrapper,
 .password-change-dialog .content-subwrapper,
-.order-details-dialog .content-subwrapper {
+.order-details-dialog .content-subwrapper,
+.send-message-dialog .content-subwrapper {
     display: grid;
     padding: 24px;
     grid-template-columns: 1fr;
@@ -508,7 +517,8 @@ body {
 .signup-dialog .content-subwrapper .caption,
 .password-restore-dialog .content-subwrapper .caption,
 .password-change-dialog .content-subwrapper .caption,
-.order-details-dialog .content-subwrapper .caption {
+.order-details-dialog .content-subwrapper .caption,
+.send-message-dialog .content-subwrapper .caption {
     width: 100%;
     height: 36px;
     display: flex;
@@ -525,7 +535,8 @@ body {
 .signup-dialog .content-subwrapper .caption span,
 .password-restore-dialog .content-subwrapper .caption span,
 .password-change-dialog .content-subwrapper .caption span,
-.order-details-dialog .content-subwrapper .caption span {
+.order-details-dialog .content-subwrapper .caption span,
+.send-message-dialog .content-subwrapper .caption span {
     font-family: 'Geometria';
     font-size: 22px;
     color: rgb(34, 34, 34);
@@ -536,7 +547,8 @@ body {
 .signup-dialog .content-subwrapper .input,
 .password-restore-dialog .content-subwrapper .input,
 .password-change-dialog .content-subwrapper .input,
-.order-details-dialog .content-subwrapper .input {
+.order-details-dialog .content-subwrapper .input,
+.send-message-dialog .content-subwrapper .input {
     margin-top: 8px;
     height: 56px;
     width: 100%;
@@ -546,11 +558,26 @@ body {
     cursor: pointer;
 }
 
+.send-message-dialog .content-subwrapper .textarea{
+    height: unset;
+}
+
+.send-message-dialog .content-subwrapper .textarea textarea {
+    height: 200px;
+    border: none;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+}
+
 .login-dialog .content-subwrapper .input:focus-within,
 .signup-dialog .content-subwrapper .input:focus-within,
 .password-restore-dialog .content-subwrapper .input:focus-within,
 .password-change-dialog .content-subwrapper .input:focus-within,
-.order-details-dialog .content-subwrapper .input:focus-within {
+.order-details-dialog .content-subwrapper .input:focus-within,
+.send-message-dialog .content-subwrapper .input:focus-within {
     border: 1px solid #0079C4;
     outline-style: solid;
     outline-width: thin;
@@ -561,7 +588,8 @@ body {
 .signup-dialog .content-wrapper .input span,
 .password-restore-dialog .content-wrapper .input span,
 .password-change-dialog .content-wrapper .input span,
-.order-details-dialog .content-wrapper .input span {
+.order-details-dialog .content-wrapper .input span,
+.send-message-dialog .content-wrapper .input span {
     top: 18px;
     font-family: 'Arial';
     font-size: 12px;
@@ -575,7 +603,8 @@ body {
 .signup-dialog .content-subwrapper input,
 .password-restore-dialog .content-subwrapper input,
 .password-change-dialog .content-subwrapper input,
-.order-details-dialog .input input {
+.order-details-dialog .input input,
+.send-message-dialog .input input {
     width: 100%;
     height: 20px;
     border: none;
@@ -589,12 +618,14 @@ body {
 .signup-dialog .content-subwrapper input:focus,
 .password-restore-dialog .content-subwrapper input:focus,
 .password-change-dialog .content-subwrapper input:focus,
-.order-details-dialog .input input:focus {
+.order-details-dialog .input input:focus,
+.send-message-dialog .input input:focus {
     outline: none;
 }
 
 .login-dialog .content-subwrapper .signin,
-.order-details-dialog .content-subwrapper .place {
+.order-details-dialog .content-subwrapper .place,
+.send-message-dialog .content-subwrapper .send {
     margin-top: 8px;
     height: 48px;
     background: #0079C4;
@@ -605,7 +636,8 @@ body {
 }
 
 .login-dialog .content-subwrapper .signin span,
-.order-details-dialog .content-subwrapper .place span {
+.order-details-dialog .content-subwrapper .place span,
+.send-message-dialog .content-subwrapper .send span {
     color: white;
     font-family: Geometria;
     font-style: normal;

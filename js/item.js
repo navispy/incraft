@@ -66,6 +66,10 @@ function setupLocalHandlers() {
         editOrderDetails();
     });
 
+    $(".order .email").bind("click", function () {
+        createMessage();
+    });
+
     $(".order-details-dialog .content-wrapper .input").click(function (event) {
         let className = event.currentTarget.className;
         $(`div[class='${className}'] input`).focus();
@@ -80,6 +84,15 @@ function setupLocalHandlers() {
         placeOrder();
         //closeOrderDetails("Заказ успешно размещен");
     });
+
+    $(".send-message-dialog .cancel").bind("click", function () {
+        closeMessageDialog();
+    });
+
+    $(".send-message-dialog .send").bind("click", function () {
+        sendMessage();
+    });
+
 
     $(".order .contact .phone").bind("click", function () {
         let phone = goodShop["Phone"];
@@ -212,6 +225,32 @@ async function placeOrder() {
         closeOrderDetails("Заказ успешно размещен");
     }
     
+}
+
+function createMessage() {
+    $('html, body').animate({
+        scrollTop: $(".header").offset().top
+    }, 100);
+
+    $(".send-message-wrapper").addClass("visible");
+    $(".send-message-dialog").slideToggle("medium", function () {
+        $('body').addClass("overflow-hidden");
+    });
+}
+
+function closeMessageDialog(msg) {
+    $(".send-message-dialog").slideToggle("medium", function () {
+        $(".send-message-wrapper").removeClass("visible");
+        $('body').removeClass("overflow-hidden");
+
+        if (msg !== undefined) {
+            showToast(msg);
+        }
+    })
+}
+
+async function sendMessage() {
+    closeMessageDialog();
 }
 
 function showGood(good) {

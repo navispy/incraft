@@ -32,6 +32,10 @@
         <?php include 'order-details-wrapper.php'; ?>
     </div>
 
+    <div class="send-message-wrapper">
+        <?php include 'send-message-wrapper.php'; ?>
+    </div>
+
     <div class="toast-wrapper">
         <?php include 'toast-wrapper.php'; ?>
     </div>
