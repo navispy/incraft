@@ -85,6 +85,11 @@ function setupLocalHandlers() {
         //closeOrderDetails("Заказ успешно размещен");
     });
 
+    $(".send-message-dialog .content-wrapper .input").click(function (event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] input`).focus();
+    });
+
     $(".send-message-dialog .cancel").bind("click", function () {
         closeMessageDialog();
     });
