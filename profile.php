@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/custom-checkbox.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/custom-radio.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/profile.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/profile-shop-edit.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/profile-shop-good-edit.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=30" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/custom-checkbox.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/custom-radio.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/profile.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/profile-shop-edit.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/profile-shop-good-edit.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=37" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>

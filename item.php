@@ -12,10 +12,10 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=32" type="text/css">
-    <link rel="stylesheet" href="css/item.css?version=32" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=32" type="text/css">
-    <link rel="stylesheet" href="css/fixed-radio.css?version=32" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=38" type="text/css">
+    <link rel="stylesheet" href="css/item.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/fixed-radio.css?version=37" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>

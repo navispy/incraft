@@ -572,6 +572,14 @@ body {
     margin-top: 0px;
 }
 
+.send-message-dialog .content-subwrapper .textarea textarea:hover {
+    cursor: pointer;
+}
+
+.send-message-dialog .content-subwrapper .textarea textarea:focus {
+    cursor: auto;
+}
+
 .login-dialog .content-subwrapper .input:focus-within,
 .signup-dialog .content-subwrapper .input:focus-within,
 .password-restore-dialog .content-subwrapper .input:focus-within,
@@ -590,7 +598,7 @@ body {
 .password-change-dialog .content-wrapper .input span,
 .order-details-dialog .content-wrapper .input span,
 .send-message-dialog .content-wrapper .input span {
-    top: 18px;
+    /*top: 18px;*/
     font-family: 'Arial';
     font-size: 12px;
     line-height: 20px;

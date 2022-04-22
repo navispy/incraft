@@ -80,9 +80,7 @@ function setupLocalHandlers() {
     });
 
     $(".order-details-dialog .place").bind("click", function () {
-        //console.log(JSON.stringify(order));
         placeOrder();
-        //closeOrderDetails("Заказ успешно размещен");
     });
 
     $(".send-message-dialog .content-wrapper .input").click(function (event) {
@@ -97,7 +95,6 @@ function setupLocalHandlers() {
     $(".send-message-dialog .send").bind("click", function () {
         sendMessage();
     });
-
 
     $(".order .contact .phone").bind("click", function () {
         let phone = goodShop["Phone"];
@@ -255,6 +252,30 @@ function closeMessageDialog(msg) {
 }
 
 async function sendMessage() {
+    let calcTime = new Date().getTime();
+    let name = $(".idetail.name").val();
+    let email = $(".detail.email").val();
+    let text = $(".detail.comment").val();
+
+    $.ajax({
+        url: "post_json_email_contact_comment.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            calcTime: calcTime,
+            schemaID: "incraft",
+            name: name,
+            email: email,
+            text: text
+        },
+        success: function(data) {
+            showToast("Сообщение умепшно отправлено");
+        },
+        error: function(data) {
+            showToast("Ошибка при отправке сообщения");
+        },
+    });
+    
     closeMessageDialog();
 }
 
@@ -297,6 +318,4 @@ function showGood(good) {
     $('.order .instock-span').css("color", availabilityColor);
     $('.order .instock-svg path').css("fill", availabilityColor);
     $('.order .instock-svg line').css("stroke", availabilityColor);
-
-    //$('.order .instock-svg').css("visibility", isAvailable ? "visible" : "hidden");
 }

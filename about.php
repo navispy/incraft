@@ -12,19 +12,19 @@
 
     <link rel="stylesheet" href="css/fonts.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/menu.css?version=30" type="text/css">
-    <link rel="stylesheet" href="css/about.css?version=30" type="text/css">
+    <link rel="stylesheet" href="css/styles.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/menu.css?version=37" type="text/css">
+    <link rel="stylesheet" href="css/about.css?version=37" type="text/css">
 
     <script src="js/jquery.min.js" type='text/javascript'></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
-    <script src="js/about.js?version=36" type="text/javascript"></script>
-    <script src="js/signup.js?version=36" type="text/javascript"></script>
-    <script src="js/login.js?version=36" type="text/javascript"></script>
-    <script src="js/password-restore.js?version=36" type="text/javascript"></script>
-    <script src="js/password-change.js?version=36" type="text/javascript"></script>
-    <script src="js/utils.js?version=36" type="text/javascript"></script>
+    <script src="js/about.js?version=37" type="text/javascript"></script>
+    <script src="js/signup.js?version=37" type="text/javascript"></script>
+    <script src="js/login.js?version=37" type="text/javascript"></script>
+    <script src="js/password-restore.js?version=37" type="text/javascript"></script>
+    <script src="js/password-change.js?version=37" type="text/javascript"></script>
+    <script src="js/utils.js?version=37" type="text/javascript"></script>
 </head>
 
 <body>
