@@ -18,15 +18,15 @@
         <div class="content-subwrapper">
             <div class="input input-1">
                 <span>Ваше имя</span>
-                <input class="detail name" data-field="User" />
+                <input class="detail name"/>
             </div>
             <div class="input input-2">
                 <span>Ваш email</span>
-                <input class="detail email" data-field="Email" />
+                <input class="detail email" />
             </div>
             <div class="input input-3">
                 <span>Ваш телефон</span>
-                <input class="detail phone" data-field="Phone" />
+                <input class="detail phone" />
             </div>
             <div class="textarea textarea-1">
                 <span>Ваш комментарий</span>

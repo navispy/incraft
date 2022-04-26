@@ -7,7 +7,7 @@ var shop = {};
 
 function emailContactComment(name, email, text) {
     calcTime = new Date().getTime();
-    //showLoader();
+    
     $.ajax({
         url: "post_json_email_contact_comment.php",
         type: 'POST',
