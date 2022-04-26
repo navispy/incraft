@@ -90,6 +90,11 @@ function setupLocalHandlers() {
         $(`div[class='${className}'] input`).focus();
     });
 
+    $(".send-message-dialog .content-wrapper .textarea").click(function (event) {
+        let className = event.currentTarget.className;
+        $(`div[class='${className}'] textarea`).focus();
+    });
+
     $(".send-message-dialog .cancel").bind("click", function () {
         closeMessageDialog();
     });

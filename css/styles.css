@@ -548,7 +548,8 @@ body {
 .password-restore-dialog .content-subwrapper .input,
 .password-change-dialog .content-subwrapper .input,
 .order-details-dialog .content-subwrapper .input,
-.send-message-dialog .content-subwrapper .input {
+.send-message-dialog .content-subwrapper .input,
+.send-message-dialog .content-subwrapper .textarea {
     margin-top: 8px;
     height: 56px;
     width: 100%;
@@ -577,7 +578,8 @@ body {
 .password-restore-dialog .content-subwrapper .input:focus-within,
 .password-change-dialog .content-subwrapper .input:focus-within,
 .order-details-dialog .content-subwrapper .input:focus-within,
-.send-message-dialog .content-subwrapper .input:focus-within {
+.send-message-dialog .content-subwrapper .input:focus-within,
+.send-message-dialog .content-subwrapper .textarea:focus-within {
     border: 1px solid #0079C4;
     outline-style: solid;
     outline-width: thin;
@@ -589,7 +591,8 @@ body {
 .password-restore-dialog .content-wrapper .input span,
 .password-change-dialog .content-wrapper .input span,
 .order-details-dialog .content-wrapper .input span,
-.send-message-dialog .content-wrapper .input span {
+.send-message-dialog .content-wrapper .input span,
+.send-message-dialog .content-wrapper .textarea span {
     top: 18px;
     font-family: 'Arial';
     font-size: 12px;
@@ -619,14 +622,15 @@ body {
 .password-restore-dialog .content-subwrapper input:focus,
 .password-change-dialog .content-subwrapper input:focus,
 .order-details-dialog .input input:focus,
-.send-message-dialog .input input:focus {
+.send-message-dialog .input input:focus,
+.send-message-dialog .textarea textarea:focus {
     outline: none;
 }
 
 .login-dialog .content-subwrapper .signin,
 .order-details-dialog .content-subwrapper .place,
 .send-message-dialog .content-subwrapper .send {
-    margin-top: 8px;
+    margin-top: 16px;
     height: 48px;
     background: #0079C4;
     display: flex;

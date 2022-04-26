@@ -28,9 +28,9 @@
                 <span>Ваш телефон</span>
                 <input class="detail phone" data-field="Phone" />
             </div>
-            <div class="input textarea textarea-1">
+            <div class="textarea textarea-1">
                 <span>Ваш комментарий</span>
-                <textarea cols="40" row="20" class="input input-contact-comment"></textarea>
+                <textarea cols="40" row="20" class="detail comment"></textarea>
             </div>
 
             <div class="send">
