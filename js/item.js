@@ -175,7 +175,7 @@ function editOrderDetails() {
         let displayMode = deliveryOptions[control] === "" ? "none" : "flex";
         $(`.delivery .${control}`).css("display", displayMode);
 
-        if(control === "DeliveryOption_04" && displayMode === "flex") {
+        if (control === "DeliveryOption_04" && displayMode === "flex") {
             let address = goodShop["DeliveryOption_04_address"];
             $(`.delivery .${control} .delivery-text`).html(`Самовывоз по адресу: <b>${address}</b>`);
         }
@@ -202,7 +202,7 @@ async function placeOrder() {
     let goodID = good["ID"];
     let price = good["Price"];
     let QTY = $(".info .order .price .qty").val();;
-    
+
     order["Good"] = goodID;
     order["Price"] = price;
     order["QTY"] = QTY;
@@ -231,7 +231,7 @@ async function placeOrder() {
         //order["ID"] = data["order"]["ID"];
         closeOrderDetails("Заказ успешно размещен");
     }
-    
+
 }
 
 function createMessage() {
@@ -258,29 +258,31 @@ function closeMessageDialog(msg) {
 
 async function sendMessage() {
     let calcTime = new Date().getTime();
-    let name = $(".idetail.name").val();
-    let email = $(".detail.email").val();
-    let text = $(".detail.comment").val();
+    let name = $(".send-message-dialog .name").val();
+    let email = $(".send-message-dialog .email").val();
+    let text = $(".send-message-dialog .comment").val();
+    let shop = good["Shop"];
 
     $.ajax({
-        url: "post_json_email_contact_comment.php",
+        url: "post_json_email_seller.php",
         type: 'POST',
         dataType: 'json',
         data: {
             calcTime: calcTime,
             schemaID: "incraft",
+            shop: shop,
             name: name,
             email: email,
             text: text
         },
-        success: function(data) {
+        success: function (data) {
             showToast("Сообщение умепшно отправлено");
         },
-        error: function(data) {
+        error: function (data) {
             showToast("Ошибка при отправке сообщения");
         },
     });
-    
+
     closeMessageDialog();
 }
 

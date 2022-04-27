@@ -29,7 +29,7 @@
                 <input class="detail phone" />
             </div>
             <div class="textarea textarea-1">
-                <span>Ваш комментарий</span>
+                <span>Ваше сообщение</span>
                 <textarea cols="40" row="20" class="detail comment"></textarea>
             </div>
 

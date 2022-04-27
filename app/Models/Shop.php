@@ -67,6 +67,30 @@ class Shop
         $this->read($ID);
     }
 
+    public static function getOnwerEmailAddress($ID, $connection) {
+        $query = "SELECT UserID FROM __catalog45 WHERE ID=$ID";
+
+        $result = mysqli_query($connection, $query)
+        or die(mysqli_error($connection));
+
+        $email = "";
+
+        if($row = mysqli_fetch_array($result)) {
+            $userID = $row["UserID"];
+
+            $q = "SELECT Email FROM __catalog43 WHERE ID=$userID";
+
+            $res = mysqli_query($connection, $q)
+            or die(mysqli_error($connection));
+
+            if($r = mysqli_fetch_array($res)) {
+                $email = $r["Email"];
+            }
+        }
+
+        return $email;
+    }
+
     public static function doesExist($ID, $connection)
     {
         $query = "SELECT * FROM __catalog45 WHERE ID=$ID";
