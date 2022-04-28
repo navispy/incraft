@@ -1,6 +1,6 @@
 <?php
 
-include('setup.php');
+include 'setup.php';
 
 include_once "lib/swift_required.php";
 include 'app/Models/Shop.php';
@@ -8,7 +8,7 @@ include 'app/Models/Shop.php';
 $calcTime = $_POST['calcTime'];
 $schemaID = $_POST['schemaID'];
 
-$name  = $_POST['name'];
+$name = $_POST['name'];
 $email = $_POST['email'];
 $text = $_POST['text'];
 $shopID = $_POST['shop'];
@@ -22,7 +22,8 @@ $error = "";
 
 $currentDate = date("Y-m-d");
 
-function emailUser($connection, $name, $email, $text) {
+function emailUser($connection, $name, $email, $sellerEmail, $text)
+{
     $params = getParams($connection);
 
     $transport = Swift_SmtpTransport::newInstance($params["SMTP_SERVER"], $params["SMTP_PORT"], 'ssl')
@@ -34,15 +35,14 @@ function emailUser($connection, $name, $email, $text) {
     $salesEmail = "navispy@navispy.com";
     $salesRepName = "INCRAFT Team";
 
-
-    $to = array($email => $name);
+    $to = array($sellerEmail => "Seller",
+        $email => $name);
     $bcc = array(
         $salesEmail => $salesRepName,
-        $sendCopy => "INCRAFT Team"
+        $sendCopy => "INCRAFT Team",
     );
 
     $swift = Swift_Mailer::newInstance($transport);
-
 
     $message = new Swift_Message();
     $message->setCharset('utf-8');
@@ -58,7 +58,6 @@ function emailUser($connection, $name, $email, $text) {
     //$byLogo = $message->embed(Swift_Image::fromPath('../../assets/images/header/ministry of economy.png'));
     //$unLogo = $message->embed(Swift_Image::fromPath('../../assets/images/header/UNDP.png'));
 
-
     $subject = "INCRAFT.BY: Поступило сообщение от пользователя $name";
     //$html = "<html><head></head><body>HELLO</body></html>";//file_get_contents("Request is processed.html");
     $html = file_get_contents("email-contact-comment.html");
@@ -73,13 +72,13 @@ function emailUser($connection, $name, $email, $text) {
     <p>Доброго времени суток, <b>$customerName!</b></p>
 
     <p>Позлравляем Вас, Вы успешно прошли регистрацию на нашем портале.</p>
-    
+
     <p>Ваш логин: $customerName<br>
     Ваш пароль: $userPass</p>
 
     <p>С уважением,<br>
     команда INCRAFT BY</p>
-    
+
     <div style='display:flex; gap:32px; align-items: center;'>
 
     </div>
@@ -111,7 +110,7 @@ function emailUser($connection, $name, $email, $text) {
     }
 }
 
-emailUser($connection, $name, $email, $text);
+emailUser($connection, $name, $email, $sellerEmail, $text);
 
 echo ('{"status":' . json_encode($status) . ',');
 echo ('"error":' . json_encode($error) . ',');

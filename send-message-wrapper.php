@@ -22,7 +22,7 @@
             </div>
             <div class="input input-2">
                 <span>Ваш email</span>
-                <input class="detail email" />
+                <input type="email" class="detail email" />
             </div>
             <div class="input input-3">
                 <span>Ваш телефон</span>
